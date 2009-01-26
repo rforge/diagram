@@ -1,0 +1,8 @@
+.*\.dll
+.*\.so
+.*\.o
+.*\.rc
+.*\.d
+Makedeps
+
+work
