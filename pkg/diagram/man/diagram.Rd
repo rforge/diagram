@@ -11,14 +11,14 @@ Visualises simple graphs (networks) based on a transition matrix, utilities to p
      
      Support for the book "A practical guide to ecological modelling -
      using R as a simulation platform"
-     by Karline Soetaert and Peter M.J. Herman (2008). Springer.
+     by Karline Soetaert and Peter M.J. Herman (2009). Springer.
      }
 \details{
   \tabular{ll}{
     Package: \tab diagram\cr
     Type: \tab Package\cr
-    Version: \tab 1.3\cr
-    Date: \tab 2008-10-14\cr
+    Version: \tab 1.3.1\cr
+    Date: \tab 2009-01-28\cr
     License: \tab GNU Public License 2 or above\cr
   }
 This package is used in R-package ecolMod, which includes many more examples.

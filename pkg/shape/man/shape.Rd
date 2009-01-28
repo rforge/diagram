@@ -11,7 +11,7 @@ Functions for plotting graphical shapes
      
      Support for the book "A practical guide to ecological modelling -
      using R as a simulation platform"
-     by Karline Soetaert and Peter M.J. Herman (2008). Springer.
+     by Karline Soetaert and Peter M.J. Herman (2009). Springer.
      }
 \details{
   \tabular{ll}{
