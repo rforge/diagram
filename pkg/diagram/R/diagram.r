@@ -530,6 +530,7 @@ plotmat <- function(A,                      # coefficient matrix (rows=to,cols=f
                     self.cex=1,             # relative size of self-arrow, relative to box
                     self.shiftx=box.size,   # relative shift of self-arrow, in x-direction
                     self.shifty=NULL,       # relative shift of self-arrow, in x-direction                    
+                    self.arrpos=NULL,       # position of self-arrow, in radians, relative to x-axis
                     arr.lwd=lwd,            # line width of arrow, connecting two different points
                     arr.lcol=lcol,          # color of arrow line
                     arr.col="black",        # color of arrowhead
@@ -553,19 +554,44 @@ plotmat <- function(A,                      # coefficient matrix (rows=to,cols=f
   # remove column names and row names
   if (is.matrix(A)) A <- matrix(nrow=nrow(A),ncol=ncol(A),data=A)
   
-  if (length (box.size)  < ncomp) box.size  <- rep(box.size,len=ncomp)
-  if (length (box.prop)  < ncomp) box.prop  <- rep(box.prop,len=ncomp)
-  if (length (box.type)  < ncomp) box.type  <- rep(box.type,len=ncomp)
-  if (length (box.col)   < ncomp) box.col   <- rep(box.col ,len=ncomp)
-  if (length (shadow.size)  < ncomp) shadow.size  <- rep(shadow.size,len=ncomp)
-  if (length (shadow.col)   < ncomp) shadow.col   <- rep(shadow.col ,len=ncomp)
-  if (length(self.shiftx)< ncomp) self.shiftx<- rep(self.shiftx,len=ncomp)
+  if (length (box.size)    < ncomp) box.size  <- rep(box.size,len=ncomp)
+  if (length (box.prop)    < ncomp) box.prop  <- rep(box.prop,len=ncomp)
+  if (length (box.type)    < ncomp) box.type  <- rep(box.type,len=ncomp)
+  if (length (box.col)     < ncomp) box.col   <- rep(box.col ,len=ncomp)
+  if (length (box.lcol)    < ncomp) box.lcol  <- rep(box.lcol,len=ncomp)
+  if (length (box.cex)     < ncomp) box.cex   <- rep(box.cex ,len=ncomp)
+  if (length (box.lwd)     < ncomp) box.lwd   <- rep(box.lwd ,len=ncomp)
+
+  if (length (shadow.size) < ncomp) shadow.size  <- rep(shadow.size,len=ncomp)
+  if (length (shadow.col)  < ncomp) shadow.col   <- rep(shadow.col ,len=ncomp)
+  selflwd    <- self.lwd
+  selfcex    <- self.cex
+  selfarrpos <- self.arrpos
+  if (length (selfarrpos)  < ncomp) selfarrpos<- rep(selfarrpos,len=ncomp)
+  if (length (selflwd)     < ncomp) selflwd<- rep(selflwd,len=ncomp)
+  if (length (selfcex)     < ncomp) selfcex<- rep(selfcex,len=ncomp)
+  if (length (self.shiftx) < ncomp) self.shiftx<- rep(self.shiftx,len=ncomp)
   if (is.null(self.shifty))    self.shifty <- self.shiftx*box.prop 
-  if (length(self.shifty)< ncomp) self.shifty<- rep(self.shifty,len=ncomp)
+  if (length(self.shifty)  < ncomp) self.shifty<- rep(self.shifty,len=ncomp)
   if (is.null(curve))     curve   <- NA
   if (length(curve)==1)   curve   <- matrix(nrow=ncomp,ncol=ncomp,curve)
   if (length(arr.pos)==1) arr.pos <- matrix(nrow=ncomp,ncol=ncomp,arr.pos)
-  
+  arrwidth  <- arr.width        # can be a matrix...
+  arrlength <- arr.length
+  arrlwd    <- arr.lwd
+  arrlcol   <- arr.lcol
+  arrcol    <- arr.col
+  arrtype   <- arr.type
+  cextxt    <- cex.txt
+
+  if (length(arrwidth) ==1) arrwidth  <- matrix(nrow=ncomp,ncol=ncomp,arrwidth)
+  if (length(arrlength)==1) arrlength <- matrix(nrow=ncomp,ncol=ncomp,arrlength)
+  if (length(arrlwd)   ==1) arrlwd    <- matrix(nrow=ncomp,ncol=ncomp,arrlwd)
+  if (length(arrlcol)  ==1) arrlcol   <- matrix(nrow=ncomp,ncol=ncomp,arrlcol)
+  if (length(arrcol)   ==1) arrcol    <- matrix(nrow=ncomp,ncol=ncomp,arrcol)
+  if (length(arrtype)  ==1) arrtype   <- matrix(nrow=ncomp,ncol=ncomp,arrtype)
+  if (length(cextxt)   ==1) cextxt    <- matrix(nrow=ncomp,ncol=ncomp,cextxt)
+
   xlim <- c(0,1)
   if (relsize != 1) {xx <- 1/relsize - 1; xlim <- c(-xx,1+xx)}
   if (!add) openplotmat(main=main,xlim=xlim,ylim=xlim)
@@ -590,6 +616,14 @@ plotmat <- function(A,                      # coefficient matrix (rows=to,cols=f
    {
     ii    <- nonzero[i,]
     arrpos <- arr.pos[ii[1],ii[2]]
+    arr.width  <- arrwidth[ii[1],ii[2]]
+    arr.length <- arrlength[ii[1],ii[2]]
+    arr.lwd    <- arrlwd[ii[1],ii[2]]
+    arr.lcol   <- arrlcol[ii[1],ii[2]]
+    arr.col    <- arrcol[ii[1],ii[2]]
+    arr.type   <- arrtype[ii[1],ii[2]]
+    cex.txt    <- cextxt[ii[1],ii[2]]
+    
     pos1  <- elpos[ii[1],]                          # pos to
     pos2  <- elpos[ii[2],]                          # pos from
     dpos  <- pos1-pos2
@@ -604,8 +638,13 @@ plotmat <- function(A,                      # coefficient matrix (rows=to,cols=f
      ry     <- rad2*self.cex    
      shiftx <- self.shiftx[ii[1]]
      shifty <- self.shifty[ii[1]]*pin[1]/pin[2]
+     self.lwd <- selflwd[ii[1]]
+     self.cex <- selfcex[ii[1]]
+     self.arrpos <- selfarrpos[ii[1]]
      mid    <- mid+c(shiftx,shifty)
-     ifelse (shiftx < 0, meanpi <-3*pi/2,meanpi <-pi/2)  
+     if (is.null(self.arrpos))
+       { ifelse (shiftx < 0, meanpi <-3*pi/2,meanpi <-pi/2)}
+     else meanpi <- self.arrpos
 
      plotellipse(rx=rx,ry=ry,mid=mid,from=0,to=2*pi,lwd=self.lwd,dr=dr,lcol=arr.lcol)
     
@@ -681,10 +720,10 @@ plotmat <- function(A,                      # coefficient matrix (rows=to,cols=f
      rad2  <- rad*pin[1]/pin[2]*box.prop[i]  # used to make circles round
      radii <- rbind(radii,c(rad,rad2))
 
-     shadowbox(box.type=box.type[i],mid=p,radx=rad,rady=rad2,lcol=box.lcol,
-               lwd=box.lwd,shadow.size=shadow.size[i],shadow.col=shadow.col[i],
+     shadowbox(box.type=box.type[i],mid=p,radx=rad,rady=rad2,lcol=box.lcol[i],
+               lwd=box.lwd[i],shadow.size=shadow.size[i],shadow.col=shadow.col[i],
                box.col=box.col[i],dr=dr,...)
-     textplain(mid=p,height=rad2,lab=name[i],cex=box.cex)
+     textplain(mid=p,height=rad2,lab=name[i],cex=box.cex[i])
 
     } # end i
 

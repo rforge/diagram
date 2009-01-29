@@ -8,8 +8,8 @@
   box.prop=1,box.col="white", box.lcol=lcol, box.lwd=lwd, 
   shadow.size=0.01, shadow.col="grey", dr=0.01, dtext=0.3,  
   self.lwd=1, self.cex=1, self.shiftx=box.size, self.shifty=NULL, 
-  arr.lwd=lwd, arr.lcol=lcol, arr.col="black", arr.type="curved", 
-  arr.pos=0.5, arr.length=0.4, arr.width=arr.length/2,  
+  self.arrpos=NULL, arr.lwd=lwd, arr.lcol=lcol, arr.col="black",
+  arr.type="curved",arr.pos=0.5, arr.length=0.4, arr.width=arr.length/2,
   endhead=FALSE, mx=0.0, my=0.0, box.cex=1, prefix="", cex.txt=1, 
   add=FALSE, main="", ...)}
 \arguments{
@@ -24,33 +24,34 @@
   \item{relsize }{scaling factor for size of the graph}
   \item{lwd }{default line width of arrow and box}
   \item{lcol }{default color of arrow line and box line}
-  \item{box.size }{size of label box }
-  \item{box.type }{shape of label box (rect, ellipse, diamond, round, hexa, multi)}
-  \item{box.prop }{length/width ratio of label box}
-  \item{box.col }{fill color of label box}
-  \item{box.lcol }{line color of label box}
-  \item{box.lwd }{line width of the box}
-  \item{shadow.size }{relative size of shadow of label box}
-  \item{shadow.col }{color of shadow of label box}
+  \item{box.size }{size of label box, one value or a vector with dimension=number of rows of A }
+  \item{box.type }{shape of label box (rect, ellipse, diamond, round, hexa, multi), one value or a vector with dimension=number of rows of A }
+  \item{box.prop }{length/width ratio of label box, one value or a vector with dimension=number of rows of A }
+  \item{box.col }{fill color of label box, one value or a vector with dimension=number of rows of A }
+  \item{box.lcol }{line color of label box, one value or a vector with dimension=number of rows of A }
+  \item{box.lwd }{line width of the box, one value or a vector with dimension=number of rows of A }
+  \item{shadow.size }{relative size of shadow of label box, one value or a vector with dimension=number of rows of A }
+  \item{shadow.col }{color of shadow of label box}, one value or a vector with dimension=number of rows of A
   \item{dr }{size of segments, in radians, to draw ellipse (decrease for smoother)}
   \item{dtext }{controls the position of arrow text relative to arrowhead}
-  \item{self.lwd }{line width of self-arrow, (arrow from i to i)}
-  \item{self.cex }{relative size of self-arrow, relative to box}
-  \item{self.shiftx }{relative shift of self-arrow, in x-direction}
-  \item{self.shifty }{relative shift of self-arrow, in x-direction}
-  \item{arr.lwd }{line width of arrow, connecting two different points}
-  \item{arr.lcol }{color of arrow line}
-  \item{arr.col }{color of arrowhead}
-  \item{arr.type }{type of arrowhead (curved,triangle,circle,simple)}
-  \item{arr.pos }{relative position of arrowhead on arrow segment/curve}
-  \item{arr.length }{arrow length}
-  \item{arr.width }{arrow width}
+  \item{self.lwd }{line width of self-arrow, (arrow from i to i), one value or a vector with dimension=number of rows of A }
+  \item{self.cex }{relative size of self-arrow, relative to box, one value or a vector with dimension=number of rows of A }
+  \item{self.shiftx }{relative shift of self-arrow, in x-direction, one value or a vector with dimension=number of rows of A }
+  \item{self.shifty }{relative shift of self-arrow, in x-direction, one value or a vector with dimension=number of rows of A }
+  \item{self.arrpos }{position of the self-arrow, angle in radians relative to x-direction, one value or a vector with dimension=number of rows of A }
+  \item{arr.lwd }{line width of arrow, connecting two different points, one value, or a matrix with same dimensions as A}
+  \item{arr.lcol }{color of arrow line, one value, or a matrix with same dimensions as A}
+  \item{arr.col }{color of arrowhead, one value, or a matrix with same dimensions as A}
+  \item{arr.type }{type of arrowhead (curved,triangle,circle,simple), one value, or a matrix with same dimensions as A}
+  \item{arr.pos }{relative position of arrowhead on arrow segment/curve, one value, or a matrix with same dimensions as A}
+  \item{arr.length }{arrow length, one value, or a matrix with same dimensions as A}
+  \item{arr.width }{arrow width, one value, or a matrix with same dimensions as A}
   \item{endhead }{if TRUE: the arrow line stops at the arrowhead; default =FALSE and arrow line continues beyond the arrow head}
   \item{mx }{horizontal shift of the boxes}
   \item{my }{vertical shift of the boxes}
-  \item{box.cex }{relative size of text in boxes}
+  \item{box.cex }{relative size of text in boxes, one value or a vector with dimension=number of rows of A }
   \item{prefix }{to be added in front of non-zero arrow labels}
-  \item{cex.txt }{relative size of arrow text}
+  \item{cex.txt }{relative size of arrow text, one value, or a matrix with same dimensions as A}
   \item{add }{start a new plot (FALSE), or add to current plot (TRUE)}
   \item{main }{main title}
   \item{... }{other arguments passed to function shadowbox}
@@ -77,8 +78,10 @@
   pp<-plotmat(M,pos=c(1,2,1),name=c("A","B","C","D"),lwd=1,box.lwd=2,
               cex.txt=0.8,box.size=0.1,box.type="square",box.prop=0.5,
               main="plotmat")
+              
   M[2,1]<-M[3,1]<-M[4,2]<-M[4,3] <- "flow"
-  pp<-plotmat(M,pos=c(1,2,1),curve=0,name=1:4,lwd=1,box.lwd=2,cex.txt=0.8,
+  pp<-plotmat(M,pos=c(1,2,1),curve=0,name=1:4,lwd=1,box.lwd=2,
+              box.cex=1:4,cex.txt=0.8,
               box.type="circle",box.prop=1.0,main="plotmat")
   
   diag(M) <- "self"
@@ -92,6 +95,14 @@
               cex.txt=0.8,arr.type="triangle",box.size=0.1,box.type="hexa",
               box.prop=0.5,main="plotmat")
 
+  arrlwd <- M*2
+  arr.length <- M*0.4
+  cextxt <- M*0.8
+  plotmat(M,pos=c(1,2,1),curve=0.2,name=letters[1:4],lwd=1,box.lwd=2,
+          arr.type="triangle",box.size=0.1,box.type="hexa",
+          box.prop=0.5,main="plotmat",arr.lwd=arrlwd,
+          arr.length=arr.length,cex.txt=cextxt)
+
   M <- matrix(nrow=4,ncol=4,byrow=TRUE,data=0)
   M     <- as.data.frame(M)
   M[[2,1]]<- "k[si]"
@@ -104,6 +115,11 @@
   pp<-plotmat(M,pos=c(1,2,1),name=names,lwd=1,box.lwd=2, curve=0,
               cex.txt=0.8,box.size=0.1,box.type="square",box.prop=0.5,
               main="plotmat")
+              
+  plotmat(M,name=letters[1:4],curve=0,box.cex=1:4,box.lwd=4:1,
+          box.size=0.075,arr.pos=0.7,
+          box.col=c("lightblue","green","yellow","orange"))
+
 
               }
 \details{The square transition matrix A determines the number of elements of A (rows of A)
@@ -122,8 +138,8 @@
      element will be positioned. All elements within a row are equally distributed horizontally
      all rows are equally distributed vertically; 
      \item When "pos" is a matrix, it specifies the x(1st column) and y(2nd column) position
-     of each element. 
-  \itemize{
+     of each element.  }
+
      The offset from x-axis and from y-axis can be changed with "mx" and "my"
      
      The name of each element is given by vector "name"; this name is written in 
@@ -166,7 +182,7 @@
      \cr The size of the arrow head is specified with arr.length and arr.width, 
      \cr the position of the arrow head is specified with arr.pos (value between [0,1]).
      \cr see \code{\link[shape]{Arrowhead}} for details on arrow head}
-\seealso{\code{\link{shadowbox}}, 
+\seealso{\code{\link{shadowbox}},
     \cr \code{\link[shape]{Arrowhead}} from package shape 
          \cr try: demo(plotmat)}
 \keyword{aplot}
