@@ -59,6 +59,7 @@
 \value{
   a list containing:
   \item{arr }{ a data.frame with arrow information: 
+  \itemize{
      \item nonzero: the elements between which an arrow is drawn
      \item Angle: the angle of the arrow
      \item Value: the value written next to the arrow head
@@ -67,6 +68,7 @@
      \item ArrowY: the y-position of arrowhead 
      \item TextX: the x-position of arrowtext
      \item TextY: the y-position of arrowtext   
+     }
      }
   \item{comp }{a matrix with the element position (centre of the boxes) }
   \item{radii }{the radiusses in x- and y-direction of the boxes}
