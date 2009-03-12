@@ -106,35 +106,45 @@ in three equidistant rows; on the first row one element, on the second row two e
 and on the third row one element.
 
 \subsection{Simple examples}
+Below are some simple examples of the use of \code{plotmat}.
+In the first graph - four simple boxes are put; no arrows drawn
+
+The second graph contains round boxes with arrows, labeled "flow"
+
+The third graph has diamond-shaped boxes including self-arrows.
+
+The fourth graph has hexagonal-shaped boxes, with curved arrows. The arrows
+are enlarged and the arrowhead pointing from box 2 to 4 is colored red.
+
 <<label=plotmat1, include=FALSE>>=
 par(mar=c(1,1,1,1),mfrow=c(2,2))
 #
-# first graph - four simple boxes
 #
 names <- c("A","B","C","D")
 M <- matrix(nrow=4,ncol=4,byrow=TRUE,data=0)
 pp<-plotmat(M,pos=c(1,2,1),name=names,lwd=1,box.lwd=2,cex.txt=0.8,
             box.size=0.1,box.type="square",box.prop=0.5)
 #
-# second graph - round boxes with arrows, labeled "flow"
 #
 M[2,1]<-M[3,1]<-M[4,2]<-M[4,3] <- "flow"
 pp<-plotmat(M,pos=c(1,2,1),curve=0,name=names,lwd=1,box.lwd=2,cex.txt=0.8,
             box.type="circle",box.prop=1.0)
 #
-# third graph - diamond-shaped boxes including self-arrows
 #
 diag(M) <- "self"
 pp<-plotmat(M,pos=c(2,2),curve=0,name=names,lwd=1,box.lwd=2,cex.txt=0.8,
             self.cex=0.5,self.shiftx=c(-0.1,0.1,-0.1,0.1),
             box.type="diamond",box.prop=0.5)
-#
-# fourth graph - hexagonal-shaped boxes, curved arrows
-#
+
 M <- matrix(nrow=4,ncol=4,data=0)
 M[2,1]<-1  ;M[4,2]<-2;M[3,4]<-3;M[1,3]<-4
+
+Col <- M
+Col[] <- "black"
+Col[4,2] <- "darkred"
 pp<-plotmat(M,pos=c(1,2,1),curve=0.2,name=names,lwd=1,box.lwd=2,cex.txt=0.8,
-            arr.type="triangle",box.size=0.1,box.type="hexa",box.prop=0.5)
+            arr.type="triangle",box.size=0.1,box.type="hexa",box.prop=0.25,
+            arr.col=Col,arr.len=1)
 mtext(outer=TRUE,side=3,line=-1.5,cex=1.5,"plotmat")
 #
 par(mfrow=c(1,1))
@@ -279,11 +289,15 @@ Given a matrix containing flow values (from rows to columns), function \code{plo
 will plot a web. The elements are positioned on a circle, and connected by arrows;
 the magnitude of web flows determines the thickness of the arrow.
 
-This function is less flexible than \code{plotmat}.
+This function is less flexible than \code{plotmat}, although it does allow to
+color the arrows differently.
 <<label=plotweb1, include=FALSE>>=
 BB <- matrix(nrow=20,ncol=20,1:20)
 diag(BB)<-0
-plotweb(BB,legend=TRUE,maxarrow=3)
+Col <- BB
+Col[] <- "black"
+Col[BB<10]<- "red"
+plotweb(BB,legend=TRUE,maxarrow=3,arr.col=Col)
 par(mfrow=c(1,1))
 @
 \setkeys{Gin}{width=0.8\textwidth}
