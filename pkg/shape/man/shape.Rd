@@ -6,13 +6,14 @@
   Functions for plotting graphical shapes, colors
 }
 \description{
-Functions for plotting graphical shapes
+  Functions for plotting graphical shapes
   such as ellipses, circles, cylinders, arrows, ...
      
-     Support for the book "A practical guide to ecological modelling -
-     using R as a simulation platform"
-     by Karline Soetaert and Peter M.J. Herman (2009). Springer.
-     }
+  Support for the book "A practical guide to ecological modelling -
+  using R as a simulation platform"
+  by Karline Soetaert and Peter M.J. Herman (2009). Springer.
+}
+
 \details{
   \tabular{ll}{
     Package: \tab shape\cr
@@ -29,13 +30,18 @@ See also R-package diagram.
   Karline Soetaert (Maintainer)
 }
 \seealso{
- \code{\link{A4}}, \code{\link{writelabel}}, \code{\link{emptyplot}}, \code{\link{drapecol}},
-    \code{\link{femmecol}}, \code{\link{intpalette}}, \code{\link{shadepalette}}, \code{\link{colorlegend}},
-    \code{\link{greycol}}, \code{\link{rotatexy}}, \code{\link{Arrowhead}}, \code{\link{Arrows}},
-    \code{\link{cylindersegment}}, \code{\link{filledcylinder}}, \code{\link{filledcircle}}, \code{\link{filledellipse}},
-    \code{\link{filledmultigonal}}, \code{\link{filledrectangle}}, \code{\link{filledshape}}, \code{\link{getellipse}},
-    \code{\link{plotcircle}}, \code{\link{plotellipse}}, \code{\link{roundrect}}.
+  \code{\link{A4}}, \code{\link{writelabel}}, \code{\link{emptyplot}},
+  \code{\link{drapecol}}, \code{\link{femmecol}}, \code{\link{intpalette}},
+  \code{\link{shadepalette}}, \code{\link{colorlegend}},
+  \code{\link{greycol}}, \code{\link{rotatexy}}, \code{\link{Arrowhead}},
+  \code{\link{Arrows}}, \code{\link{cylindersegment}},
+  \code{\link{filledcylinder}}, \code{\link{filledcircle}},
+  \code{\link{filledellipse}}, \code{\link{filledmultigonal}},
+  \code{\link{filledrectangle}}, \code{\link{filledshape}},
+  \code{\link{getellipse}}, \code{\link{plotcircle}},
+  \code{\link{plotellipse}}, \code{\link{roundrect}}.
 }
+
 \examples{
 \dontrun{
 ## show examples (see respective help pages for details)

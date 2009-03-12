@@ -1,28 +1,64 @@
 \name{Arrows}
 \alias{Arrows}
-\title{adds arrows with improved arrowhead to a plot}
-\description{adds one or more arrows  to a plot; arrowhead shape is either curved, a triangle, a circle or simple}
-\usage{Arrows(x0, y0, x1, y1, code=2, arr.length=0.4, 
-    arr.width=arr.length/2, arr.adj=0.5, arr.type="curved", 
-    segment=TRUE, lcol="black", lty=1, arr.col=lcol, ...)}
-\arguments{
-  \item{x0 }{x-coordinates of points *from* which to draw arrows; either one value or a vector}
-  \item{y0 }{y-coordinates of points *from* which to draw arrows; either one value or a vector}
-  \item{x1 }{x-coordinates of points *to* which to draw arrows; either one value or a vector}
-  \item{y1 }{y-coordinates of points *to* which to draw arrows; either one value or a vector}
-  \item{code }{integer code determining kind of arrows to draw}
-  \item{arr.length }{approximate length of arrowhead, in cm; either one value or a vector}
-  \item{arr.width }{approximate width of arrowhead, in cm; either one value or a vector}
-  \item{arr.adj }{0,0.5,1 specifying the adjustment of the arrowhead}
-  \item{arr.type }{type of arrowhead to draw, one of "simple","curved","triangle","circle"}
-  \item{segment }{logical specifying whether or not to draw line segments}
-  \item{lcol }{line color specifications; either one value or a vector}
-  \item{lty }{line type specifications; either one value or a vector}
-  \item{arr.col }{color of arrowhead; either one value or a vector}
-  \item{... }{arguments passed to lines or segments function}
+\title{
+  adds arrows with improved arrowhead to a plot
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
-\examples{xlim <- c(-5 ,5)
+
+\description{
+  adds one or more arrows  to a plot; arrowhead shape is either curved,
+  a triangle, a circle or simple
+}
+
+\usage{
+Arrows(x0, y0, x1, y1, code=2, arr.length=0.4, 
+  arr.width=arr.length/2, arr.adj=0.5, arr.type="curved",
+  segment=TRUE, lcol="black", lty=1, arr.col=lcol, ...)
+}
+
+\arguments{
+  \item{x0 }{x-coordinates of points *from* which to draw arrows;
+    either one value or a vector.
+  }
+  \item{y0 }{y-coordinates of points *from* which to draw arrows;
+    either one value or a vector.
+  }
+  \item{x1 }{x-coordinates of points *to* which to draw arrows;
+    either one value or a vector.
+  }
+  \item{y1 }{y-coordinates of points *to* which to draw arrows;
+    either one value or a vector.
+  }
+  \item{code }{integer code determining kind of arrows to draw.
+  }
+  \item{arr.length }{approximate length of arrowhead, in cm;
+    either one value or a vector.
+  }
+  \item{arr.width }{approximate width of arrowhead, in cm;
+    either one value or a vector.
+  }
+  \item{arr.adj }{0,0.5,1 specifying the adjustment of the arrowhead.
+  }
+  \item{arr.type }{type of arrowhead to draw, one of "simple", "curved",
+    "triangle", "circle".
+  }
+  \item{segment }{logical specifying whether or not to draw line segments.
+  }
+  \item{lcol }{line color specifications; either one value or a vector.
+  }
+  \item{lty }{line type specifications; either one value or a vector.
+  }
+  \item{arr.col }{color of arrowhead; either one value or a vector.
+  }
+  \item{... }{arguments passed to lines or segments function.
+  }
+}
+
+\author{
+  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+}
+
+\examples{
+  xlim <- c(-5 ,5)
   ylim <- c(-10,10)
   plot(0,type="n",xlim=xlim,ylim=ylim,main="Arrows")
   x0<-runif(100,xlim[1],xlim[2])
@@ -54,29 +90,46 @@
   x2 <- sin(xd)*xd
   y2 <- cos(xd)*xd
   Arrows(x1,y1,x2,y2,arr.type="curved",arr.length=0.4,segment=FALSE,
-         code=1,arr.adj=0.5 )}
-\details{x0, y0, x1, y1, arr.length, arr.width, arr.adj, lcol, lty and arr.col can be a vector, of the same length.
+         code=1,arr.adj=0.5 )
+}
+
+\details{
+  \code{x0}, \code{y0}, \code{x1}, \code{y1}, \code{arr.length},
+  \code{arr.width}, \code{arr.adj}, \code{lcol}, \code{lty} and
+  \code{arr.col} can be a vector, of the same length.
    
-    For each 'i', an arrow is drawn between the point '(x0[i], y0[i])' and the point '(x1[i],y1[i])'.
+  For each 'i', an arrow is drawn between the point '(x0[i], y0[i])'
+  and the point '(x1[i],y1[i])'.
+
   \itemize{
-    \item If 'code=1' an arrowhead is drawn at '(x0[i],y0[i])'
-    \item if 'code=2' an arrowhead is drawn at '(x1[i],y1[i])'.  
-    \item If 'code=3' an arrowhead is drawn at both ends of the arrow
-    \item unless 'arr.length = 0', when no head is drawn.
-}
+    \item If \code{code}=1 an arrowhead is drawn at '(x0[i],y0[i])'
+    \item if \code{code}=2 an arrowhead is drawn at '(x1[i],y1[i])'.
+    \item If \code{code}=3 an arrowhead is drawn at both ends of the arrow
+    \item unless \code{arr.length} = 0, when no head is drawn.
+  }
   \itemize{
-    \item If arr.adj = 0.5 then the centre of the arrowhead is at the point at which it is drawn. 
-    \item arr.adj = 1 causes the tip of the arrowhead to touch the point.
-    \item arr.adj = 2 causes the base of the arrowhead to touch the point.
-}
-    The type of the arrowhead is set with "arr.type" which can take the values:
+    \item If \code{arr.adj} = 0.5 then the centre of the arrowhead is at
+      the point at which it is drawn.
+    \item \code{arr.adj} = 1 causes the tip of the arrowhead to touch
+      the point.
+    \item \code{arr.adj} = 2 causes the base of the arrowhead to touch
+      the point.
+  }
+  The type of the arrowhead is set with \code{arr.type} which can take
+  the values:
   \itemize{
-    \item "simple"  : uses comparable R function arrows  
+    \item "simple"  : uses comparable \R function \link{arrows}
     \item "triangle": uses filled triangle
     \item "curved"  : draws arrowhead with curved edges
-    \item "circle"  : draws circular head}
+    \item "circle"  : draws circular head
+  }
 }
-\seealso{\code{\link{arrows}} the comparable R function
-    \cr \code{\link{Arrowhead}}}
+
+\seealso{
+  \code{\link{arrows}} the comparable R function
+
+  \code{\link{Arrowhead}}
+}
+
 \keyword{aplot}
 

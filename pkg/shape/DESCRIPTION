@@ -1,6 +1,6 @@
 Package: shape
-Version: 1.2.1
-Date: 2009-01-28
+Version: 1.2.2
+Date: 2009-03-19
 Title: Functions for plotting graphical shapes, colors
 Author: Karline Soetaert <k.soetaert@nioo.knaw.nl>
 Maintainer: Karline Soetaert <k.soetaert@nioo.knaw.nl>
