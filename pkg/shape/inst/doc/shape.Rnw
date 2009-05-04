@@ -53,7 +53,10 @@ been written to produce the figures of the book \citep{Soetaert08}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% R/Sweave specific LaTeX commands.
 %% need no \usepackage{Sweave}
-%\VignetteIndexEntry{shape}
+%\VignetteIndexEntry{shape: functions for plotting graphical shapes}
+%\VignetteKeywords{graphics, shapes, colors}
+%\VignettePackage{shape}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Begin of the document
 \begin{document}
