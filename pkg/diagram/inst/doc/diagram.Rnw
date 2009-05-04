@@ -53,7 +53,9 @@ been written to produce the figures of the book \citep{Soetaert08}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% R/Sweave specific LaTeX commands.
 %% need no \usepackage{Sweave}
-%\VignetteIndexEntry{diagram}
+%\VignetteIndexEntry{diagram: visualising simple graphs, flowcharts and webs}
+%\VignetteKeywords{diagram, web, flow chart, arrows}
+%\VignettePackage{diagram}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Begin of the document
 \begin{document}

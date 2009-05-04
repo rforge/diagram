@@ -5,8 +5,8 @@
 
 plotweb    <- function (flowmat, names=NULL, lab.size = 1.5, add  = FALSE,
      fig.size = 1.3, main = "", sub = "", sub2 = "",  log = FALSE,
-     nullflow = NULL, minflow = NULL, maxflow = NULL, legend=TRUE,
-     leg.digit=5, leg.title=NULL, lcol= "black", arr.col= "black",
+     mar=c(2,2,2,2), nullflow = NULL, minflow = NULL, maxflow = NULL,
+     legend=TRUE, leg.digit=5, leg.title=NULL, lcol= "black", arr.col= "black",
      val=FALSE, val.digit=5, val.size=0.6, val.col="red", val.title=NULL,
      val.ncol=1, budget = FALSE, bud.digit=5, bud.size=0.6,
      bud.title="budget", bud.ncol=1, maxarrow = 10, minarrow = 1,
@@ -63,7 +63,9 @@ plotweb    <- function (flowmat, names=NULL, lab.size = 1.5, add  = FALSE,
     marg    <- par("mar")
 
     # if values written:shift left
-    ifelse(val,  mar <- c(2, 0, 2, 4), mar<-c(2, 2, 2, 2))
+    if (val)  mar <- mar + c(0,-2,0,2)
+    mar <- pmax(mar,0)
+#  was:  ifelse(val,  mar <- c(1, 0, 1, 2), mar<-c(1, 1, 1, 1))
         par(mar=mar)
         plot(c(0,  0),  type = "n",  ylab = "",  asp = 1,  xaxt = "n",
          yaxt = "n",  frame.plot = FALSE,  xlim = figlim,

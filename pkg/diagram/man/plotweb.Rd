@@ -10,12 +10,13 @@
 
 \usage{
 plotweb(flowmat, names=NULL, lab.size=1.5, add=FALSE, fig.size=1.3, 
-  main="", sub="", sub2="", log=FALSE, nullflow=NULL, minflow=NULL,  
-  maxflow=NULL,legend=TRUE,leg.digit=5,leg.title=NULL,lcol="black", 
-  arr.col="black",val=FALSE,val.digit=5,val.size=0.6,val.col="red", 
-  val.title=NULL,val.ncol=1,budget=FALSE,bud.digit=5,bud.size=0.6, 
-  bud.title="budget",bud.ncol=1,maxarrow=10,minarrow=1,length=0.1, 
-  dcirc=1.2,bty="o", ...)
+  main="", sub="", sub2="", log=FALSE, mar=c(2,2,2,2),
+  nullflow=NULL, minflow=NULL, maxflow=NULL,legend=TRUE,
+  leg.digit=5, leg.title=NULL, lcol="black", arr.col="black",
+  val=FALSE, val.digit=5, val.size=0.6, val.col="red",
+  val.title=NULL, val.ncol=1, budget=FALSE, bud.digit=5, bud.size=0.6,
+  bud.title="budget", bud.ncol=1, maxarrow=10, minarrow=1, length=0.1,
+  dcirc=1.2, bty="o", ...)
 }
 
 \arguments{
@@ -37,6 +38,8 @@ plotweb(flowmat, names=NULL, lab.size=1.5, add=FALSE, fig.size=1.3,
   }
   \item{log }{logical indicating whether to scale the flow values
     logarithmically.
+  }
+  \item{mar }{the figure margins.
   }
   \item{nullflow }{either one value or a two-valued vector; if flow <
     nullflow[1] or flow > nullflow[2] (if two values): flow is assumed
