@@ -34,8 +34,8 @@ The Netherlands
 \Abstract{This document describes how to use the \pkg{shape} package
 for plotting graphical shapes.
 
-Together with R-package \pkg{diagram} \citep{Soetaert08d} this package has
-been written to produce the figures of the book \citep{Soetaert08}
+Together with R-package \pkg{diagram} \citep{diagram} this package has
+been written to produce the figures of the book \citep{Soetaertbook}
 
  }
 
@@ -72,17 +72,23 @@ options(width=90)
 
 \section{Introduction}
 
-This vignette is nothing but a Sweave application of parts of demo \code{colorshapes} in package
-\pkg{shape}.
+This vignette is the Sweave application of parts of demo
+\code{colorshapes} in package \pkg{shape} \citep{shape}.
 
 
 \section{colors}
-Although one can find similar functions in other packages (including the R base package),
-\pkg{shape} includes ways to generate color schemes; \code{intpalette} creates transitions
-between several colors; \code{shadepalette} creates a gradient between two colors,
-useful for shading (see below). \code{drapecol} drapes colors over a \code{persp} plot;
-by default the red-blue-yellow (matlab-type) colors are used. The code below demonstrates
-these functions (Figure \ref{fig:s1})
+Although one can find similar functions in other packages (including the R
+base package \citep{R2008}),
+\pkg{shape} includes ways to generate color schemes;
+\begin{itemize}
+\item \code{intpalette} creates transitions
+between several colors;
+\item \code{shadepalette} creates a gradient between two colors,
+useful for shading (see below).
+\item \code{drapecol} drapes colors over a \code{persp} plot;
+\end{itemize}
+by default the red-blue-yellow (matlab-type) colors are used.
+The code below demonstrates these functions (Figure \ref{fig:s1})
 <<label=s1, include=FALSE>>=
 par(mfrow=c(2,2))
 image(matrix(nrow=1,ncol=50,data=1:50),main="intpalette",
@@ -258,12 +264,14 @@ title("filledmultigonal")
 <<s4>>
 @
 \end{center}
-\caption{Use of \code{filledcylinder}, \code{filledrectangle} and \code{filledmultigonal}}
+\caption{Use of \code{filledcylinder}, \code{filledrectangle} and
+  \code{filledmultigonal}}
 \label{fig:s4}
 \end{figure}
 \section{Other shapes}
-Function \code{filledshape} is the most flexible drawing function from \pkg{shape}: just specify an inner and outer shape and
-fill with a color scheme (Figure \ref{fig:s5}).
+Function \code{filledshape} is the most flexible drawing function from
+  \pkg{shape}: just specify an inner and outer shape and
+  fill with a color scheme (Figure \ref{fig:s5}).
 <<label=s5, include=FALSE>>=
 par(mfrow=c(2,2),mar=c(2,2,2,2))
 #an egg
@@ -320,14 +328,16 @@ x1<-x0+runif(100,-2,2)
 y1<-y0+runif(100,-2,2)
 size <- 0.4
 plot(0,type="n",xlim=xlim,ylim=ylim)
-Arrows(x0,y0,x1,y1,arr.length=size,arr.type="triangle",arr.col=rainbow(runif(100,1,20)))
+Arrows(x0,y0,x1,y1,arr.length=size,arr.type="triangle",
+  arr.col=rainbow(runif(100,1,20)))
 title("Arrows")
 #
 # arrow heads
 #
 ang  <- runif(100,-360,360)
 plot(0,type="n",xlim=xlim,ylim=ylim)
-Arrowhead(x0,y0,ang,arr.length=size,arr.type="curved",arr.col=rainbow(runif(100,1,20)))
+Arrowhead(x0,y0,ang,arr.length=size,arr.type="curved",
+  arr.col=rainbow(runif(100,1,20)))
 title("Arrowhead")
 #
 # Lotka-Volterra competition model
@@ -353,8 +363,10 @@ N  <- as.matrix(expand.grid(x=gx,y=gy))
 dN1 <- r1*N[,1]*(1-(N[,1]+alf12* N[,2])/K1)
 dN2 <- r2*N[,2]*(1-(N[,2]+alf21* N[,1])/K2)
 dt  <- 0.01
-Arrows(N[,1],N[,2],N[,1]+dt*dN1,N[,2]+dt*dN2,arr.len=0.08, lcol="darkblue",arr.type="triangle")
-points(x=c(0,0,1.5,0.5),y=c(0,2,0,1),pch=22,cex=2,bg=c("white","black","black","grey"))
+Arrows(N[,1],N[,2],N[,1]+dt*dN1,N[,2]+dt*dN2,arr.len=0.08,
+ lcol="darkblue",arr.type="triangle")
+points(x=c(0,0,1.5,0.5),y=c(0,2,0,1),pch=22,cex=2,
+  bg=c("white","black","black","grey"))
 
 @
 \begin{figure}
@@ -374,7 +386,7 @@ This vignette was created using Sweave \citep{Leisch02}.
 
 The package is on CRAN, the R-archive website (\citep{R2008})
 
-More examples can be found in the demo's of package \pkg{ecolMod} \citep{Soetaert08e}
+More examples can be found in the demo's of package \pkg{ecolMod} \citep{ecolMod}
 
 \bibliography{vignettes}
 

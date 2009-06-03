@@ -33,10 +33,10 @@ The Netherlands
 \Plainauthor{Karline Soetaert}
 
 \Abstract{This document describes how to use the \pkg{diagram} package
-for plotting small networks, flow charts, and (food) webs.
+\citep{diagram} for plotting small networks, flow charts, and (food) webs.
 
-Together with R-package \pkg{shape} \citep{Soetaert08f} this package has
-been written to produce the figures of the book \citep{Soetaert08}
+Together with R-package \pkg{shape} \citep{shape} this package has
+been written to produce the figures of the book \citep{Soetaertbook}
  }
 
 %% The address of (at least) one author should be given
@@ -75,26 +75,29 @@ There are three ways in which package \pkg{diagram} can be used:
 
 \begin{itemize}
 \item function \code{plotmat} takes as input a matrix with transition coefficients
-or interaction strengths. It plots the corresponding network consisting of
-(labeled) boxes (the components) connected by arrows. Each arrow is labeled with the value
-of the coefficients.
+  or interaction strengths. It plots the corresponding network consisting of
+  (labeled) boxes (the components) connected by arrows. Each arrow is labeled
+ with the value
+  of the coefficients.
 
 \item function \code{plotweb} takes as input a matrix with (flow) values, and plots a
 web. Here the components are connected by arrows whose thickness is determined by the
 value of the coefficients.
 
-\item Flowcharts can be made by adding separate objects (textboxes) to the figure and connecting these with arrows.
+\item Flowcharts can be made by adding separate objects (textboxes) to the
+  figure and connecting these with arrows.
 \end{itemize}
 
 Three datasets have been included:
 \begin{itemize}
 \item \code{Rigaweb}, the planktonic food web of the Gulf of Riga \citep{Donali99}.
 \item \code{Takapotoweb}, the Takapoto atoll planktonic food web \citep{Niquil98}.
-\item \code{Teasel}, the transition matrix describing the population dynamics of Teasel, a European perennial weed (\citep{Caswell01}, \citep{Soetaert08}.
+\item \code{Teasel}, the transition matrix describing the population dynamics
+  of Teasel, a European perennial weed (\citep{Caswell01, Soetaertbook}.
 \end{itemize}
 
 The food webs were generated using \proglang{R} packages \pkg{LIM} and
-\pkg{limSolve} \citep{Soetaert08b, Soetaert08c} which contain functions to read and
+\pkg{limSolve} \citep{limSolve, LIM} which contain functions to read and
 solve food web problems respectively.
 
 \section{plotmat - plotting networks based on matrix input}
@@ -104,8 +107,8 @@ a matrix, which gives the magnitudes of the links (from columns to rows).
 
 The position of the elements (boxes) is specified by argument \code{pos}.
 Thus, setting \code{pos=c(1,2,1)} indicates that the 4 elements will be arranged
-in three equidistant rows; on the first row one element, on the second row two elements
-and on the third row one element.
+in three equidistant rows; on the first row one element, on the second row two
+elements and on the third row one element.
 
 \subsection{Simple examples}
 Below are some simple examples of the use of \code{plotmat}.
@@ -220,8 +223,9 @@ text(mid[1]-0.01,mid[2]+0.03,"f3",cex=0.8)
 \end{figure}
 
 \subsection{Plotting a transition matrix}
-The next example uses formulae to label the arrows \footnote{This is now possible thanks to Yvonnick Noel, Univ. Rennes, France}. This is done by passing
-a data.frame rather than a matrix to function \code{plotmat}
+The next example uses formulae to label the arrows
+\footnote{This is now possible thanks to Yvonnick Noel, Univ. Rennes, France}.
+This is done by passing a data.frame rather than a matrix to function \code{plotmat}
 <<label=plotmat3, include=FALSE>>=
 # Create population matrix
 #
@@ -241,7 +245,8 @@ AA[[6,5]]<- "s[list(4,5)]"
 name  <- c(expression(Age[0]),expression(Age[1]),expression(Age[2]),
            expression(Age[3]),expression(Age[4]),expression(Age[5]))
 #
-PP <- plotmat(A=AA,pos=6,curve=0.7,name=name,lwd=2,arr.len=0.6,arr.width=0.25,my=-0.2,
+PP <- plotmat(A=AA,pos=6,curve=0.7,name=name,lwd=2,arr.len=0.6,
+              arr.width=0.25,my=-0.2,
               box.size=0.05,arr.type="triangle",dtext= 0.95,
               main="Age-structured population model 1")
 @
@@ -257,8 +262,9 @@ PP <- plotmat(A=AA,pos=6,curve=0.7,name=name,lwd=2,arr.len=0.6,arr.width=0.25,my
 \end{figure}
 
 \subsection{Another transition matrix}
-The data set \code{Teasel} contains the transition matrix of the population dynamics model of teasel
-(Dipsacus sylvestris), a European perennial weed, \citep{Caswell01}, \citep{Soetaert08}
+The data set \code{Teasel} contains the transition matrix of the population
+dynamics model of teasel (Dipsacus sylvestris), a European perennial weed,
+\citep{Caswell01, Soetaertbook}
 <<label=teasel>>=
 Teasel
 @
@@ -270,10 +276,11 @@ curves[3,1]<- curves[1,6]<- -0.35
 curves[4,6]<- curves[6,4]<- curves[5,6]<- curves[6,5]<-0.08
 curves[3,6]<-  0.35
 
-plotmat(Teasel,pos=c(3,2,1),curve=curves,name=colnames(Teasel),lwd=1,box.lwd=2,cex.txt=0.8,
-        box.cex=0.8,box.size=0.08,arr.length=0.5,box.type="circle",box.prop=1,
-        shadow.size = 0.01,self.cex=0.6,my=-0.075, mx=-0.01,relsize=0.9,
-        self.shiftx=c(0,0,0.125,-0.12,0.125,0),self.shifty=0,main="Teasel population model")
+plotmat(Teasel,pos=c(3,2,1),curve=curves,name=colnames(Teasel),lwd=1,
+        box.lwd=2,cex.txt=0.8,box.cex=0.8,box.size=0.08,arr.length=0.5,
+        box.type="circle",box.prop=1,shadow.size = 0.01,self.cex=0.6,
+        my=-0.075,mx=-0.01,relsize=0.9,self.shiftx=c(0,0,0.125,-0.12,0.125,0),
+        self.shifty=0,main="Teasel population model")
 @
 \setkeys{Gin}{width=1.0\textwidth}
 \begin{figure}
@@ -314,8 +321,8 @@ par(mfrow=c(1,1))
 \end{figure}
 
 \subsection{Foodwebs}
-Dataset \code{Rigaweb} (\citep{Donali99} contains flow values for the food web of the Gulf of Riga planktonic
-system.
+Dataset \code{Rigaweb} (\citep{Donali99} contains flow values for the food
+web of the Gulf of Riga planktonic system.
 <<>>=
 Rigaweb
 @
@@ -472,7 +479,7 @@ This vignette was created using Sweave \citep{Leisch02}.
 
 The package is on CRAN, the R-archive website (\citep{R2008})
 
-More examples can be found in the demo's of package \pkg{ecolMod} \citep{Soetaert08e}
+More examples can be found in the demo's of package \pkg{ecolMod} \citep{ecolMod}
 
 \bibliography{vignettes}
 
