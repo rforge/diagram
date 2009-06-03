@@ -58,7 +58,7 @@ M <- matrix(nrow=6,ncol=6,byrow=TRUE,data=c(
 pp<-plotmat(M,pos=c(1,2,1,2),curve=0,name=names,lwd=1,box.lwd=2,cex.txt=0.8,
             box.type="square",box.prop=0.5,arr.type="triangle",
             arr.pos=0.4,shadow.size=0.01,prefix="f",
-            main="NPZZDD model, from Soetaert and herman, book in prep")
+            main="NPZZDD model, from Soetaert and herman, 2009, Springer")
 
 # extra arrows: flow 5 to Detritus and flow 2 to detritus
 phyto   <-pp$comp[names=="PHYTO"]
