@@ -47,7 +47,7 @@ been written to produce the figures of the book \citep{Soetaertbook}
   Netherlands Institute of Ecology (NIOO)\\
   4401 NT Yerseke, Netherlands
   E-mail: \email{k.soetaert@nioo.knaw.nl}\\
-  URL: \url{http://www.nioo.knaw.nl/ppages/ksoetaert}\\
+  URL: \url{http://www.nioo.knaw.nl/users/ksoetaert}\\
 }
 
 
