@@ -10,8 +10,8 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
      self.lwd=1, self.cex=1, self.shiftx=box.size, self.shifty=NULL,
      self.arrpos=NULL, arr.lwd=lwd, arr.lcol=lcol, arr.col="black",
      arr.type="curved", arr.pos=0.5, arr.length=0.4, arr.width=arr.length/2,
-     endhead=FALSE, mx=0.0, my=0.0, box.cex=1, prefix="", cex.txt=1,
-     add = FALSE, main="", ...)  {
+     endhead=FALSE, mx=0.0, my=0.0, box.cex=1, txt.col = "black",
+     prefix="", cex.txt=1, add = FALSE, main="", ...)  {
 
   ncomp <- nrow(A)
   if (is.null(name))
@@ -39,6 +39,8 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
     box.cex   <- rep(box.cex , len=ncomp)
   if (length (box.lwd)     < ncomp)
     box.lwd   <- rep(box.lwd , len=ncomp)
+  if (length (txt.col)     < ncomp)
+    txt.col   <- rep(txt.col , len=ncomp)
 
   if (length (shadow.size) < ncomp)
     shadow.size  <- rep(shadow.size, len=ncomp)
@@ -244,7 +246,7 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
     shadowbox(box.type=box.type[i], mid=p, radx=rad, rady=rad2,
               lcol=box.lcol[i], lwd=box.lwd[i], shadow.size=shadow.size[i],
               shadow.col=shadow.col[i], box.col=box.col[i], dr=dr, ...)
-    textplain(mid=p, height=rad2, lab=name[i], cex=box.cex[i])
+    textplain(mid=p, height=rad2, lab=name[i], cex=box.cex[i], col=txt.col[i])
 
   } # end i
 

@@ -16,8 +16,8 @@ plotmat(A, pos=NULL, curve=NULL, name=NULL, absent=0,
   self.lwd=1, self.cex=1, self.shiftx=box.size, self.shifty=NULL, 
   self.arrpos=NULL, arr.lwd=lwd, arr.lcol=lcol, arr.col="black",
   arr.type="curved",arr.pos=0.5, arr.length=0.4, arr.width=arr.length/2,
-  endhead=FALSE, mx=0.0, my=0.0, box.cex=1, prefix="", cex.txt=1, 
-  add=FALSE, main="", ...)
+  endhead=FALSE, mx=0.0, my=0.0, box.cex=1, txt.col="black",
+  prefix="", cex.txt=1, add=FALSE, main="", ...)
 }
 \arguments{
   \item{A }{square coefficient matrix, specifying the links (rows=to,
@@ -114,6 +114,9 @@ plotmat(A, pos=NULL, curve=NULL, name=NULL, absent=0,
   \item{my }{vertical shift of the boxes.
   }
   \item{box.cex }{relative size of text in boxes, one value or a vector with
+    dimension=number of rows of \code{A}.
+  }
+  \item{txt.col }{color of text in boxes, one value or a vector with
     dimension=number of rows of \code{A}.
   }
   \item{prefix }{to be added in front of non-zero arrow labels.
