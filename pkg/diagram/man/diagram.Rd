@@ -18,8 +18,8 @@
   \tabular{ll}{
     Package: \tab diagram\cr
     Type: \tab Package\cr
-    Version: \tab 1.3.1\cr
-    Date: \tab 2009-03-06\cr
+    Version: \tab 1.5\cr
+    Date: \tab 2009-07-01\cr
     License: \tab GNU Public License 2 or above\cr
   }
   This package is used in R-package ecolMod, which includes many more examples.
