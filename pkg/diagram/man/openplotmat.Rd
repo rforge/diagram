@@ -13,14 +13,14 @@ openplotmat (asp=NA, ...)
 \arguments{
   \item{asp }{the y/x aspect ratio.
   }
-  \item{... }{arguments passed to \link[shape]{emptyplot}.
+  \item{... }{arguments passed to \code{emptyplot} from package \code{shape}.
   }
 }
 \author{
   Karline Soetaert <k.soetaert@nioo.knaw.nl>
 }
 \seealso{
-  \code{\link[shape]{ emptyplot}} from package shape.
+  \code{emptyplot} from package \code{shape}.
 }
 \keyword{hplot}
 
