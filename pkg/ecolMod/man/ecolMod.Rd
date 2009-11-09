@@ -25,8 +25,8 @@ Solutions to model projects are in the same subdirectories.
   \tabular{ll}{
     Package: \tab ecolMod\cr
     Type: \tab Package\cr
-    Version: \tab 1.3\cr
-    Date: \tab 2009-01-28\cr
+    Version: \tab 1.2.2\cr
+    Date: \tab 2009-11-09\cr
     License: \tab GNU Public License 2 or above\cr
   }
 }

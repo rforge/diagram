@@ -31,9 +31,10 @@ The Netherlands
 
 \Plainauthor{Karline Soetaert}
 
-\Abstract{This document gives some examples of the demos from package
-\pkg{ecolMod}. This package contains, in its demo's all the 
-figures of the book:
+\Abstract{This document contains some examples of the demos from package
+\pkg{ecolMod}. 
+
+This package has, in its demo's all the figures of the book:
 
 Soetaert K. and P.M.J. Herman (2009).  A Practical Guide to Ecological Modelling.
   Using R as a Simulation Platform.  Springer, 372 pp.
@@ -71,15 +72,27 @@ options(width=90)
 
 \maketitle
 
-This vignette is the Sweave application of parts of the demos from package
-\pkg{ecolMod}, accompanying the book
+This vignette is a Sweave \citep{Leisch02} application of parts of the demos from package
+\pkg{ecolMod} \citep{ecolMod}, accompanying the book:
 
 Soetaert K. and P.M.J. Herman (2009).  A Practical Guide to Ecological Modelling.
   Using R as a Simulation Platform.  Springer, 372 pp.
 
-All figures from this book (>100) were created in R.
+All figures from this book (>100) were created in \pkg{R}. 
+While making these figures,
+I was not concerned with \emph{how} they are programmed, but rather with the result.
+Therefore, it is likely that there exist better and more elegant ways to 
+create them. 
 
-For each chapter, the figures can be displayed by typing
+Some figures make use of packages
+\begin{itemize}
+\item shape \citep{shape}, to draw graphical shapes.
+\item diagram \citep{diagram}, to draw simple graphs, networks, diagrams
+\end{itemize}
+These two packages were written in support of the book.
+
+
+For each chapter of the book, the figures can be displayed by typing
 \begin{verbatim}
   demo(chap1)
   demo(chap2)
@@ -87,12 +100,21 @@ For each chapter, the figures can be displayed by typing
   demo(chap11)
 \end{verbatim}
 
-Here we give some examples of these figures
+Also, the examples in the book can be found in the \url{examples} subdirectory
+of the package.
+
+In this vignette, one (or two) figures for each chapter are created.
 
 \clearpage
 
-\section{chapter 1}
-Modelling steps and ingredients.
+\section{Chapter 1. Introduction}
+This figure represents the modelling steps and ingredients.
+
+The figure makes use of package \pkg{diagram}. After opening a plot, and 
+positioning of the elements (\code{elpos}), first the arrows connecting
+them are drawn (\code{segmentarrow, straightarrow}) and the texts written
+in rounded or diamond-shaped boxes \code{textround, textdiamond}, or as 
+plain text. 
 
 <<label=chap1, include=FALSE>>=
 par(mar=c(0,0,0,0))
@@ -146,8 +168,9 @@ textplain(c(0.7,elpos[6,2]), yy*2,
 \end{figure}
 
 \clearpage
-\section{chapter 2}
-Chemical reactions
+\section{Chapter 2. Model formulation}
+This figure makes use of package \pkg{diagram}. It depicts two types of 
+chemical reactions.
 
 <<label=chap2, include=FALSE>>=
 
@@ -166,8 +189,9 @@ for ( i in 1:4)
 box(col="grey")
 title("reversible reaction")
 writelabel("A",line=0,at=-0.05)
-
+#
 # enzymatic reaction
+#
 openplotmat()
 elpos<-coordinates (c(3,2,3))
 elpos <- elpos[-c(5,6),]
@@ -200,46 +224,42 @@ writelabel("B",line=0,at=-0.05)
 
 
 
-
-
-
-
-
-
 \clearpage
-\section{chapter 3}
-General transport
+\section{chapter 3. Spatial components and transport}
+
+This figure makes use of package \pkg{shape} to draw a filled cylinder. 
+We use it to derive the general transport equation.
 
 <<label=chap3, include=FALSE>>=
 par(mfrow=c(1,1))
 par(mar=c(1,1,1,1))
 plot(0,type="n",xlim=c(-1,1),ylim=c(-0.6,0.5),axes=FALSE,xlab="",ylab="")
 col <- grey(seq(0.2,1,length.out=100))
-col<-c(col,rev(col))
-cex<-1.75
-
+col <- c(col,rev(col))
+cex <- 1.75
+#
 filledcylinder (rx=0.15, ry=0.4, len=1, col=col, lcol="black",
   lwd=1, lcolint=grey(0.25), lwdint=1, ltyint=3,
   topcol=grey(0.5), delt=1.15)
-
+#
 segments(-1,0,-0.5,0)
-
 segments(0.5,0,1,0)
+#
 Arrows(-0.8,0,-0.5,0,arr.type="triangle",
   arr.length=0.5,lwd=5,arr.adj=1)
 Arrows(0.5,0,0.8,0,arr.type="triangle",
   arr.length=0.5,lwd=3,arr.adj=1)
-
+#
 text(0.0,0.5,expression(Delta~V),cex=cex*0.9)
 text(-0.5,0.225,expression(A[x]),cex=cex)
 text(0.5,0.225,expression(A[x+Delta~x]),cex=cex)
 
 text(-0.75,0.065,expression(J[x]),cex=cex)
 text(0.85,0.065,expression(J[x+Delta~x]),cex=cex)
-
+#
 segments(-0.5,0,-0.5,-0.5,lty=3,col=grey(0.25))
 segments(0.5,0,0.5,-0.5,lty=3,col=grey(0.25))
-
+#
 text(-0.5,-0.55,expression(x),cex=cex)
 text(0.5,-0.55,expression(x+Delta~x),cex=cex)
 
@@ -262,18 +282,25 @@ text(0.5,-0.55,expression(x+Delta~x),cex=cex)
 
 
 \clearpage
-\section{chapter 4}
-Model cost landscape, less detail than in book
+\section{chapter 4. Parameterisation}
+This figure represents a (fictuous) model cost landscape.
+
+The figure has higher resolution in the book. It makes use of R's \code{persp}
+function, which has been draped with a grey colorscale (\code{drapecol}). 
+The latter function is included in package \code{shape}.
 
 <<label=chap4, include=FALSE>>=
 par(mfrow=c(1,1))
 par(mar=c(1,1,1,1))
-col=grey(seq(0,0.9,length.out=100))
+col <- grey(seq(0,0.9,length.out=100))
+#
 gg <- outer(seq(3 ,9.5,0.05),seq(-4.8,-1,0.05),
   FUN=function(x,y) 4*cos(y)+sin(x)-(sin(x)/sqrt(x)*cos(y)*y^2)^2)
+#
 persp(gg,col=drapecol(gg,col),border=NA,theta=30,phi=30, axes=TRUE,
   box=TRUE, lty=2,xlab="parameter 1", ylab="parameter 2",
   zlab="cost",ticktype="simple",cex=1.5)
+#
 text(0.15,0.22,"2",cex=2)
 text(-0.10,0.27,"1",cex=2)
 text(-0.15,-0.25,"global minimum")
@@ -293,15 +320,18 @@ text(0.1,-0.18,"local minimum")
 
 
 \clearpage
-\section{chapter 5}
-Diffusion-reaction in 1-D, cylindrical coordinates
+\section{chapter 5. Model solution - analytical methods}
+The analytical solution of a diffusion-reaction equation in 1-D, and using
+cylindrical coordinates is depicted. It makes use of R s function \code{persp},
+draped with a red-yellow-blue color scheme. Functions \code{drapecol} and 
+\code{femmecol} made available in package \pkg{shape}.
 
 <<label=chap5, include=FALSE>>=
 
-Ds  <- 1   # diffusion coefficient
-ini <- 1   # initial condition
-k   <- 0.05 # growth rate
-
+Ds  <- 1     # diffusion coefficient
+ini <- 1     # initial condition
+k   <- 0.05  # growth rate
+#
 
 plotplane <- function(time, rmax=5, ...) {
   xx <- seq(-rmax,rmax,length=50)
@@ -312,15 +342,12 @@ plotplane <- function(time, rmax=5, ...) {
   persp(xx, yy, z=val, theta=150, box=TRUE, axes=TRUE,
      col=drapecol(val,femmecol(100)),zlab="Density",border=NA, ...)
  }
-
+#
 par(mfrow=c(2,2),mar=c(3,3,3,3))
 plotplane(0.1, main= "0.1 day")
 plotplane(1  , main= "1 day")
 plotplane(2  , main= "2 days")
 plotplane(5  , main= "5 days")
-
-
-
 @
 \begin{figure}
 \begin{center}
@@ -340,8 +367,10 @@ plotplane(5  , main= "5 days")
 
 
 \clearpage
-\section{chapter 6}
-The aphid model, less detail than in book
+\section{chapter 6. Model solution numerical methods}
+Here, a 1-D diffusion-reaction model is implemented, solved using function
+\code{ode.1D} from package \pkg{deSolve} \citep{deSolve}, 
+and the results displayed using R s \code{filled.contour} function. 
 
 <<label=chap6, include=FALSE>>=
 #----------------------#
@@ -380,7 +409,7 @@ state           <- c(APHIDS=APHIDS)       # initial conditions
 #----------------------#
 
 times     <-seq(0,200,by=2)   # output wanted at these time intervals
-out       <- ode(state,times,model,parms=0)  # ode is integration routine
+out       <- ode.1D(state,times,model,parms=0, nspec=1)  
 
 DENSITY   <- out[,2:(numboxes  +1)]
 
@@ -411,8 +440,11 @@ mtext(outer=TRUE,side=3,"Aphid model",cex=1.5)  # margin text
 
 
 \clearpage
-\section{chapter 7}
-Limit cycles
+\section{chapter 7. Stability and steady state}
+The trajectories of a set of differential equations, displaying limit cycles
+are depicted. The model is solved using function \code{vode} from package
+\pkg{deSolve} \citep{deSolve}. This is the only integrator that can solve this
+rather difficult set of equations (although even vode complains).
 
 <<label=chap7, include=FALSE>>=
 
@@ -425,7 +457,7 @@ eqn <- function (t,state,pars)  {
   list(c(dx,dy))
   })
 }
-
+#
 equation2 <- function(ini,i1=5,a=-1,b=1,e=-1,f=-1,endt=100,dt=0.1,...) {
   times <- seq(0,endt,dt)
   state <- c(x=ini[1],y=ini[2])
@@ -433,10 +465,10 @@ equation2 <- function(ini,i1=5,a=-1,b=1,e=-1,f=-1,endt=100,dt=0.1,...) {
   lines(out$x,out$y)
   Arrows(out$x[i1],out$y[i1],out$x[i1+1],out$y[i1+1],...)
 }
-
+#
 xlim<- c(-1.5,1.5)
 ylim<- xlim
-
+#
 plot(0,type="n",xlim=xlim,ylim=ylim,xlab="",ylab="",
   axes=FALSE,frame.plot=TRUE)
 equation2(c(-0.01,-0.01),i1=45)
@@ -447,15 +479,12 @@ equation2(c(-1.1,-1.1),i1=5)
 equation2(c(1.1,-1.1),i1=5)
 points(0,0,pch=21,cex=3,bg="lightgrey",col="lightgrey")
 title("Stable limit cycle")
-
-
+#
 writelabel("A")
-
-
-
+#
 xlim<- c(-1.5,1.5)
 ylim<- xlim
-
+#
 plot(0,type="n",xlim=xlim,ylim=ylim,xlab="",ylab="",
   axes=FALSE,frame.plot=TRUE)
 equation2(c(-0.65,-0.65),i1=45,endt=10,dt=0.01,e=1,f=1)
@@ -466,15 +495,12 @@ equation2(c(0.65,-0.65),i1=45,endt=10,dt=0.01,e=1,f=1)
 equation2(c(0.75,-0.75),i1=45,endt=10,dt=0.01,e=1,f=1)
 equation2(c(-0.65,0.65),i1=45,endt=10,dt=0.01,e=1,f=1)
 equation2(c(-.75,0.75),i1=45,endt=10,dt=0.01,e=1,f=1)
-
 points(0,0,pch=21,cex=3,bg="black",col="black")
 title("Unstable limit cycle")
-
 equation2(c(-0.71,0.70420315),i1=45,endt=8,dt=0.01,a=-1,b=1,e=1,f=1)
-
-
+#
 writelabel("B")
-
+#
 @
 \begin{figure}
 \begin{center}
@@ -494,8 +520,9 @@ writelabel("B")
 
 
 \clearpage
-\section{chapter 8}
-Equilibrium Monod
+\section{chapter 8. Multiple time scales and equilibrium processes}
+This figures depicts the derivation of the Monod function. It makes use of 
+package \pkg{diagram}.
 
 <<label=chap8, include=FALSE>>=
 par(mfrow=c(1,1))
@@ -549,8 +576,11 @@ par(fig=c(0,1,0.0,1))
 
 
 \clearpage
-\section{chapter 9}
-Parasitoid model (much less detail than in book)
+\section{chapter 9. Discrete time models}
+A rather spectacular play with a discrete-time parasitoid model.
+The figure in the book has more detail.
+Except for function \code{writelabel} (from package \code{shape}), this
+figure is made only with R's core functions.
 
 <<label=chap9, include=FALSE>>=
 par (mfrow=c(2,2),mar=c(5.1,4.1,4.1,2.1))
@@ -561,8 +591,7 @@ tH <- 1      # handling time
 A  <- tS/tH  # attack rate
 ks <- 30     # 1/tH*a
 
-Parasite <- function(P_H,ks)
-{
+Parasite <- function(P_H,ks) {
  P<-P_H[1] ;  H <- P_H[2]
  f  <- A*P/(ks+H)
  return(c(H*(1-exp(-f)),
@@ -654,7 +683,11 @@ writelabel("D")
 
 
 \clearpage
-US population transition matrix
+\section{chapter 9. Discrete time models, b}
+As there are no nice figures in chapter 10, I depict two figures from chapter 9.
+
+This figure represents the US population transition matrix. 
+First the transition matrix is created, and printed to the screen:
 
 <<>>=
 # Fecundity and Survival for each generation
@@ -671,6 +704,9 @@ for (i in 1:(NumClass-1))  DiffMatrix[i+1,i] <- Survival[i]
 
 DiffMatrix                               # print the matrix to screen  
 @
+
+Plotting this matrix is relatively simple, using \pkg{diagram}s function
+\code{plotmat}: 
 <<label=chap9b, include=FALSE>>=
 par(mfrow=c(1,1))
 par(mar=c(2,2,2,2))
@@ -707,8 +743,9 @@ mtext(side=3,"US population life cycle, 1966",cex=1.2)
 
 
 \clearpage
-\section{chapter 11}
-BOD model
+\section{chapter 11. Testing and validating the model}
+In this figure, a BOD (Biochemical Oxygen Demand) model is solved numerically,
+compared with the analytical solution, improved, and model sensitivity assessed.
 
 <<label=chap11, include=FALSE>>=
 par(oma=c(0,0,2,0))
@@ -722,15 +759,12 @@ BOD_0   = 500             # mmol/m3  - Initial BOD concentration
 ks      = 0               # mmol/m3  - half-saturation concentration
 
 # numerical model
-numBOD <- function (time,state,pars)
-{
- with (as.list(state), 
-  {
+numBOD <- function (time,state,pars)  {
+ with (as.list(state),    {
     dO2  <- -r*BOD*O2/(O2+ks)+k*(O2sat-O2)
     dBOD <- -r*BOD*O2/(O2+ks)
     return(list(c(dO2,dBOD)))
-  }
-      )
+  } )
 }
 
 # analytical solution for O2
@@ -841,7 +875,8 @@ par(fig=c(0,1,0,1))
 
 \clearpage
 \section{And finally}
-More examples can be found in the demo's of package \pkg{ecolMod}
+More examples can be found in the demo's of package \pkg{ecolMod}.
+\bibliography{vignettes}
 
 \end{document}
 
