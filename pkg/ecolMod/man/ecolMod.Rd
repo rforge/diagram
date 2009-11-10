@@ -68,6 +68,9 @@ browseURL(paste(system.file(package="ecolMod"), "/demo", sep=""))
 
 ## open the directory with book examples
 browseURL(paste(system.file(package="ecolMod"), "/examples", sep=""))
+
+## ecolMod vignette:
+vignette("ecolMod")
 }
 }
 
