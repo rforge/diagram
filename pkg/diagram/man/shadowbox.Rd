@@ -66,9 +66,12 @@ shadowbox(box.type="rect", mid, radx, rady=radx, shadow.size=0.01,
   one box is drawn, centered aroung point \code{mid} and with horizontal and
   vertical radiusses \code{radx}, \code{rady}.
      
-  if \code{shadow} is \code{TRUE}, a shadow is drawn, in right-lower corner,
-  and its color and relative size specified with \code{shadow.col} and
-  \code{shadow.size} respectively.
+  By default, a shadow is drawn, in the right-lower corner of the box.
+
+  The shadow color and relative size is specified with \code{shadow.col} and
+    \code{shadow.size} respectively. 
+
+  \code{shadow.size = 0} toggles off the drawing of the shadow.
      
   the type of the box is set with \code{box.type} which can take on the values:
   \itemize{

@@ -245,15 +245,17 @@ plotmat(A, pos=NULL, curve=NULL, name=NULL, absent=0,
 
   The relative size of this text can be changed by \code{box.cex}.
   
-  If \code{shadow} is \code{TRUE}, a shadow is drawn, in the right-lower
-    corner of the box,
+  By default, a shadow is drawn, in the right-lower
+    corner of the box.
 
-    its color and relative size specified with \code{shadow.col} and
-    \code{shadow.size} respectively.
+    The shadow color and relative size is specified with \code{shadow.col} and
+    \code{shadow.size} respectively. 
 
     both can be one value (equal shadows) or a vector, specifying one value
     for each box shadow.
-  
+    
+    \code{shadow.size = 0} toggles off the drawing of the shadow.
+
   The type of the box is set with "box.type" which can take on the values:
   \itemize{
     \item "rect": a rectangle,
