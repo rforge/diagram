@@ -39,7 +39,7 @@ Arrows(x0, y0, x1, y1, code=2, arr.length=0.4,
   \item{arr.adj }{0,0.5,1 specifying the adjustment of the arrowhead.
   }
   \item{arr.type }{type of arrowhead to draw, one of "simple", "curved",
-    "triangle", "circle".
+    "triangle", "circle", or "T".
   }
   \item{segment }{logical specifying whether or not to draw line segments.
   }
@@ -60,7 +60,7 @@ Arrows(x0, y0, x1, y1, code=2, arr.length=0.4,
 \examples{
   xlim <- c(-5 ,5)
   ylim <- c(-10,10)
-  plot(0,type="n",xlim=xlim,ylim=ylim,main="Arrows")
+  plot(0,type="n",xlim=xlim,ylim=ylim,main="Arrows, type='curved'")
   x0<-runif(100,xlim[1],xlim[2])
   y0<-runif(100,ylim[1],ylim[2])
   x1<-x0+runif(100,-1,1)
@@ -68,7 +68,7 @@ Arrows(x0, y0, x1, y1, code=2, arr.length=0.4,
   Arrows(x0,y0,x1,y1,arr.length=runif(100),code=2,arr.type="curved",
          arr.col=1:100,lcol=1:100)
   
-  plot(0,type="n",xlim=xlim,ylim=ylim,main="Arrows")
+  plot(0,type="n",xlim=xlim,ylim=ylim,main="Arrows, type='circle'")
   x0<-runif(100,xlim[1],xlim[2])
   y0<-runif(100,ylim[1],ylim[2])
   x1<-x0+runif(100,-1,1)
@@ -82,7 +82,8 @@ Arrows(x0, y0, x1, y1, code=2, arr.length=0.4,
   Arrows(x,sin(x),xd,sin(xd),type="triangle",arr.length=0.5,segment=FALSE)
   
   xx <- seq(0,10*pi,length.out=1000)
-  plot(sin(xx)*xx,cos(xx)*xx,type="l",axes=FALSE,xlab="",ylab="",main="Arrows")
+  plot(sin(xx)*xx,cos(xx)*xx,type="l",axes=FALSE,xlab="",ylab="",
+    main="Arrows, type='curved'")
   x  <- seq(0,10*pi,length.out=20)
   x1 <- sin(x)*x
   y1 <- cos(x)*x
@@ -91,6 +92,11 @@ Arrows(x0, y0, x1, y1, code=2, arr.length=0.4,
   y2 <- cos(xd)*xd
   Arrows(x1,y1,x2,y2,arr.type="curved",arr.length=0.4,segment=FALSE,
          code=1,arr.adj=0.5 )
+
+  plot(sin(xx)*xx,cos(xx)*xx,type="l",axes=FALSE,xlab="",ylab="",
+  main="Arrows, type='T'")
+  Arrows(x1,y1,x2,y2,arr.type="T",arr.length=0.4,code=1,lwd=2)
+
 }
 
 \details{

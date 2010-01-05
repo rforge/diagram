@@ -13,6 +13,11 @@ Arrows <- function(x0, y0, x1, y1, code=2,
            col=arr.col,lty=lty,...)
     return()
   }
+  if (arr.type=="T") {
+    arrows(x0,y0,x1,y1,code=code,length=arr.length/(2*2.54),
+           col=arr.col,lty=lty, angle=90, ...)
+    return()
+  }
 
   ## draw segment
   if (segment)
