@@ -94,7 +94,8 @@ plotmat(A, pos=NULL, curve=NULL, name=NULL, absent=0,
   \item{arr.col }{color of arrowhead, one value, or a matrix with same
     dimensions as \code{A}.
   }
-  \item{arr.type }{type of arrowhead (curved,triangle,circle,simple), one
+  \item{arr.type }{type of arrowhead, one of ("curved", "triangle", 
+    "circle", "ellipse", "T", "simple"), one
     value, or a matrix with same dimensions as \code{A}.
   }
   \item{arr.pos }{relative position of arrowhead on arrow segment/curve, one
@@ -297,6 +298,8 @@ plotmat(A, pos=NULL, curve=NULL, name=NULL, absent=0,
     \item "triangle": uses filled triangle
     \item "curved"  : draws arrowhead with curved edges
     \item "circle" : draws circular head 
+    \item "ellipse" : draws ellepsoid head
+    \item "T"       : draws T-shaped (blunt) head
   }
   The line color and width of the arrow line is set with \code{arr.lcol} and
   \code{arr.lwd}

@@ -44,11 +44,11 @@ selfarrow(pos, lwd=2, lty=1, lcol="black", arr.pos=0.5,
   pos <- coordinates(3,mx=0.05)
   text(pos,LETTERS[1:3],cex=2)
   for (i in 1:3) selfarrow(pos=pos[i,],path="R",arr.pos=0.2,
-                           curve=c(0.05,0.1), lcol="darkred")
+                   curve=c(0.05,0.1), lcol="darkred")
   for (i in 1:3) selfarrow(pos=pos[i,],path="L",arr.pos=0.7,
-                           lcol="darkblue", curve=c(0.05,0.05))
+                   lcol="darkblue", curve=c(0.05,0.05))
   for (i in 1:3) selfarrow(pos=pos[i,],path="L",arr.pos=0.5,
-                           lcol="darkgreen", code=i)
+                   lcol="darkgreen", code=i,arr.type="triangle")
 }
 
 \details{
@@ -64,6 +64,8 @@ selfarrow(pos, lwd=2, lty=1, lcol="black", arr.pos=0.5,
     \item "triangle": uses filled triangle.
     \item "curved"  : draws arrowhead with curved edges.
     \item "circle" : draws circular head.
+    \item "ellipse" : draws ellepsoid head
+    \item "T"       : draws T-shaped (blunt) head
   }
   see \code{\link[shape]{Arrowhead}} for details on arrow head.
 }

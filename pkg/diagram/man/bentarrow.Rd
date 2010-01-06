@@ -43,11 +43,13 @@ bentarrow(from, to, lwd=2, lty=1, lcol="black",
   for (i in 1:4) bentarrow(from=pos[i,]+c(0.05,0),to=pos[i+1,]+c(0,0.05),
                            arr.pos=1,arr.adj=1)
   for (i in 1:2) bentarrow(from=pos[i,]+c(0.05,0),to=pos[i+1,]+c(0,0.05),
-                           arr.pos=0.5,path="V",lcol="lightblue")
+                           arr.pos=0.5,path="V",lcol="lightblue", 
+                           arr.type = "triangle")
    bentarrow(from=pos[3,]+c(0.05,0),to=pos[4,]+c(0,0.05),arr.pos=0.7,
              arr.side=1,path="V",lcol="darkblue")
    bentarrow(from=pos[4,]+c(0.05,0),to=pos[5,]+c(0,0.05),arr.pos=0.7,
-             arr.side=1:2,path="V",lcol="blue")}
+             arr.side=1:2,path="V",lcol="blue")
+}
 \details{
   a two-segmented arrow is drawn between two points '(from, to)'
     
@@ -71,6 +73,8 @@ bentarrow(from, to, lwd=2, lty=1, lcol="black",
     \item "triangle": uses filled triangle.
     \item "curved"  : draws arrowhead with curved edges.
     \item "circle" : draws circular head.
+    \item "ellipse" : draws ellepsoid head
+    \item "T"       : draws T-shaped (blunt) head
   }
   see \code{\link[shape]{Arrowhead}} from package shape for details on
   arrow head.

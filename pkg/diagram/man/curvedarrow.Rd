@@ -52,7 +52,8 @@ curvedarrow(from, to, lwd=2, lty=1, lcol="black", arr.pos=0.5,
   for (i in 1:3) curvedarrow(from=pos[1,]+c(0,-0.05),to=pos[i+1,]+c(0,-0.05),
                              curve=0.5,arr.pos=1)
   for (i in 1:3) curvedarrow(from=pos[1,]+c(0,0.05),to=pos[i+1,]+c(0,0.05),
-                             curve=-0.25,arr.adj=1,arr.pos=0.5)
+                             curve=-0.25,arr.adj=1,arr.pos=0.5, 
+                             arr.type="triangle", arr.col="blue")
 }
 
 \details{
@@ -73,6 +74,8 @@ curvedarrow(from, to, lwd=2, lty=1, lcol="black", arr.pos=0.5,
     \item "triangle": uses filled triangle.
     \item "curved"  : draws arrowhead with curved edges.
     \item "circle" : draws circular head.
+    \item "ellipse" : draws ellepsoid head
+    \item "T"       : draws T-shaped (blunt) head
   }
   see \code{\link[shape]{Arrowhead}} from package shape for details on
   arrow head

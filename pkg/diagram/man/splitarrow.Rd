@@ -90,6 +90,8 @@ splitarrow(from, to, lwd=2, lty=1, lcol="black",
     \item "triangle": uses filled triangle.
     \item "curved"  : draws arrowhead with curved edges.
     \item "circle"  : draws circular head.
+    \item "ellipse" : draws ellepsoid head
+    \item "T"       : draws T-shaped (blunt) head
   }
   see \code{\link[shape]{Arrowhead}} from package shape for details on
   arrow head.
