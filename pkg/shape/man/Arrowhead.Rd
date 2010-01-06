@@ -3,13 +3,13 @@
 \title{adds arrowheads to a plot}
 \description{
   adds one or more arrowheads to a plot; shape is either curved,
-  a triangle, a circle or simple
+  a triangle, a circle or ellipse.
 }
 
 \usage{
 Arrowhead(x0, y0, angle=0, arr.length=0.4, arr.width=arr.length/2, 
   arr.adj=0.5, arr.type="curved", lcol="black", lty=1, arr.col=lcol, 
-  npoint=5)
+  arr.lwd=2, npoint=5)
 }
 
 \arguments{
@@ -31,13 +31,15 @@ Arrowhead(x0, y0, angle=0, arr.length=0.4, arr.width=arr.length/2,
   \item{arr.adj }{0,0.5,1 specifying the adjustment of the arrowhead.
   }
   \item{arr.type }{type of arrowhead to draw, one of
-    "simple","curved","triangle","circle".
+    "curved","triangle","circle","ellipse".
   }
   \item{lcol }{line color specifications; either one value or a vector.
   }
   \item{lty }{line type specifications; either one value or a vector.
   }
   \item{arr.col }{color of arrowhead; either one value or a vector.
+  }
+  \item{arr.lwd }{line width of arrowhead.
   }
   \item{npoint }{only if \code{arr.type} = "curved": number of points to
     draw the curve; increase for smoother arrowheads}
@@ -73,10 +75,10 @@ Arrowhead(x0, y0, angle=0, arr.length=0.4, arr.width=arr.length/2,
   The type of the arrowhead is set with \code{arr.type} which can take
   the values:
   \itemize{
-    \item "simple"  : uses comparable \R function \link{arrows}
     \item "triangle": uses filled triangle
     \item "curved"  : draws arrowhead with curved edges
-    \item "circle"  : draws circular head
+    \item "circle"  : draws circular head (where arr.width=arr.length)
+    \item "ellipse" : draws ellipsoid head 
   }
 }
 

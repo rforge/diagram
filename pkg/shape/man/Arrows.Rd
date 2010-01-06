@@ -12,7 +12,7 @@
 \usage{
 Arrows(x0, y0, x1, y1, code=2, arr.length=0.4, 
   arr.width=arr.length/2, arr.adj=0.5, arr.type="curved",
-  segment=TRUE, lcol="black", lty=1, arr.col=lcol, ...)
+  segment=TRUE, lcol="black", lty=1, arr.col=lcol, arr.lwd=2, ...)
 }
 
 \arguments{
@@ -39,7 +39,7 @@ Arrows(x0, y0, x1, y1, code=2, arr.length=0.4,
   \item{arr.adj }{0,0.5,1 specifying the adjustment of the arrowhead.
   }
   \item{arr.type }{type of arrowhead to draw, one of "simple", "curved",
-    "triangle", "circle", or "T".
+    "triangle", "circle", "ellipse" or "T".
   }
   \item{segment }{logical specifying whether or not to draw line segments.
   }
@@ -48,6 +48,8 @@ Arrows(x0, y0, x1, y1, code=2, arr.length=0.4,
   \item{lty }{line type specifications; either one value or a vector.
   }
   \item{arr.col }{color of arrowhead; either one value or a vector.
+  }
+  \item{arr.lwd }{line width of arrowhead.
   }
   \item{... }{arguments passed to lines or segments function.
   }
@@ -76,6 +78,10 @@ Arrows(x0, y0, x1, y1, code=2, arr.length=0.4,
   Arrows(x0,y0,x1,y1,arr.length=0.2,code=3,arr.type="circle",
          arr.col="grey")
   
+  plot(0,type="n",xlim=xlim,ylim=ylim,main="Arrows, type='ellipse'")
+  Arrows(x0,y0,x1,y1,arr.length=0.2,arr.width=0.5,code=3,
+         arr.type="ellipse", arr.col="grey")
+
   curve(expr=sin(x),0,2*pi+0.25,main="Arrows")
   x  <- seq(0,2*pi,length.out=10)
   xd <- x+0.025
@@ -95,7 +101,7 @@ Arrows(x0, y0, x1, y1, code=2, arr.length=0.4,
 
   plot(sin(xx)*xx,cos(xx)*xx,type="l",axes=FALSE,xlab="",ylab="",
   main="Arrows, type='T'")
-  Arrows(x1,y1,x2,y2,arr.type="T",arr.length=0.4,code=1,lwd=2)
+  Arrows(x1,y1,x2,y2,arr.type="T",arr.length=0.4,code=1,arr.lwd=2)
 
 }
 
@@ -128,6 +134,8 @@ Arrows(x0, y0, x1, y1, code=2, arr.length=0.4,
     \item "triangle": uses filled triangle
     \item "curved"  : draws arrowhead with curved edges
     \item "circle"  : draws circular head
+    \item "ellipse" : draws ellepsoid head
+    \item "T"       : draws T-shaped (blunt) head
   }
 }
 
