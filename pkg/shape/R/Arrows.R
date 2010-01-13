@@ -10,12 +10,12 @@ Arrows <- function(x0, y0, x1, y1, code=2,
 
   if (arr.type=="simple") {
     arrows(x0,y0,x1,y1,code=code,length=arr.length/2.54,
-           col=arr.col,lty=lty,lwd=arr.lwd, ...)
+           lty=lty,lwd=arr.lwd, ...)
     return()
   }
   if (arr.type=="T") {
     arrows(x0,y0,x1,y1,code=code,length=arr.length/(2*2.54),
-           col=arr.col,lty=lty, angle=90,lwd=arr.lwd, ...)
+           lty=lty, angle=90,lwd=arr.lwd, ...)
     return()
   }
 

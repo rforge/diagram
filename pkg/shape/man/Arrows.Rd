@@ -44,6 +44,7 @@ Arrows(x0, y0, x1, y1, code=2, arr.length=0.4,
   \item{segment }{logical specifying whether or not to draw line segments.
   }
   \item{lcol }{line color specifications; either one value or a vector.
+    ignored when arr.type = \code{"simple"} or \code{"T"} - use "col"
   }
   \item{lty }{line type specifications; either one value or a vector.
   }
