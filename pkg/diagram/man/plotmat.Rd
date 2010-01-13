@@ -17,7 +17,8 @@ plotmat(A, pos=NULL, curve=NULL, name=NULL, absent=0,
   self.arrpos=NULL, arr.lwd=lwd, arr.lcol=lcol, arr.col="black",
   arr.type="curved",arr.pos=0.5, arr.length=0.4, arr.width=arr.length/2,
   endhead=FALSE, mx=0.0, my=0.0, box.cex=1, txt.col="black",
-  prefix="", cex.txt=1, add=FALSE, main="", ...)
+  prefix="", cex.txt=1, add=FALSE, main="", cex.main=1, 
+  segment.from=0, segment.to=1, ...)
 }
 \arguments{
   \item{A }{square coefficient matrix, specifying the links (rows=to,
@@ -128,7 +129,17 @@ plotmat(A, pos=NULL, curve=NULL, name=NULL, absent=0,
   \item{add }{start a new plot (\code{FALSE}), or add to current plot
     (\code{TRUE}).
   }
-  \item{main }{main title.
+  \item{main }{main title. Only effective if \code{add = FALSE}.
+  }
+  \item{cex.main }{relative size of main title. 
+  }
+  \item{segment.from }{if not \code{0} then the arrow line will not start 
+    at the position as given in \code{A}, but with an offset.
+    one value, or a matrix with same dimensions as \code{A}
+  }
+  \item{segment.to }{if not \code{1} then the arrow line will not end 
+    at the position as given in \code{A}, but with an offset.
+    one value, or a matrix with same dimensions as \code{A}
   }
   \item{... }{other arguments passed to function \code{shadowbox}.
   }
@@ -164,7 +175,12 @@ plotmat(A, pos=NULL, curve=NULL, name=NULL, absent=0,
               cex.txt=0.8,box.size=0.1,box.type="square",box.prop=0.5,
               main="plotmat")
               
-  M[2,1]<-M[3,1]<-M[4,2]<-M[4,3] <- "flow"
+  # includes arrows between boxes
+  M[2,1]<-M[3,1]<-M[4,2]<-M[4,3] <- "f1"
+
+  pm <- par(mfrow=c(2,2))
+  M <- matrix(nrow=4,ncol=4,byrow=TRUE,data=0)
+  M[2,1]<-M[3,1]<-M[4,2]<-M[4,3] <- "f1"
 
   col   <- M
   col[] <- "red"
@@ -173,6 +189,26 @@ plotmat(A, pos=NULL, curve=NULL, name=NULL, absent=0,
               box.cex=1:4,cex.txt=0.8, arr.lcol=col,arr.col=col,
               box.type="circle",box.prop=1.0,main="plotmat")
 
+  pp<-plotmat(M,pos=c(1,2,1),curve=0,name=1:4,lwd=1,box.lwd=2,
+              box.cex=1:4,cex.txt=0.8, arr.lcol=col,arr.col=col,
+              box.type="circle",box.prop=1.0,arr.len=0.3,
+              segment.from=0.35, segment.to=0.65)
+
+  M[1,2]<-M[1,3]<-M[2,4]<-M[3,4] <- "f2"
+
+  pp<-plotmat(M,pos=c(1,2,1),curve=0.1,name=1:4,lwd=1,box.lwd=2,
+              box.cex=1:4,cex.txt=0.8, arr.lcol=col,arr.col=col,
+              box.type="none",box.prop=1.0,main="plotmat", arr.len=0.2,
+              segment.from=0.3, segment.to=0.7)
+
+  pp<-plotmat(M,pos=c(1,2,1),curve=0.1,name=1:4, box.lwd=2,
+              box.cex=1:4,cex.txt=0.8, arr.lcol=col,arr.col=col, arr.pos=0.7,
+               arr.type="simple", lwd=2,
+              box.type="none",box.prop=1.0,main="plotmat", arr.len=0.2,
+              segment.from=0.3, segment.to=0.7)
+  par(mfrow=pm)
+  
+  # self arrows
   diag(M) <- "self"
   pp<-plotmat(M,pos=c(2,2),curve=0,name=LETTERS[1:4],lwd=1,box.lwd=2,
               cex.txt=0.8,self.cex=0.5,self.shiftx=c(-0.1,0.1,-0.1,0.1),
@@ -265,6 +301,7 @@ plotmat(A, pos=NULL, curve=NULL, name=NULL, absent=0,
     \item "round": a rectangle with rounded left and right edges,
     \item "hexa": a hexagonal shape,
     \item "multi": a multigonal shape.
+    \item "none" if no box is to be drawn.
   }
   The length of the box is set with \code{box.size}, the proportionality
    (length/width) ratio with \code{box.prop}.

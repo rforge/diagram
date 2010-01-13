@@ -71,10 +71,5 @@ shadowbox <- function (box.type="rect", mid, radx, rady=radx, shadow.size=0.01,
     filledmultigonal(mid=mid, rx=radx, ry=rady, col=box.col, lwd=lwd,
       nr=nr, lcol=lcol, angle=angle, ...)
 
-  } else if (box.type =="none")             {
-
-    return
-
-  }
-
+  } #else box.type=="none"
 }

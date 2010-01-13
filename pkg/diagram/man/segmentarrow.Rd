@@ -9,8 +9,8 @@
 }
 
 \usage{
-segmentarrow(from, to, lwd=2, lty=1, lcol="black", arr.side=2,  
-  arr.pos=0.5, path="LVR", dd=0.5, ...)
+segmentarrow(from, to, lwd=2, lty=1, lcol="black", arr.col=lcol,   
+ arr.side=2, arr.pos=0.5, path="LVR", dd=0.5, ...)
 }
 
 \arguments{
@@ -23,6 +23,8 @@ segmentarrow(from, to, lwd=2, lty=1, lcol="black", arr.side=2,
   \item{lty }{line type.
   }
   \item{lcol }{line color.
+  }
+  \item{arr.col }{arrow color.
   }
   \item{arr.side }{segment number on which arrowhead is drawn (1,2,3).
   }

@@ -8,8 +8,8 @@
 }
 
 \usage{
-straightarrow(from, to, lwd=2, lty=1, lcol="black", arr.pos=0.5, 
-  endhead=FALSE, ...)
+straightarrow(from, to, lwd=2, lty=1, lcol="black", arr.col=lcol,  
+ arr.pos=0.5, endhead=FALSE, segment = c(0,1), ...)
 }
 
 \arguments{
@@ -23,10 +23,17 @@ straightarrow(from, to, lwd=2, lty=1, lcol="black", arr.pos=0.5,
   }
   \item{lcol }{line color.
   }
+  \item{arr.col }{arrow color.
+  }
   \item{arr.pos }{relative position of arrowhead.}
   
   \item{endhead }{if \code{TRUE}: the arrow line stops at the arrowhead;
     default = \code{FALSE}.
+  }
+  \item{segment }{if not \code{c(0,1)}: then the arrow line will cover only 
+    part of the requested path, 
+    e.g. if segment = c(0.2,0.8), it will start 0.2 from \code{from} and
+    till 0.8.
   }
   \item{... }{arguments passed to function \link[shape]{Arrows}.
   }

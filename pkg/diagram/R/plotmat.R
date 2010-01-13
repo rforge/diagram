@@ -11,7 +11,8 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
      self.arrpos=NULL, arr.lwd=lwd, arr.lcol=lcol, arr.col="black",
      arr.type="curved", arr.pos=0.5, arr.length=0.4, arr.width=arr.length/2,
      endhead=FALSE, mx=0.0, my=0.0, box.cex=1, txt.col = "black",
-     prefix="", cex.txt=1, add = FALSE, main="", ...)  {
+     prefix="", cex.txt=1, add = FALSE, main="", cex.main = 1,
+     segment.from = 0, segment.to = 1, ...)  {
 
   ncomp <- nrow(A)
   if (is.null(name))
@@ -90,6 +91,10 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
     arrtype   <- matrix(nrow=ncomp, ncol=ncomp, arrtype)
   if (length(cextxt)   ==1)
     cextxt    <- matrix(nrow=ncomp, ncol=ncomp, cextxt)
+  if (length(segment.from ) ==1)
+    seg.from   <- matrix(nrow=ncomp, ncol=ncomp, segment.from)
+  if (length(segment.to ) ==1)
+    seg.to   <- matrix(nrow=ncomp, ncol=ncomp, segment.to)
 
   xlim <- c(0, 1)
 
@@ -98,7 +103,7 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
     xlim <- c(-xx, 1+xx)
   }
   if (!add)
-    openplotmat(main=main, xlim=xlim, ylim=xlim)
+    openplotmat(main=main, xlim=xlim, ylim=xlim, cex.main=cex.main)
 
   # coordinates of boxes
   elpos <- coordinates(pos, mx, my, ncomp, relsize=relsize)
@@ -131,7 +136,7 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
       arr.col    <- arrcol[ii[1], ii[2]]
       arr.type   <- arrtype[ii[1], ii[2]]
       cex.txt    <- cextxt[ii[1], ii[2]]
-
+      segment    <- c(seg.from[ii[1], ii[2]],seg.to[ii[1], ii[2]])
       pos1  <- elpos[ii[1], ]                          # pos to
       pos2  <- elpos[ii[2], ]                          # pos from
       dpos  <- pos1-pos2
@@ -187,7 +192,8 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
          mid1<-straightarrow (from=pos2, to=pos1, lwd=arr.lwd,
                               arr.type=arr.type, arr.length=arr.length,
                               arr.pos=arrpos, arr.width=arr.width,
-                              arr.col=arr.col, lcol=arr.lcol, endhead=endhead)
+                              arr.col=arr.col, lcol=arr.lcol, 
+                              endhead=endhead, segment = segment)
 
          DD <- rbind(DD, mid1)
          if (angle>0) adj=c(0, 1)
@@ -212,14 +218,25 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
            adj <- c(0 , 1)
          if (pos2[1] < pos1[1] & angle<0)
            adj <- c(1 , 0)
-         meanpi <- arrpos * to + (1-arrpos) * from
-         ifelse(endhead, To<-meanpi, To<-to)
-         plotellipse(rx=dst/2, ry=ry, mid=mid, angle=angle, from=from,
+         if (segment [1] != 0)
+           From <- segment[1] * to + (1-segment[1]) * from
+         else
+           From <- from
+    
+         if (segment [2] != 1)
+           To <- segment[2] * to + (1-segment[2]) * from
+         else
+           To <- to
+         
+         meanpi <- arrpos * to+ (1-arrpos) * from
+         if (endhead) To<-meanpi
+         
+         plotellipse(rx=dst/2, ry=ry, mid=mid, angle=angle, from=From,
                      to=To, lwd=arr.lwd, dr=dr, lcol=arr.lcol)
          ell <- getellipse(rx=dst/2, ry=ry, mid=mid, angle=angle,
                          from=1.001*meanpi, to=0.999*meanpi, dr=-0.002)
          Arrows(ell[1,1], ell[1,2], ell[nrow(ell),1], ell[nrow(ell),2],
-                arr.col=arr.col, code=1, arr.length=arr.length,
+                arr.col=arr.col,lcol=arr.lcol,  code=1, arr.length=arr.length,
                 arr.width=arr.width, lwd=arr.lwd, arr.type=arr.type)
          DD <- rbind(DD, c(ell[nrow(ell),1], ell[nrow(ell),2]))
          ell <- getellipse(rx=dst/2, ry=ry+drad, mid=mid, angle=angle,

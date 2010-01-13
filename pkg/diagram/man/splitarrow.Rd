@@ -6,7 +6,7 @@
   adds an arrowhead at a certain distance
 }
 \usage{
-splitarrow(from, to, lwd=2, lty=1, lcol="black", 
+splitarrow(from, to, lwd=2, lty=1, lcol="black", arr.col=lcol, 
   arr.side=2, arr.pos=0.5, centre=NULL, dd=0.5, ...)
 }
 \arguments{
@@ -19,6 +19,8 @@ splitarrow(from, to, lwd=2, lty=1, lcol="black",
   \item{lty }{line type.
   }
   \item{lcol }{line color.
+  }
+  \item{arr.col }{arrow color.
   }
   \item{arr.side }{segment number on which arrowhead is drawn (1,2).
   }

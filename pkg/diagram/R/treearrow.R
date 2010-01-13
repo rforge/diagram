@@ -3,13 +3,13 @@
 # treearrow: segmented arrow between several points
 ##==============================================================================
 
-treearrow <- function(from, to, lwd=2, lty=1, lcol="black", arr.side=2,
-    arr.pos=0.5, line.pos=0.5, path = "H", ...)  {
+treearrow <- function(from, to, lwd=2, lty=1, lcol="black", 
+    arr.col=lcol, arr.side=2, arr.pos=0.5, line.pos=0.5, path = "H", ...)  {
 
   sarr <- function(p1, p2, drawarr)  {
     if (drawarr)
       m1<<-rbind(m1, straightarrow (from=p1, to=p2, arr.pos=arr.pos, lwd=lwd,
-                                   lty=lty, lcol=lcol, ...)) else
+                          lty=lty, lcol=lcol, arr.col=arr.col, ...)) else
     segments(p1[1], p1[2], p2[1], p2[2], lwd=lwd, lty=lty, col=lcol)
   }
 

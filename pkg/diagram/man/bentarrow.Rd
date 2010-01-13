@@ -8,7 +8,7 @@
   and adds an arrowhead on (one of) the segments and at a certain distance.
 }
 \usage{
-bentarrow(from, to, lwd=2, lty=1, lcol="black",
+bentarrow(from, to, lwd=2, lty=1, lcol="black", arr.col=lcol, 
   arr.side=2, arr.pos=0.5,  path="H", ...)
 }
 \arguments{
@@ -21,6 +21,8 @@ bentarrow(from, to, lwd=2, lty=1, lcol="black",
   \item{lty }{line type.
   }
   \item{lcol }{line color.
+  }
+  \item{arr.col }{arrowhead color.
   }
   \item{arr.side }{segment number on which arrowhead is drawn (1,2).
   }
