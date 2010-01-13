@@ -5,17 +5,17 @@
 
 Arrows <- function(x0, y0, x1, y1, code=2,
   arr.length=0.4, arr.width=arr.length/2, arr.adj=0.5,
-  arr.type="curved", segment=TRUE, lcol="black", lty=1,
-  arr.col=lcol, arr.lwd=2, ...)  {
+  arr.type="curved", segment=TRUE, col="black", lcol=col, lty=1,
+  arr.col=lcol, lwd=2, arr.lwd=lwd, ...)  {
 
   if (arr.type=="simple") {
     arrows(x0,y0,x1,y1,code=code,length=arr.length/2.54,
-           lty=lty,lwd=arr.lwd, ...)
+           lty=lty, col=col, lwd=lwd, ...)
     return()
   }
   if (arr.type=="T") {
     arrows(x0,y0,x1,y1,code=code,length=arr.length/(2*2.54),
-           lty=lty, angle=90,lwd=arr.lwd, ...)
+           lty=lty, angle=90, col=col, lwd=lwd,  ...)
     return()
   }
 

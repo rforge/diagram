@@ -12,7 +12,8 @@
 \usage{
 Arrows(x0, y0, x1, y1, code=2, arr.length=0.4, 
   arr.width=arr.length/2, arr.adj=0.5, arr.type="curved",
-  segment=TRUE, lcol="black", lty=1, arr.col=lcol, arr.lwd=2, ...)
+  segment=TRUE, col="black", lcol=col, lty=1, arr.col=lcol, 
+  lwd=2, arr.lwd=lwd, ...)
 }
 
 \arguments{
@@ -43,12 +44,17 @@ Arrows(x0, y0, x1, y1, code=2, arr.length=0.4,
   }
   \item{segment }{logical specifying whether or not to draw line segments.
   }
+  \item{col }{general line color specification; one value or a vector.
+  }
   \item{lcol }{line color specifications; either one value or a vector.
     ignored when arr.type = \code{"simple"} or \code{"T"} - use "col"
   }
   \item{lty }{line type specifications; either one value or a vector.
   }
   \item{arr.col }{color of arrowhead; either one value or a vector.
+  }
+  \item{lwd }{general line width specification, 
+    used when arr.type = \code{"simple"} or \code{"T"}
   }
   \item{arr.lwd }{line width of arrowhead.
   }
