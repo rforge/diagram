@@ -17,7 +17,7 @@ plotmat(A, pos=NULL, curve=NULL, name=NULL, absent=0,
   self.arrpos=NULL, arr.lwd=lwd, arr.lcol=lcol, arr.col="black",
   arr.type="curved",arr.pos=0.5, arr.length=0.4, arr.width=arr.length/2,
   endhead=FALSE, mx=0.0, my=0.0, box.cex=1, txt.col="black",
-  prefix="", cex.txt=1, add=FALSE, main="", cex.main=1, 
+  prefix="", cex=1, cex.txt=cex, add=FALSE, main="", cex.main=cex, 
   segment.from=0, segment.to=1, ...)
 }
 \arguments{
@@ -122,6 +122,8 @@ plotmat(A, pos=NULL, curve=NULL, name=NULL, absent=0,
     dimension=number of rows of \code{A}.
   }
   \item{prefix }{to be added in front of non-zero arrow labels.
+  }
+  \item{cex }{relative size of text.
   }
   \item{cex.txt }{relative size of arrow text, one value, or a matrix with
     same dimensions as \code{A}.
