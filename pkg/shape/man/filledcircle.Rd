@@ -10,8 +10,8 @@
 }
 
 \usage{
-filledcircle(r1=1, r2=0, mid=c(0,0), dr=0.01, from=-pi, to=pi, 
-  col=femmecol(100), values=NULL, zlim=NULL, lwd=2, lcol=NA, ...)
+filledcircle(r1 = 1, r2 = 0, mid = c(0,0), dr = 0.01, from = -pi, to = pi, 
+  col = femmecol(100), values = NULL, zlim = NULL, lwd = 2, lcol = NA, ...)
 }
 
 \arguments{
@@ -50,21 +50,25 @@ filledcircle(r1=1, r2=0, mid=c(0,0), dr=0.01, from=-pi, to=pi,
 }
 
 \examples{
-  color <-graycol(n=50)
-  dr    <- 0.05
-  emptyplot(xlim=c(-2,2),col=color[length(color)],main="filledcircle")
-  filledcircle(r1=1,mid=c(1,1),dr=dr,
-               col=shadepalette(endcol="darkblue")) 
-  filledcircle(r1=1,mid=c(-1,-1),dr=dr,
-               col=shadepalette(endcol="darkred"))
-  filledcircle(r1=1,r2=0.5,mid=c(0,0),dr=dr,col=c(rev(color),color))
-  filledcircle(r1=1,mid=c(1,-1),dr=dr,
-               col=intpalette(c("red","blue","orange"),100)) 
-  filledcircle(mid=c(-1,1))
+color <-graycol(n = 50)
+dr    <- 0.05
+emptyplot(xlim = c(-2, 2), col = color[length(color)], 
+          main = "filledcircle")
+filledcircle(r1 = 1, mid = c(1, 1), dr = dr, 
+          col = shadepalette(endcol = "darkblue")) 
+filledcircle(r1 = 1, mid = c(-1, -1), dr = dr, 
+          col = shadepalette(endcol = "darkred"))
+filledcircle(r1 = 1, r2 = 0.5, mid = c(0, 0), dr = dr, 
+          col = c(rev(color), color))
+filledcircle(r1 = 1, mid = c(1, -1), dr = dr, 
+          col = intpalette(c("red", "blue", "orange"), 100)) 
+filledcircle(mid = c(-1, 1))
   
-  emptyplot(main="filledcircle")
-  for (i in seq(0,0.45,0.05)) filledcircle(r1=i+0.05,r2=i,
-                                           mid=c(0.5,0.5),col=i*20)
+emptyplot(main = "filledcircle")
+
+for (i in seq(0, 0.45, 0.05)) 
+   filledcircle(r1 = i+0.05, r2 = i, 
+                mid = c(0.5, 0.5), col = i*20)
 }
 
 \details{

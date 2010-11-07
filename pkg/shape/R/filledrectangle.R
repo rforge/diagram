@@ -23,7 +23,7 @@ filledrectangle <- function(mid=c(0,0), wx=1, wy=wx,
 
     if (angle != 0)
       xy <- rotatexy (xy,angle=angle,mid=mid) # rotate around mid
-    polygon(xy[,1],xy[,2],col=Col[i],border=Col[i])
+    polygon(xy[,1],xy[,2],col=Col[i],border=Col[i], ...)
 
   }
 
@@ -38,6 +38,6 @@ filledrectangle <- function(mid=c(0,0), wx=1, wy=wx,
     if (angle != 0)
       xy <- rotatexy (xy,angle=angle,mid=mid)
 
-    polygon(xy[,1],xy[,2],border=lcol,col=NA)
+    polygon(xy[,1],xy[,2],border=lcol,col=NA, ...)
   }
 }

@@ -9,7 +9,7 @@
 }
 
 \usage{
-plotcircle(r=1, ...)
+plotcircle(r = 1, ...)
 }
 
 \arguments{
@@ -24,9 +24,9 @@ plotcircle(r=1, ...)
 }
 
 \examples{
-  emptyplot(c(0,1),c(0,2),main="plotcircle")
-  plotcircle(mid=c(0.5,0.5),r=0.25,from=0,to=3*pi/2,
-             arrow=TRUE,arr.pos=0.5,col="red")
+emptyplot(c(0, 1), c(0, 2), main = "plotcircle")
+plotcircle(mid = c(0.5, 0.5), r = 0.25, from = 0, to = 3*pi/2,
+           arrow = TRUE, arr.pos = 0.5, col = "red")
 }
 
 \details{

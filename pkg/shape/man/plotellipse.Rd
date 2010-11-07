@@ -8,11 +8,12 @@
   an arrow can be drawn at a specified position.
 }
 \usage{
-plotellipse(rx=1, ry=0.2, mid=c(0,0), dr=0.01, 
-  angle=0,from=-pi,to=pi,type="l", lwd=2,lcol="black",col=NULL,  
-  arrow=FALSE, arr.length=0.4, arr.width=arr.length*0.5, 
-  arr.type="curved",arr.pos=1,arr.code=2,arr.adj=0.5, 
-  arr.col="black", ...)
+plotellipse(rx = 1, ry = 0.2, mid = c(0,0), dr = 0.01, 
+            angle = 0, from = -pi, to = pi, type = "l", lwd = 2,
+            lcol = "black", col = NULL, arrow = FALSE, 
+            arr.length = 0.4, arr.width = arr.length*0.5, 
+            arr.type = "curved", arr.pos = 1, arr.code = 2, 
+            arr.adj = 0.5, arr.col = "black", ...)
 }
 
 \arguments{
@@ -63,12 +64,14 @@ plotellipse(rx=1, ry=0.2, mid=c(0,0), dr=0.01,
   Karline Soetaert <k.soetaert@nioo.knaw.nl>.
 }
 
-\examples{emptyplot(c(-1,1),main="plotellipse")
-  plotellipse(rx=0.8,ry=0.3,angle=60,col="blue")
-  plotellipse(rx=1.0,ry=0.6,angle=0,from=pi,to=2*pi,arrow=TRUE,
-              arr.pos=seq(0.1,0.5,by=0.1),arr.col=rainbow(5))
-  
-  plotellipse(rx=1.0,ry=0.6,angle=30,from=pi,to=1.2*pi,col="red")
+\examples{
+emptyplot(c(-1, 1), main = "plotellipse")
+plotellipse(rx = 0.8, ry = 0.3, angle = 60, col = "blue")
+plotellipse(rx = 1.0, ry = 0.6, angle = 0, from = pi, to = 2*pi,
+            arrow = TRUE, arr.pos = seq(0.1, 0.5, by = 0.1),
+            arr.col = rainbow(5))
+plotellipse(rx = 1.0, ry = 0.6, angle = 30, from = pi, to = 1.2*pi,
+            col = "red")
 }
 
 \details{

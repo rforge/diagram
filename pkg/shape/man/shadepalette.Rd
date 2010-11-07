@@ -9,8 +9,8 @@
   these colors are suitable for shading shapes
 }
 \usage{
-shadepalette(n=100, endcol="red", inicol="white", 
-  interval=c(0.0,1.0))
+shadepalette(n = 100, endcol = "red", inicol = "white", 
+             interval = c(0.0, 1.0))
 }
 \arguments{
   \item{n }{number of colors.
@@ -30,9 +30,10 @@ shadepalette(n=100, endcol="red", inicol="white",
   Karline Soetaert <k.soetaert@nioo.knaw.nl>
 }
 
-\examples{shadepalette(n=10,"white","black")
-  image(matrix(nrow=1,ncol=100,data=1:100),
-        col=shadepalette(100,"red","blue"),main="shadepalette")
+\examples{
+shadepalette(n = 10, "white", "black")
+image(matrix(nrow = 1, ncol = 100, data = 1:100),
+      col = shadepalette(100, "red", "blue"), main = "shadepalette")
 }
 \seealso{
   \code{\link{intpalette}}, \code{\link{grey}}, \code{\link{femmecol}}

@@ -6,7 +6,9 @@
 \description{
   adds one-character label on left-upper margin, next to a plot
 }
-\usage{writelabel(text=NULL, nr=1, at=-0.1, line=1, cex=1.5, ...)}
+\usage{
+writelabel(text = NULL, nr = 1, at = -0.1, line = 1, cex = 1.5, ...)
+}
 \arguments{
   \item{text }{text to write.
   }
@@ -25,9 +27,10 @@
 \author{
   Karline Soetaert <k.soetaert@nioo.knaw.nl>
 }
-\examples{plot(runif(2),main="writelabel")
-  writelabel("A")
-  writelabel("B",at=0)
-  writelabel("C",at=1)}
+\examples{
+plot(runif(2), main = "writelabel")
+writelabel("A")
+writelabel("B", at = 0)
+writelabel("C", at = 1)}
 \keyword{aplot}
 

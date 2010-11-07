@@ -7,9 +7,10 @@
 }
 
 \usage{
-Arrowhead(x0, y0, angle=0, arr.length=0.4, arr.width=arr.length/2, 
-  arr.adj=0.5, arr.type="curved", lcol="black", lty=1, arr.col=lcol, 
-  arr.lwd=2, npoint=5)
+Arrowhead(x0, y0, angle = 0, arr.length = 0.4, 
+          arr.width = arr.length/2, arr.adj = 0.5, 
+          arr.type = "curved", lcol = "black", lty = 1, 
+          arr.col = lcol, arr.lwd = 2, npoint = 5)
 }
 
 \arguments{
@@ -50,13 +51,14 @@ Arrowhead(x0, y0, angle=0, arr.length=0.4, arr.width=arr.length/2,
 }
 
 \examples{
-  emptyplot(main="Arrowhead")
-  Arrowhead(x0=runif(10),y0=runif(10),angle=runif(10)*360,
-  arr.length=0.3,arr.type="circle",arr.col="green")
-  Arrowhead(x0=runif(10),y0=runif(10),angle=runif(10)*360,
-  arr.length=0.4,arr.type="curved",arr.col="red")
-  Arrowhead(x0=runif(10),y0=runif(10),angle=runif(10)*360,
-  arr.length=runif(10),arr.type="triangle",arr.col=rainbow(10))
+emptyplot(main = "Arrowhead")
+Arrowhead(x0 = runif(10), y0 = runif(10), angle = runif(10)*360, 
+          arr.length = 0.3, arr.type = "circle", arr.col = "green")
+Arrowhead(x0 = runif(10), y0 = runif(10), angle = runif(10)*360, 
+          arr.length = 0.4, arr.type = "curved", arr.col = "red")
+Arrowhead(x0 = runif(10), y0 = runif(10), angle = runif(10)*360, 
+          arr.length = runif(10), arr.type = "triangle", 
+          arr.col = rainbow(10))
 }
 
 \details{

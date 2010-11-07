@@ -10,7 +10,7 @@
 }
 
 \usage{
-greycol(n=100, interval=c(0.0,0.7))
+greycol(n = 100, interval = c(0.0, 0.7))
 }
 
 \arguments{
@@ -27,10 +27,10 @@ greycol(n=100, interval=c(0.0,0.7))
 }
 
 \examples{
-  filled.contour(volcano, color = graycol, asp = 1,main="greycol,graycol")
-  graycol(10)
-  image(matrix(nrow=1,ncol=100,data=1:100),col=graycol(100),
-        main="greycol,graycol")
+filled.contour(volcano, color = graycol, asp = 1, main = "greycol,graycol")
+graycol(10)
+image(matrix(nrow = 1, ncol = 100, data = 1:100),
+      col = graycol(100), main = "greycol,graycol")
 }
 
 \details{

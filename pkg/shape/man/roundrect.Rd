@@ -8,8 +8,8 @@
 }
 
 \usage{
-roundrect(mid, radx, rady, rx=rady, dr=0.01, 
-  col="white", lcol="black", lwd=2, angle=0, ...)
+roundrect(mid, radx, rady, rx = rady, dr = 0.01, 
+          col = "white", lcol = "black", lwd = 2, angle = 0, ...)
 }
 \arguments{
   \item{mid }{midpoint (x,y) of the box.
@@ -36,10 +36,13 @@ roundrect(mid, radx, rady, rx=rady, dr=0.01,
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 
-\examples{emptyplot(c(-0.1,1.1),main="roundrect")
-  for (i in 1:10) roundrect(mid=runif(2),col=i,radx=0.1,rady=0.05)
-  for (i in 1:5) roundrect(mid=runif(2),col=greycol(20),radx=0.05,
-                           rady=0.05,angle=runif(1)*360)
+\examples{
+emptyplot(c(-0.1, 1.1), main = "roundrect")
+for (i in 1:10) 
+  roundrect(mid = runif(2), col = i, radx = 0.1, rady = 0.05)
+for (i in 1:5)
+  roundrect(mid = runif(2), col = greycol(20), radx = 0.05,
+            rady = 0.05, angle = runif(1)*360)
 }
 \details{
   \code{radx} and \code{rady} are the horizontal and vertical radiusses of

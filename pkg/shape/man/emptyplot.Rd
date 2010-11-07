@@ -6,8 +6,8 @@
   without axes, labels, titles, useful for plotting shapes.
 }
 \usage{
-emptyplot(xlim=c(0,1), ylim=xlim, asp=1, frame.plot=FALSE,
-  col=NULL, ...)
+emptyplot(xlim = c(0, 1), ylim = xlim, asp = 1, frame.plot = FALSE,
+          col = NULL, ...)
 }
 
 \arguments{

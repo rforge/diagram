@@ -7,7 +7,7 @@
 }
 
 \usage{
-femmecol(n=100)
+femmecol(n = 100)
 }
 
 \arguments{
@@ -24,9 +24,10 @@ femmecol(n=100)
 }
 
 \examples{
-  filled.contour(volcano, color = femmecol, asp = 1,main="femmecol")
-  femmecol(10)
-  image(matrix(nrow=1,ncol=100,data=1:100),col=femmecol(100),main="femmecol")
+filled.contour(volcano, color = femmecol, asp = 1, main = "femmecol")
+femmecol(10)
+image(matrix(nrow = 1, ncol = 100, data = 1:100), 
+      col = femmecol(100), main = "femmecol")
 }
 
 \seealso{
