@@ -67,7 +67,7 @@ demo("chap11") # chapter 11. Testing and validating the model
 browseURL(paste(system.file(package="ecolMod"), "/demo", sep=""))
 
 ## open the directory with book examples
-browseURL(paste(system.file(package="ecolMod"), "/examples", sep=""))
+browseURL(paste(system.file(package="ecolMod"), "/doc/examples", sep=""))
 
 ## ecolMod vignette:
 vignette("ecolMod")
