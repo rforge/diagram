@@ -9,14 +9,17 @@
 }
 
 \usage{
-plotweb(flowmat, names=NULL, lab.size=1.5, add=FALSE, fig.size=1.3, 
-  main="", sub="", sub2="", log=FALSE, mar=c(2,2,2,2),
-  nullflow=NULL, minflow=NULL, maxflow=NULL,legend=TRUE,
-  leg.digit=5, leg.title=NULL, lcol="black", arr.col="black",
-  val=FALSE, val.digit=5, val.size=0.6, val.col="red",
-  val.title=NULL, val.ncol=1, budget=FALSE, bud.digit=5, bud.size=0.6,
-  bud.title="budget", bud.ncol=1, maxarrow=10, minarrow=1, length=0.1,
-  dcirc=1.2, bty="o", ...)
+plotweb(flowmat, names = NULL, lab.size = 1.5, add = FALSE, 
+        fig.size = 1.3, main = "", sub = "", sub2 = "", 
+        log = FALSE, mar = c(2, 2, 2, 2), 
+        nullflow = NULL, minflow = NULL, maxflow = NULL,
+        legend = TRUE, leg.digit = 5, leg.title = NULL, 
+        lcol = "black", arr.col = "black",
+        val = FALSE, val.digit = 5, val.size = 0.6, val.col = "red",
+        val.title = NULL, val.ncol = 1, 
+        budget = FALSE, bud.digit = 5, bud.size = 0.6,  
+        bud.title = "budget", bud.ncol = 1, 
+        maxarrow = 10, minarrow = 1, length = 0.1, dcirc = 1.2, bty = "o", ...)
 }
 
 \arguments{
@@ -110,16 +113,17 @@ plotweb(flowmat, names=NULL, lab.size=1.5, add=FALSE, fig.size=1.3,
   Karline Soetaert <k.soetaert@nioo.knaw.nl>
 }
 \examples{
-  plotweb(Rigaweb,main="Gulf of Riga food web",sub="mgC/m3/d",val=TRUE)
+plotweb(Rigaweb, main = "Gulf of Riga food web",
+        sub = "mgC/m3/d", val = TRUE)
 
-  ArrCol <- Rigaweb
-  ArrCol[] <- "black"
-  ArrCol[,"Sedimentation"] <- "green"
+ArrCol <- Rigaweb
+ArrCol[] <- "black"
+ArrCol[,"Sedimentation"] <- "green"
 
-  plotweb(Rigaweb,main="Gulf of Riga food web",sub="mgC/m3/d",val=FALSE,
-          arr.col=ArrCol)
+plotweb(Rigaweb, main = "Gulf of Riga food web",
+        sub = "mgC/m3/d", val = FALSE, arr.col = ArrCol)
 
-  plotweb(diag(20),main="plotweb")
+plotweb(diag(20), main = "plotweb")
 }
 
 \details{

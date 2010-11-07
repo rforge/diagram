@@ -8,8 +8,9 @@
   and adds an arrowhead at a certain distance
 }
 \usage{
-curvedarrow(from, to, lwd=2, lty=1, lcol="black", arr.col=lcol, 
-  arr.pos=0.5, curve=1, dr=0.01, endhead=FALSE, segment = c(0,1), ...)
+curvedarrow(from, to, lwd = 2, lty = 1, lcol = "black", 
+            arr.col = lcol, arr.pos = 0.5, curve = 1, dr = 0.01, 
+            endhead = FALSE, segment = c(0, 1), ...)
 }
 \arguments{
   \item{from }{coordinates (x,y) of the point *from* which to draw arrow.
@@ -53,14 +54,18 @@ curvedarrow(from, to, lwd=2, lty=1, lcol="black", arr.col=lcol,
 }
 
 \examples{
-  openplotmat(main="curvedarrow")
-  pos <-coordinates(pos=4,my=0.2)
-  text(pos,LETTERS[1:4],cex=2)
-  for (i in 1:3) curvedarrow(from=pos[1,]+c(0,-0.05),to=pos[i+1,]+c(0,-0.05),
-                             curve=0.5,arr.pos=1)
-  for (i in 1:3) curvedarrow(from=pos[1,]+c(0,0.05),to=pos[i+1,]+c(0,0.05),
-                             curve=-0.25,arr.adj=1,arr.pos=0.5, 
-                             arr.type="triangle", arr.col="blue")
+openplotmat(main = "curvedarrow")
+
+pos <- coordinates(pos = 4, my = 0.2)
+text(pos, LETTERS[1:4], cex = 2)
+
+for (i in 1:3) 
+  curvedarrow(from = pos[1, ] + c(0,-0.05), to = pos[i+1, ] + c(0,-0.05),
+              curve = 0.5, arr.pos = 1)
+for (i in 1:3) 
+  curvedarrow(from = pos[1, ] + c(0, 0.05), to = pos[i+1, ] + c(0, 0.05),
+              curve = -0.25, arr.adj = 1, arr.pos = 0.5, 
+              arr.type = "triangle", arr.col = "blue")
 }
 
 \details{

@@ -8,8 +8,9 @@
 }
 
 \usage{
-straightarrow(from, to, lwd=2, lty=1, lcol="black", arr.col=lcol,  
- arr.pos=0.5, endhead=FALSE, segment = c(0,1), ...)
+straightarrow(from, to, lwd = 2, lty = 1, lcol = "black", 
+              arr.col = lcol, arr.pos = 0.5, endhead = FALSE, 
+              segment = c(0,1), ...)
 }
 
 \arguments{
@@ -43,12 +44,18 @@ straightarrow(from, to, lwd=2, lty=1, lcol="black", arr.col=lcol,
 }
 \author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
 \examples{
-    openplotmat(main="straightarrow")
-    pos <-coordinates(c(2,3,1))
-    for (i in 1:5) straightarrow(from=pos[i,],to=pos[i+1,],arr.pos=0.5)
-    straightarrow(from=pos[6,],to=pos[6,]+c(0.3,0.), arr.type="T", 
-      arr.pos=1,arr.lwd=3)    
-    for (i in 1:6) textrect(pos[i,],lab=LETTERS[i],radx=0.05)
+openplotmat(main = "straightarrow")
+
+pos <- coordinates(c(2, 3, 1))
+
+for (i in 1:5) 
+  straightarrow(from = pos[i, ], to = pos[i+1, ], arr.pos = 0.5)
+
+straightarrow(from = pos[6, ], to = pos[6, ] + c(0.3, 0.), 
+              arr.type = "T", arr.pos = 1, arr.lwd = 3)    
+
+for (i in 1:6) 
+  textrect(pos[i, ], lab = LETTERS[i], radx = 0.05)
 }
 
 \details{a straight arrow is drawn between the points '(\code{from},

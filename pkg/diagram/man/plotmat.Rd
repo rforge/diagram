@@ -9,16 +9,20 @@
 }
 
 \usage{
-plotmat(A, pos=NULL, curve=NULL, name=NULL, absent=0,  
-  relsize=1, lwd=2, lcol="black" , box.size=0.1, box.type="circle",  
-  box.prop=1,box.col="white", box.lcol=lcol, box.lwd=lwd, 
-  shadow.size=0.01, shadow.col="grey", dr=0.01, dtext=0.3,  
-  self.lwd=1, self.cex=1, self.shiftx=box.size, self.shifty=NULL, 
-  self.arrpos=NULL, arr.lwd=lwd, arr.lcol=lcol, arr.col="black",
-  arr.type="curved",arr.pos=0.5, arr.length=0.4, arr.width=arr.length/2,
-  endhead=FALSE, mx=0.0, my=0.0, box.cex=1, txt.col="black",
-  prefix="", cex=1, cex.txt=cex, add=FALSE, main="", cex.main=cex, 
-  segment.from=0, segment.to=1, ...)
+plotmat(A, pos = NULL, curve = NULL, name = NULL, absent = 0,  
+        relsize = 1, lwd = 2, lcol = "black", box.size = 0.1, 
+        box.type = "circle", box.prop = 1, box.col = "white", 
+        box.lcol = lcol, box.lwd = lwd, 
+        shadow.size = 0.01, shadow.col = "grey", dr = 0.01, 
+        dtext = 0.3, self.lwd = 1, self.cex = 1, 
+        self.shiftx = box.size, self.shifty = NULL, 
+        self.arrpos = NULL, arr.lwd = lwd, arr.lcol = lcol, 
+        arr.col = "black", arr.type = "curved", arr.pos = 0.5, 
+        arr.length = 0.4, arr.width = arr.length/2,
+        endhead = FALSE, mx = 0.0, my = 0.0, box.cex = 1, 
+        txt.col = "black", prefix = "", cex = 1, cex.txt = cex, 
+        add = FALSE, main = "", cex.main = cex, 
+        segment.from = 0, segment.to = 1, ...)
 }
 \arguments{
   \item{A }{square coefficient matrix, specifying the links (rows=to,
@@ -172,83 +176,90 @@ plotmat(A, pos=NULL, curve=NULL, name=NULL, absent=0,
 }
 
 \examples{
-  M <- matrix(nrow=4,ncol=4,byrow=TRUE,data=0)
-  pp<-plotmat(M,pos=c(1,2,1),name=c("A","B","C","D"),lwd=1,box.lwd=2,
-              cex.txt=0.8,box.size=0.1,box.type="square",box.prop=0.5,
-              main="plotmat")
+M <- matrix(nrow = 4, ncol = 4, byrow = TRUE, data = 0)
+pp <- plotmat(M, pos = c(1, 2, 1), name = c("A", "B", "C", "D"),
+              lwd = 1, box.lwd = 2, cex.txt = 0.8, 
+              box.size = 0.1, box.type = "square", box.prop = 0.5,
+              main = "plotmat")
+pp
               
-  # includes arrows between boxes
-  M[2,1]<-M[3,1]<-M[4,2]<-M[4,3] <- "f1"
+# includes arrows between boxes
+pm <- par(mfrow = c(2, 2))
+M  <- matrix(nrow = 4, ncol = 4, byrow = TRUE, data = 0)
+M[2, 1] <- M[3, 1] <- M[4, 2] <- M[4, 3] <- "f1"
 
-  pm <- par(mfrow=c(2,2))
-  M <- matrix(nrow=4,ncol=4,byrow=TRUE,data=0)
-  M[2,1]<-M[3,1]<-M[4,2]<-M[4,3] <- "f1"
+col   <- M
+col[] <- "red"
+col[2, 1] <- col[3, 1] <- "blue"
+pp <- plotmat(M, pos = c(1, 2, 1), curve = 0, name = 1:4,
+              lwd = 1, box.lwd = 2, box.cex = 1:4, cex.txt = 0.8, 
+              arr.lcol = col, arr.col = col, box.type = "circle",
+              box.prop = 1.0, main = "plotmat")
 
-  col   <- M
-  col[] <- "red"
-  col[2,1]<-col[3,1]<-"blue"
-  pp<-plotmat(M,pos=c(1,2,1),curve=0,name=1:4,lwd=1,box.lwd=2,
-              box.cex=1:4,cex.txt=0.8, arr.lcol=col,arr.col=col,
-              box.type="circle",box.prop=1.0,main="plotmat")
+pp <- plotmat(M, pos = c(1, 2, 1), curve = 0, name = 1:4,
+              lwd = 1, box.lwd = 2, box.cex = 1:4, cex.txt = 0.8, 
+              arr.lcol = col, arr.col = col, box.type = "circle",
+              box.prop = 1.0, arr.len = 0.3,
+              segment.from = 0.35, segment.to = 0.65)
 
-  pp<-plotmat(M,pos=c(1,2,1),curve=0,name=1:4,lwd=1,box.lwd=2,
-              box.cex=1:4,cex.txt=0.8, arr.lcol=col,arr.col=col,
-              box.type="circle",box.prop=1.0,arr.len=0.3,
-              segment.from=0.35, segment.to=0.65)
+M[1, 2] <- M[1, 3] <- M[2, 4] <- M[3, 4] <- "f2"
 
-  M[1,2]<-M[1,3]<-M[2,4]<-M[3,4] <- "f2"
+pp <- plotmat(M, pos = c(1, 2, 1), curve = 0.1, name = 1:4,
+              lwd = 1, box.lwd = 2, box.cex = 1:4, cex.txt = 0.8, 
+              arr.lcol = col, arr.col = col, box.type = "none",
+              box.prop = 1.0, main = "plotmat", arr.len = 0.2,
+              segment.from = 0.3, segment.to = 0.7)
 
-  pp<-plotmat(M,pos=c(1,2,1),curve=0.1,name=1:4,lwd=1,box.lwd=2,
-              box.cex=1:4,cex.txt=0.8, arr.lcol=col,arr.col=col,
-              box.type="none",box.prop=1.0,main="plotmat", arr.len=0.2,
-              segment.from=0.3, segment.to=0.7)
-
-  pp<-plotmat(M,pos=c(1,2,1),curve=0.1,name=1:4, box.lwd=2,
-              box.cex=1:4,cex.txt=0.8, arr.lcol=col,arr.col=col, arr.pos=0.7,
-               arr.type="simple", lwd=2,
-              box.type="none",box.prop=1.0,main="plotmat", arr.len=0.2,
-              segment.from=0.3, segment.to=0.7)
-  par(mfrow=pm)
+pp <- plotmat(M, pos = c(1, 2, 1), curve = 0.1, name = 1:4, 
+              box.lwd = 2, box.cex = 1:4, cex.txt = 0.8, 
+              arr.lcol = col, arr.col = col, arr.pos = 0.7,
+              arr.type = "simple", lwd = 2, box.type = "none",
+              box.prop = 1.0, main = "plotmat", arr.len = 0.2,
+              segment.from = 0.3, segment.to = 0.7)
+par(mfrow=pm)
   
-  # self arrows
-  diag(M) <- "self"
-  pp<-plotmat(M,pos=c(2,2),curve=0,name=LETTERS[1:4],lwd=1,box.lwd=2,
-              cex.txt=0.8,self.cex=0.5,self.shiftx=c(-0.1,0.1,-0.1,0.1),
-              box.type="diamond",box.prop=0.5,main="plotmat")
+# self arrows
+diag(M) <- "self"
+pp <- plotmat(M, pos = c(2, 2), curve = 0, name = LETTERS[1:4],
+              lwd = 1, box.lwd = 2, cex.txt = 0.8, self.cex = 0.5,
+              self.shiftx = c(-0.1, 0.1, -0.1, 0.1),
+              box.type = "diamond", box.prop = 0.5, main = "plotmat")
   
-  M <- matrix(nrow=4,ncol=4,data=0)
-  M[2,1]<-1  ;M[4,2]<-2;M[3,4]<-3;M[1,3]<-4
-  pp<-plotmat(M,pos=c(1,2,1),curve=0.2,name=letters[1:4],lwd=1,box.lwd=2,
-              cex.txt=0.8,arr.type="triangle",box.size=0.1,box.type="hexa",
-              box.prop=0.5,main="plotmat")
+M <- matrix(nrow = 4, ncol = 4, data = 0)
+M[2, 1]<- 1 ; M[4, 2] <- 2 ; M[3, 4] <- 3; M[1, 3] <- 4
+pp <- plotmat(M, pos = c(1, 2, 1), curve = 0.2, name = letters[1:4],
+              lwd = 1, box.lwd = 2, cex.txt = 0.8, arr.type = "triangle",
+              box.size = 0.1, box.type = "hexa", box.prop = 0.5,
+              main = "plotmat")
 
-  arrlwd <- M*2
-  arr.length <- M*0.4
-  cextxt <- M*0.8
-  plotmat(M,pos=c(1,2,1),curve=0.2,name=letters[1:4],lwd=1,box.lwd=2,
-          arr.type="triangle",box.size=0.1,box.type="hexa",
-          box.prop=0.5,main="plotmat",arr.lwd=arrlwd,
-          arr.length=arr.length,cex.txt=cextxt)
+arrlwd <- M*2
+arr.length <- M*0.4
+cextxt <- M*0.8
+plotmat(M, pos = c(1, 2, 1), curve = 0.2, name = letters[1:4], lwd = 1,
+        box.lwd = 2, arr.type = "triangle", box.size = 0.1,
+        box.type = "hexa", box.prop = 0.5, main = "plotmat",
+        arr.lwd = arrlwd, arr.length = arr.length, cex.txt = cextxt)
 
-  M <- matrix(nrow=4,ncol=4,byrow=TRUE,data=0)
-  M     <- as.data.frame(M)
-  M[[2,1]]<- "k[si]"
-  M[[3,1]]<- "k[N]"
-  M[[4,2]]<- "sqrt(frac(2,3))"
+M <- matrix(nrow = 4, ncol = 4, byrow = TRUE, data = 0)
+M     <- as.data.frame(M)
+M[[2,1]]<- "k[si]"
+M[[3,1]]<- "k[N]"
+M[[4,2]]<- "sqrt(frac(2,3))"
 
-  names <-
-  c(expression(lambda[12]),"?",expression(lambda[13]),expression(lambda[23]))
+names <-
+  c(expression(lambda[12]), "?", 
+    expression(lambda[13]),expression(lambda[23]))
 
-  pp<-plotmat(M,pos=c(1,2,1),name=names,lwd=1,box.lwd=2, curve=0,
-              cex.txt=0.8,box.size=0.1,box.type="square",box.prop=0.5,
-              main="plotmat")
+plotmat(M, pos = c(1, 2, 1), name = names, lwd = 1, box.lwd = 2, 
+        curve = 0, cex.txt = 0.8, box.size = 0.1, box.type = "square",
+        box.prop = 0.5, main = "plotmat")
               
-  plotmat(M,name=letters[1:4],curve=0,box.cex=1:4,box.lwd=4:1,
-          box.size=0.075,arr.pos=0.7,
-          box.col=c("lightblue","green","yellow","orange"))
+plotmat(M, name = letters[1:4], curve = 0, box.cex = 1:4, box.lwd = 4:1,
+        box.size = 0.075, arr.pos = 0.7, 
+        box.col = c("lightblue", "green", "yellow", "orange"))
 
 
-              }
+}
 \details{
   The square transition matrix \code{A} determines the number of elements
   of \code{A} (rows of \code{A}) and which elements are connected

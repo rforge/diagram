@@ -8,9 +8,10 @@
   in an ellipsoid box
 }
 \usage{
-textellipse(mid, radx, rady=radx*length(lab), lwd=1,  
-  shadow.size=0.01, adj=c(0.5,0.5),lab="", box.col="white", 
-  lcol="black", shadow.col="grey", angle=0, dr=0.01, ...)
+textellipse(mid, radx, rady = radx*length(lab), lwd = 1,  
+            shadow.size = 0.01, adj = c(0.5, 0.5), lab = "", 
+            box.col = "white", lcol = "black", shadow.col = "grey", 
+            angle = 0, dr = 0.01, ...)
 }
 
 \arguments{
@@ -48,9 +49,12 @@ textellipse(mid, radx, rady=radx*length(lab), lwd=1,
 }
 
 \examples{
-  openplotmat(xlim=c(-0.1,1.1),main="textellipse")
-  for (i in 1:10) textellipse(mid=runif(2),col=i,box.col=grey(0.95),radx=0.1,
-                          rady=0.05,lab=LETTERS[i],cex=2,angle=runif(1)*360)
+openplotmat(xlim = c(-0.1, 1.1), main = "textellipse")
+
+for (i in 1:10) 
+  textellipse(mid = runif(2), col = i, box.col = grey(0.95),
+              radx = 0.1, rady = 0.05, lab = LETTERS[i],
+              cex = 2, angle = runif(1)*360)
 }
 
 \details{

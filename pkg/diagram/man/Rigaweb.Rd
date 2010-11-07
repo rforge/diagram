@@ -44,8 +44,8 @@
 }
 
 \examples{
-  plotweb(Rigaweb,main="Gulf of Riga planktonic food web",
-                    sub="mgC/m3/day")
+plotweb(Rigaweb, main = "Gulf of Riga planktonic food web",
+        sub = "mgC/m3/day")
 }
 
 \references{

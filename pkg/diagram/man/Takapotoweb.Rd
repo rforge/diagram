@@ -46,8 +46,9 @@
   Karline Soetaert <k.soetaert@nioo.knaw.nl>
 }
 
-\examples{plotweb(Takapotoweb,main="Takapoto atoll planktonic food web",
-                    sub="mgC/m2/day",lab.size=1)
+\examples{
+plotweb(Takapotoweb, main = "Takapoto atoll planktonic food web",
+        sub = "mgC/m2/day", lab.size = 1)
 }
 
 \references{

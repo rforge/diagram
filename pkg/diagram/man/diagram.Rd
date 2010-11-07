@@ -19,7 +19,7 @@
     Package: \tab diagram\cr
     Type: \tab Package\cr
     Version: \tab 1.5.1\cr
-    Date: \tab 2010-10-01\cr
+    Date: \tab 2010-11-01\cr
     License: \tab GNU Public License 2 or above\cr
   }
   This package is used in R-package ecolMod, which includes many more examples.

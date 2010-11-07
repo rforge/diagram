@@ -1,7 +1,7 @@
 \name{textround}
 \alias{textround}
 \title{
-  adds lines of text in an rounded box to a plot
+  adds lines of text in a rounded box to a plot
 }
 \description{
   adds one or more lines of text, centered around "mid"
@@ -10,9 +10,9 @@
 
 
 \usage{
-textround(mid, radx, rady=radx*length(lab), lwd=1, 
-  shadow.size=0.01, adj=c(0.5,0.5),lab="", box.col="white", 
-  lcol="black", shadow.col="grey", angle=0, rx=rady, ...)
+textround(mid, radx, rady = radx*length(lab), lwd = 1, 
+  shadow.size = 0.01, adj = c(0.5, 0.5), lab = "", box.col = "white", 
+  lcol = "black", shadow.col = "grey", angle = 0, rx = rady, ...)
 }
 
 \arguments{
@@ -48,9 +48,12 @@ textround(mid, radx, rady=radx*length(lab), lwd=1,
 }
 
 \examples{
-  openplotmat(xlim=c(-0.1,1.1),main="textround")
-  for (i in 1:10) textround(mid=runif(2),col=i,radx=0.03,rady=0.075,
-                            lab=LETTERS[i],cex=2)
+  openplotmat(xlim = c(-0.1, 1.1), main = "textround")
+
+  for (i in 1:10) 
+    textround(mid = runif(2), col = i, 
+              radx = 0.03, rady = 0.075,
+              lab = LETTERS[i], cex = 2)
 }
 
 \details{

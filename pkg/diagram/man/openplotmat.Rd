@@ -8,7 +8,7 @@
   without axes, labels, titles
 }
 \usage{
-openplotmat (asp=NA, ...)
+openplotmat (asp = NA, ...)
 }
 \arguments{
   \item{asp }{the y/x aspect ratio.

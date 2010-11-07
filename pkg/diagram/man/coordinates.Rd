@@ -7,8 +7,8 @@
   estimates coordinates of elements, neatly arranged on a plot.
 }
 \usage{
-coordinates(pos=NULL, mx=0.0, my=0.0, N=length(pos), hor=TRUE, 
-  relsize=1)
+coordinates(pos = NULL, mx = 0.0, my = 0.0, N = length(pos), 
+            hor = TRUE, relsize = 1)
 }
 \arguments{
   \item{pos }{vector specifying the number of elements in each row, or
@@ -36,13 +36,19 @@ coordinates(pos=NULL, mx=0.0, my=0.0, N=length(pos), hor=TRUE,
 }
 
 \examples{
-  openplotmat(main="coordinates")
-  text(coordinates(N=6),lab=LETTERS[1:6],cex=2)
-  text(coordinates(N=8,relsize=0.5),lab=letters[1:8],cex=2)
-  openplotmat(main="coordinates")
-  text(coordinates(pos=c(2,4,2)),lab=letters[1:8],cex=2)
-  plot(0,type="n",xlim=c(0,5),ylim=c(2,8),main="coordinates")
-  text(coordinates(pos=c(2,4,3),hor=FALSE),lab=1:9,cex=2)
+openplotmat(main = "coordinates")
+
+text(coordinates(N = 6), lab = LETTERS[1:6], cex = 2)
+
+text(coordinates(N = 8, relsize = 0.5), lab = letters[1:8], cex = 2)
+
+openplotmat(main = "coordinates")
+
+text(coordinates(pos = c(2, 4, 2)), lab = letters[1:8], cex = 2)
+
+plot(0, type = "n", xlim = c(0, 5), ylim = c(2, 8), main = "coordinates")
+
+text(coordinates(pos = c(2, 4, 3), hor = FALSE), lab = 1:9, cex = 2)
 }
 
 \details{the position of the elements are specified with \code{pos}, which is

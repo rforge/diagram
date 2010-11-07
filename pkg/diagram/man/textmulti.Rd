@@ -9,9 +9,11 @@
   in an multigonal box
 }
 \usage{
-textmulti(mid, radx, rady=radx*length(lab), lwd=1, 
-  shadow.size=0.01, adj=c(0.5,0.5), lab="", box.col="white", 
-  lcol="black", shadow.col="grey", angle=0, nr=6,...)}
+textmulti(mid, radx, rady = radx*length(lab), lwd = 1, 
+          shadow.size = 0.01, adj = c(0.5, 0.5), 
+          lab = "", box.col = "white", lcol = "black", 
+          shadow.col = "grey", angle = 0, nr = 6, ...)
+}
 \arguments{
   \item{mid }{midpoint (x,y) of the box.
   }
@@ -46,9 +48,11 @@ textmulti(mid, radx, rady=radx*length(lab), lwd=1,
 }
 
 \examples{
-  openplotmat(xlim=c(-0.1,1.1),main="textmulti")
-  for (i in 1:10) textmulti(mid=runif(2),col=i,radx=0.1,rady=0.1,
-                    lab=LETTERS[i], cex=2,nr=trunc(i/1.5)+3)
+  openplotmat(xlim = c(-0.1, 1.1), main = "textmulti")
+
+  for (i in 1:10) 
+    textmulti(mid = runif(2), col = i, radx = 0.1, rady = 0.1,
+             lab = LETTERS[i], cex = 2, nr = trunc(i/1.5)+3)
 }
 
 \details{

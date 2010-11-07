@@ -9,9 +9,10 @@
   in an hexagonal box.
 }
 \usage{
-texthexa(mid, radx, rady=radx*length(lab), lwd=1, 
-  shadow.size=0.01, adj=c(0.5,0.5), lab="", box.col="white", 
-  lcol="black", shadow.col="grey", angle=0, ...)
+texthexa(mid, radx, rady = radx*length(lab), lwd = 1, 
+         shadow.size = 0.01, adj = c(0.5,0.5), 
+         lab = "", box.col = "white", lcol = "black", 
+         shadow.col = "grey", angle = 0, ...)
 }
 
 \arguments{
@@ -46,9 +47,12 @@ texthexa(mid, radx, rady=radx*length(lab), lwd=1,
 }
 
 \examples{
-  openplotmat(xlim=c(-0.1,1.1),main="texthexa")
-  for (i in 1:20) texthexa(mid=runif(2),angle=runif(1)*360,col=i,
-               box.col=grey(0.95),radx=0.1,rady=0.05,lab=LETTERS[i],cex=2)
+  openplotmat(xlim = c(-0.1, 1.1), main = "texthexa")
+
+  for (i in 1:20) 
+    texthexa(mid = runif(2), angle = runif(1)*360, col = i,
+             box.col = grey(0.95), radx = 0.1, rady = 0.05,
+             lab = LETTERS[i], cex = 2)
 }
 
 \details{
