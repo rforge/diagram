@@ -7,7 +7,7 @@ filledshape <- function(xyouter, xyinner=colMeans(xyouter),
 
 
   expand<-function(mat,npoints) {
-    mat   <- matrix(nc=2,mat)
+    mat   <- matrix(ncol=2,mat)
     nfrom <- nrow(mat)
     nin   <- round(npoints/nfrom)
     nin   <- rep(nin,nfrom-1)
