@@ -14,7 +14,7 @@ shadowbox <- function (box.type="rect", mid, radx, rady=radx, shadow.size=0.01,
   if (box.type %in% c("rect", "square"))   {
     xy     <- cbind(c(mid[1]-radx, mid[1]-radx, mid[1]+radx, mid[1]+radx),
                     c(mid[2]-rady, mid[2]+rady, mid[2]+rady, mid[2]-rady))
-    xyshad <- xy + matrix(nr=4, nc=2, byrow=TRUE, data=c(dd[1], dd[2]))
+    xyshad <- xy + matrix(nrow = 4, ncol = 2, byrow=TRUE, data=c(dd[1], dd[2]))
     if (angle != 0) {
       xy <- rotatexy  (xy, angle)
       xyshad <-rotatexy(xyshad, angle)

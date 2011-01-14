@@ -52,7 +52,7 @@ coordinates <- function(pos=NULL, mx=0.0, my=0.0, N=length(pos),
   elpos[,2]  <-usr[3]+elpos[,2]*(usr[4]-usr[3])
 
 
-  coordinates<-elpos + matrix(nr=nrow(elpos), nc=2, byrow=TRUE, data=c(mx, my))
+  coordinates<-elpos + matrix(nrow = nrow(elpos), ncol = 2, byrow=TRUE, data=c(mx, my))
      # 2-columned matrix with coordinates (x, y) of each element
 }
 
