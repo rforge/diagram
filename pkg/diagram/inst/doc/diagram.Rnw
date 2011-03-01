@@ -354,7 +354,9 @@ plotweb(Rigaweb, main = "Gulf of Riga food web",
 
 \section{functions to create flow charts}
 
-The various functions are given in table (1).
+The various functions are given in table (1)
+\footnote{textparallel was implemented by Michael Folkes, Canada}.
+.
 \begin{table*}[t]
 \caption{Summary of flowchart functions}\label{tb:arr}
 \centering
@@ -376,6 +378,7 @@ textellipse   &  adds lines of text in a ellipse-shaped box to a plot\\
 textempty     &  adds lines of text on a colored background to a plot\\
 texthexa      &  adds lines of text in a hexagonal box to a plot\\
 textmulti     &  adds lines of text in a multigonal box to a plot\\
+textparallel  &  adds lines of text in a parallelogram to a plot\\
 textplain     &  adds lines of text to a plot\\
 textrect      &  adds lines of text in a rectangular-shaped box to a plot\\
 textround     &  adds lines of text in a rounded box to a plot\\
@@ -435,7 +438,7 @@ The different types of text boxes are generated with the following code:
 openplotmat(main = "textbox shapes")
 rx <- 0.1
 ry <- 0.05
-pos <- coordinates(c(1, 1, 1, 1, 1, 1, 1), mx = -0.2)
+pos <- coordinates(c(1, 1, 1, 1, 1, 1, 1,1 ), mx = -0.2)
 textdiamond(mid = pos[1,], radx = rx, rady = ry, lab = LETTERS[1],
             cex = 2, shadow.col = "lightblue")
 textellipse(mid = pos[2,], radx = rx, rady = ry, lab = LETTERS[2],
@@ -448,10 +451,13 @@ textrect(mid = pos[5,], radx = rx, rady = ry, lab = LETTERS[5],
          cex = 2, shadow.col = "darkred")
 textround(mid = pos[6,], radx = rx, rady = ry, lab = LETTERS[6],
          cex = 2, shadow.col = "black")
-textempty(mid = pos[7,], lab = LETTERS[7], cex = 2, box.col = "yellow")
+textparallel(mid = pos[7,], radx = rx, rady = ry, lab = LETTERS[7],
+         cex = 2, theta = 40, shadow.col = "black")
+textempty(mid = pos[8,], lab = LETTERS[8], cex = 2, box.col = "yellow")
 pos[ ,1] <- pos[ ,1] + 0.5
 text(pos[ ,1],pos[ ,2], c("textdiamond", "textellipse", "texthexa",
-                  "textmulti", "textrect", "textround", "textempty"))
+                  "textmulti", "textrect", "textround",
+                  "textparallel", "textempty"))
 @
 \setkeys{Gin}{width=0.8\textwidth}
 \begin{figure}

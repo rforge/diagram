@@ -3,9 +3,9 @@
 # shadowbox: Boxes with shadow
 ##==============================================================================
 
-shadowbox <- function (box.type="rect", mid, radx, rady=radx, shadow.size=0.01,
+shadowbox <- function (box.type = "rect", mid, radx, rady=radx, shadow.size=0.01,
      shadow.col="grey", box.col="white", lcol="black", lwd=1, dr=0.01,
-     angle=0, len=1, nr=5, rx=rady, ...)  {
+     angle=0, len=1, nr=5, rx=rady, theta = 90, ...)  {
 
 
   pin   <- par ("pin")                 # size of plotting region,  inches
@@ -71,5 +71,26 @@ shadowbox <- function (box.type="rect", mid, radx, rady=radx, shadow.size=0.01,
     filledmultigonal(mid=mid, rx=radx, ry=rady, col=box.col, lwd=lwd,
       nr=nr, lcol=lcol, angle=angle, ...)
 
-  } #else box.type=="none"
+  } else if (box.type == "parallel") {
+   # center box object
+        shift <- 0.5*2*rady/tan(theta*pi/180)
+        xy <- cbind(c(mid[1] - radx - shift,
+                      mid[1] - radx - shift + 2*rady/tan(theta*pi/180),
+                      mid[1] + radx - shift + 2*rady/tan(theta*pi/180),
+                      mid[1] + radx - shift),
+                      c(mid[2] - rady, mid[2] + rady,
+                        mid[2] + rady, mid[2] - rady))
+        xyshad <- xy + matrix(nr = 4, nc = 2, byrow = TRUE, data = c(dd[1], dd[2]))
+        if (angle != 0) {
+            xy <- rotatexy(xy, angle)
+            xyshad <- rotatexy(xyshad, angle)
+        }
+        if (shadow.size > 0)
+            polygon(xyshad[, 1], xyshad[, 2], border = NA, col = shadow.col)
+        polygon(xy[, 1], xy[, 2], lwd = lwd, col = box.col, border = lcol,
+            ...)
+    }
+
+
+  #else box.type=="none"
 }

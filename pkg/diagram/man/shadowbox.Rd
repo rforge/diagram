@@ -11,7 +11,8 @@
 shadowbox(box.type = "rect", mid, radx, rady = radx, 
           shadow.size = 0.01, shadow.col = "grey",
           box.col = "white", lcol = "black", lwd = 1,  
-          dr = 0.01, angle = 0, len = 1, nr = 5, rx = rady, ...)
+          dr = 0.01, angle = 0, len = 1, nr = 5, rx = rady,
+          theta = 90, ...)
 }
 
 \arguments{
@@ -43,6 +44,8 @@ shadowbox(box.type = "rect", mid, radx, rady = radx,
   \item{nr }{if \code{box.type}="multi": the number of angles.
   }
   \item{rx }{if \code{box.type}="round", the radius of the rounded part.
+  }
+  \item{theta }{if \code{box.type}="parallel", angle of the bottom, left corner of the parallelogram, in degrees.
   }
   \item{... }{other arguments.
   }
@@ -90,6 +93,7 @@ shadowbox(box.type = "multi", mid = c(0.8, 0.5),
     \item "multi": a multigonal shape; also input "nr", the number of angles.
     \item "cylinder": a cylindrical shape; also input "len", the length of
       the cylinder.
+    \item "parallel": a parallelogram; ``theta'' is the angle of the bottom left corner.
   }
   the fill-color of the box is specified with \code{box.col};
 
