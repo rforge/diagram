@@ -5,7 +5,7 @@
 
 Arrowhead <- function(x0, y0, angle=0, arr.length=0.4,
   arr.width=arr.length/2, arr.adj=0.5, arr.type="curved",
-  lcol="black", lty=1, arr.col=lcol, arr.lwd=2, npoint=5) {
+  lcol="black", lty=1, arr.col=lcol, arr.lwd = 2, npoint = 5) {
 
  ## points of polygon, as drawn in graph with x- and y- ranges -5,5
 

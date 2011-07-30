@@ -72,11 +72,18 @@ plotellipse(rx = 1.0, ry = 0.6, angle = 0, from = pi, to = 2*pi,
             arr.col = rainbow(5))
 plotellipse(rx = 1.0, ry = 0.6, angle = 30, from = pi, to = 1.2*pi,
             col = "red")
+plotellipse(rx = 0.1, ry = 0.6, from = 1.5*pi, to = pi,
+            lcol = "orange", mid = c(0.2,0.2))
+plotellipse(rx = 0.1, ry = 0.6, angle = 30, from = 1.5*pi, to = pi,
+            lcol = "orange", mid = c(0.2,0.2))
 }
 
 \details{
   \code{rx} and \code{ry} are the horizontal and vertical radiusses of the
   ellipses.
+
+  The ellipse is drawn from the point defined by \code{from} to the point defined
+  as \code{to} which are joined anti-clockwise. 
 
   if \code{arrow} is \code{TRUE}, an arrow is drawn along the path of the
   ellipse.

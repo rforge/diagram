@@ -32,7 +32,8 @@ filledellipse(rx1 = 1, rx2 = 0, ry1 = rx1, ry2 = NULL, mid = c(0,0),
   }
   \item{from }{starting angle for ellipse segment, radians.
   }
-  \item{to }{final angle for ellipse segment, radians.
+  \item{to }{final angle for ellipse segment, radians. The segment is drawn 
+    counterclockwise. The default is draw a full ellipse.
   }
   \item{col }{color palette to be used; also allowed are two extremes
     or one value.

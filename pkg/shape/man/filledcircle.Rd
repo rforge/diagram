@@ -26,7 +26,8 @@ filledcircle(r1 = 1, r2 = 0, mid = c(0,0), dr = 0.01, from = -pi, to = pi,
   }
   \item{from }{starting angle for circle segment, radians.
   }
-  \item{to }{final angle for circle segment, radians.
+  \item{to }{final angle for circle segment, radians. The segment is drawn 
+    counterclockwise. The default is to draw a full circle.
   }
   \item{col }{color palette to be used; also allowed are two extremes or one
     value.

@@ -18,13 +18,16 @@
   \tabular{ll}{
     Package: \tab shape\cr
     Type: \tab Package\cr
-    Version: \tab 1.3.1\cr
-    Date: \tab 2010-01-01\cr
-    License: \tab GNU Public License 2 or above\cr
+    Version: \tab 1.3.4\cr
+    Date: \tab 2011-07-30\cr
+    License: \tab GNU Public License 3 or above\cr
   }
 This package is used in R-package ecolMod, which includes many more examples.
 
 See also R-package diagram.
+
+Changes in version 1.3.4: more consitent drawing of ellipse and circle segments,
+ added textflag. (both suggested by Tom Wilson)
 }
 \author{
   Karline Soetaert (Maintainer)
@@ -39,7 +42,7 @@ See also R-package diagram.
   \code{\link{filledellipse}}, \code{\link{filledmultigonal}},
   \code{\link{filledrectangle}}, \code{\link{filledshape}},
   \code{\link{getellipse}}, \code{\link{plotcircle}},
-  \code{\link{plotellipse}}, \code{\link{roundrect}}.
+  \code{\link{plotellipse}}, \code{\link{roundrect}}, \code{\link{textflag}}.
 }
 
 \examples{

@@ -27,7 +27,8 @@ getellipse(rx = 1, ry = rx, mid = c(0, 0), dr = 0.01,
   }
   \item{from }{starting angle for ellipse segment, radians.
   }
-  \item{to }{final angle for ellipse segment, radians.
+  \item{to }{final angle for ellipse segment, radians. The segment is generated 
+    counterclockwise. The default is draw a full ellipse.
   }
 }
 
@@ -47,6 +48,13 @@ lines(getellipse(0.5, 0.25, mid = c(0.5, 0.5)), type = "l",
 lines(getellipse(0.5, 0.25, mid = c(0.5, 0.5), angle = 45), 
       type = "l", col = "green", lwd = 2)
 
+lines(getellipse(0.2, 0.2, mid = c(0.5, 0.5), from = 0, to = pi/2), 
+      type = "l", col = "orange", lwd = 2)
+lines(getellipse(0.2, 0.2, mid = c(0.5, 0.5), from = pi/2, to = 0), 
+      type = "l", col = "black", lwd = 2)
+lines(getellipse(0.1, 0.1, mid = c(0.75, 0.5), from = -pi/2, to = pi/2), 
+      type = "l", col = "black", lwd = 2)
+
 emptyplot(main = "getellipse")
 col <- femmecol(90)
 for (i in seq(0, 180, by = 2)) 
@@ -57,6 +65,9 @@ for (i in seq(0, 180, by = 2))
 \details{
   \code{rx} and \code{ry} are the horizontal and vertical radiusses of the
   ellipses.
+  
+  points \code{from} and \code{to} are joined counterclockwise. (this has changed
+  since version 1.3.4).
 }
 \seealso{
   \code{\link{plotellipse}}, \code{\link{filledellipse}}

@@ -6,6 +6,7 @@
 getellipse <- function (rx=1, ry=rx, mid=c(0,0), dr=0.01,
   angle=0, from=-pi, to=pi) {
 
+  if (to < from) to <- 2*pi + to
   x  <- c( seq(from,to,by=dr), to)
   if (x[length(x)] == x[length(x)-1])
     x <- x[-length(x)]
