@@ -36,7 +36,10 @@ The Netherlands
 \citep{diagram} for plotting small networks, flow charts, and (food) webs.
 
 Together with R-package \pkg{shape} \citep{shape} this package has
-been written to produce the figures of the book \citep{Soetaertbook}
+been written to produce the figures of the book \citep{Soetaertbook}.
+
+The electrical network symbols were added to produce a figure of the book
+\citep{Soetaertbook2}
  }
 
 %% The address of (at least) one author should be given
@@ -356,7 +359,7 @@ plotweb(Rigaweb, main = "Gulf of Riga food web",
 
 The various functions are given in table (1)
 \footnote{textparallel was implemented by Michael Folkes, Canada}.
-.
+
 \begin{table*}[t]
 \caption{Summary of flowchart functions}\label{tb:arr}
 \centering
@@ -504,6 +507,110 @@ legend("topright", lty = 1:7, legend = c("segmentarrow",
 \caption{The arrow types}
 \label{fig:nine}
 \end{figure}
+
+\section{functions to draw electrical networks}
+Since version 1.6, it is possible to use \code{diagram} to draw electrical
+networks. Below I give an example of a small transistor circuit.
+
+<<label=enet, include=FALSE>>=
+layoutmat <- matrix(data = c(rep(1, 12), 2, 3, 4, 5),
+                    nrow = 4, ncol = 4, byrow = TRUE)
+nf <- layout(layoutmat, respect = FALSE)
+par(lwd = 1.5)
+par(mar = c(0, 0, 2, 0))
+emptyplot(main = "transistor Amplifier", asp = FALSE,
+          ylim = c(-0.1, 1), xlim = c(-0.1, 1.1))
+x1 <- 0; x2 <- 0.2; x3 <- 0.4; x4 <- 0.6; x5 <- 0.8; x6 <- 1
+y1 <- 0.05; y2 <- 0.4; y3 <- 0.5; y4 <- 0.6; y5 <- 0.95 
+x23 <- (x2 + x3)/2
+x56 <- (x5 + x6)/2
+lines(c(x2, x6, x6, x2, x2, x1, x1, x23, x3, x3),
+      c(y1, y1, y5, y5, y1, y1, y3, y3,  y4, y5))
+lines(c(x23, x3, x3),            c(y3,  y2, y1))
+lines(c(x3,  x4,  x4),           c(y2,  y2,  y1))
+lines(c(x3,  x5, x5),            c(y4,  y4, y1))
+en.Amplifier(c(x23, y3), r = 0.035)
+
+en.Signal(c(x1, 0.2), lab = expression("U"["in"]))
+en.Signal(c(x6, y2), lab = expression("U"["b"]))
+straightarrow(c(x1 - 0.05, 0.23), c(x1 - 0.05, 0.17),
+              arr.pos =1, arr.type = "triangle", lwd = 1)
+straightarrow(c(x6 + 0.05, y2 + 0.03), c(x6 + 0.05, y2 - 0.03),
+              arr.pos = 1, arr.type = "triangle", lwd = 1)
+
+en.Node(c(x1, y3), lab = "u1")
+en.Node(c(x2, y3), lab = "u2")
+en.Node(c(x3, y2), lab = "u3", pos = 1.5)
+en.Node(c(x3, y4), lab = "u4", pos = 2.5)
+en.Node(c(x5, y4), lab = "u5")
+
+en.Capacitator(c(0.5*(x1 + x2),y3), lab = "C1", vert = FALSE)
+en.Capacitator(c(x4, y4), lab = "C3", vert = FALSE)
+en.Capacitator(c(x4, 0.5*(y1+y2)), lab = "C2", vert = TRUE)
+
+en.Resistor(c(x1, y2), lab = "R0")
+en.Resistor(c(x2, 0.5*(y1+y2)), lab = "R1")
+en.Resistor(c(x2, 0.5*(y4+y5)), lab = "R2")
+en.Resistor(c(x3, 0.5*(y4+y5)), lab = "R4")
+en.Resistor(c(x3, 0.5*(y1+y2)), lab = "R3")
+en.Resistor(c(x5, 0.5*(y1+y2)), lab = "R5")
+
+en.Ground(c(1.0, 0.05))
+
+par(mar=c(2, 2, 2, 2))
+
+emptyplot(main = "transistor")
+lines(c(0.1, 0.5,0.9), c(0.5, 0.5, 0.9))
+lines(c(0.5, 0.9), c(0.5, 0.1))
+lines(c(0.5, 0.5), c(0.4, 0.6))
+text(0.2, 0.4, "Gate", font = 3)
+text(0.8, 0.9, "Drain", font = 3,adj = 1)
+text(0.8, 0.1, "Source", font = 3,adj = 1)
+en.Amplifier(c(0.5, 0.5), r = 0.15)
+box(col = "grey")
+
+
+emptyplot(main = "capacitator")
+straightarrow(c(0.5, 0.9), c(0.5, 0.1),
+              arr.pos = 0.3, arr.length = 0.25, arr.type = "triangle")
+en.Capacitator(c(0.5, 0.5), width = 0.075, length = 0.5, vert = TRUE)
+text(0.4, 0.65, "i", font = 3, cex = 2)
+straightarrow(c(0.8, 0.3), c(0.8, 0.77), arr.pos = 1,
+              arr.length = 0.25, arr.type = "triangle", lwd = 1)
+text(0.925, 0.65, "v", font = 3, cex = 2)
+text(0.15, 0.5, "C", font = 3, cex = 2)
+box(col = "grey")
+
+emptyplot(main = "resistor")
+straightarrow(c(0.5, 0.9), c(0.5, 0.1), arr.pos = 0.2,
+              arr.length = 0.25, arr.type = "triangle", lwd = 1)
+text(0.4, 0.85, "i", font = 3, cex = 2)
+en.Resistor(c(0.5, 0.5), width = 0.25, length = 0.35 )
+straightarrow(c(0.8, 0.3), c(0.8, 0.77), arr.pos = 1,
+              arr.length = 0.25, arr.type = "triangle", lwd = 1)
+text(0.925, 0.65, "v", font = 3, cex = 2)
+text(0.5, 0.5, "R", font = 3, cex = 2)
+box(col = "grey")
+
+emptyplot(main = "voltage source")
+lines(c(0.5, 0.5), c(0.1, 0.9))
+en.Signal(c(0.5, 0.5), r = 0.15)
+straightarrow(c(0.8, 0.3), c(0.8, 0.77), arr.pos = 1,
+              arr.length = 0.25, arr.type = "triangle", lwd = 1)
+text(0.925, 0.65, "v", font = 3, cex = 2)
+box(col = "grey")
+@
+\setkeys{Gin}{width=0.8\textwidth}
+\begin{figure}
+\begin{center}
+<<label=enet,fig=TRUE,echo=FALSE>>=
+<<enet>>
+@
+\end{center}
+\caption{Drawing an electrical network with package diagram}
+\label{fig:enet}
+\end{figure}
+ 
 
 This vignette was created using Sweave \citep{Leisch02}.
 

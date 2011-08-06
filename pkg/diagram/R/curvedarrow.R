@@ -36,7 +36,7 @@ curvedarrow <- function(from, to, lwd=2, lty=1, lcol="black", arr.col=lcol,
   plotellipse(rx=dst/2,  ry=ry, mid=mid, angle=angle, from = From, to = To,
              lwd=lwd, lty=lty, lcol=lcol)
   ell <- getellipse(rx=dst/2, ry=ry, mid=mid, angle=angle,
-                    from=1.001*meanpi, to=0.999*meanpi, dr=-0.002)
+                    from=1.001*meanpi, to=0.999*meanpi, dr= 0.002)       #Changed from -0.002
   Arrows(ell[1,1], ell[1,2], ell[nrow(ell),1], ell[nrow(ell),2],
          code=1, lcol=lcol, arr.col=arr.col, ...)
   curvedarrow <- c(ell[nrow(ell),1], ell[nrow(ell),2])
