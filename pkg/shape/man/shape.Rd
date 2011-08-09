@@ -26,8 +26,8 @@ This package is used in R-package ecolMod, which includes many more examples.
 
 See also R-package diagram.
 
-Changes in version 1.3.4: more consitent drawing of ellipse and circle segments,
- added textflag. (both suggested by Tom Wilson)
+Changes in version 1.3.4: more consistent drawing of ellipse and circle segments,
+(functions getellipse, getcircle), added textflag. (both suggested by Tom Wilson)
 }
 \author{
   Karline Soetaert (Maintainer)
