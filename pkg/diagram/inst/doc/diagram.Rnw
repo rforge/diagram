@@ -25,9 +25,8 @@ flowcharts, and webs}
 
 
 \author{Karline Soetaert\\
-Centre for Estuarine and Marine Ecology\\
-Netherlands Institute of Ecology\\
-The Netherlands
+Netherlands Institute of Sea Research (NIOZ)\\
+Yerseke, The Netherlands
 }
 
 \Plainauthor{Karline Soetaert}
@@ -46,8 +45,7 @@ The electrical network symbols were added to produce a figure of the book
 %% in the following format:
 \Address{
   Karline Soetaert\\
-  Centre for Estuarine and Marine Ecology (CEME)\\
-  Netherlands Institute of Ecology (NIOO)\\
+  Netherlands Institute of Sea Research (NIOZ)\\
   4401 NT Yerseke, Netherlands
   E-mail: \email{k.soetaert@nioo.knaw.nl}\\
   URL: \url{http://www.nioo.knaw.nl/users/ksoetaert}\\
