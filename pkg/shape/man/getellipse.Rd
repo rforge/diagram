@@ -37,7 +37,7 @@ getellipse(rx = 1, ry = rx, mid = c(0, 0), dr = 0.01,
 }
 
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 
 \examples{

@@ -26,7 +26,7 @@ intpalette(inputcol, numcol = length(x.to), x.from = NULL, x.to = NULL)
 }
 
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 
 \examples{

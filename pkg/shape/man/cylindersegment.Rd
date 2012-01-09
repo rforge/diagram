@@ -39,7 +39,7 @@ cylindersegment(rx = 1, ry = rx, from = pi, to = 3*pi/2, len = 1,
   }
 }
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 
 \examples{

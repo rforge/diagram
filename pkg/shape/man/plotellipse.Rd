@@ -61,7 +61,7 @@ plotellipse(rx = 1, ry = 0.2, mid = c(0,0), dr = 0.01,
 }
 
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>.
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 
 \examples{

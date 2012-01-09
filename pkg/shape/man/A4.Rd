@@ -14,9 +14,7 @@ A4 (...)
   }
 }
 
-\author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
-}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
 
 \keyword{device}
 

@@ -34,7 +34,7 @@ roundrect(mid, radx, rady, rx = rady, dr = 0.01,
   \item{... }{arguments passed to function \link{filledshape}.
   }
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
 
 \examples{
 emptyplot(c(-0.1, 1.1), main = "roundrect")

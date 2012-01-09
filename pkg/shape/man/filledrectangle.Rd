@@ -43,7 +43,7 @@ filledrectangle(mid = c(0, 0), wx = 1, wy = wx, col = femmecol(100),
 }
 
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>.
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 
 \examples{

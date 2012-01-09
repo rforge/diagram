@@ -26,7 +26,7 @@ emptyplot(xlim = c(0, 1), ylim = xlim, asp = 1, frame.plot = FALSE,
 }
 
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 
 \seealso{

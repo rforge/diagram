@@ -27,7 +27,7 @@ shadepalette(n = 100, endcol = "red", inicol = "white",
   hexadecimal format 
 }
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 
 \examples{

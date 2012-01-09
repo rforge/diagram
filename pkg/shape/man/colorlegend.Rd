@@ -53,7 +53,7 @@ colorlegend(col = femmecol(100), zlim, zlevels = 5, dz = NULL,
   }
 }
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 
 \examples{

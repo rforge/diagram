@@ -8,7 +8,7 @@
   generates color(s) that will appear on the surface facets of a "persp" plot.
 }
 \usage{
-drapecol(A, col = femmecol(100), NAcol = "white")
+drapecol(A, col = femmecol(100), NAcol = "white", lim = NULL)
 }
 
 \arguments{
@@ -17,6 +17,8 @@ drapecol(A, col = femmecol(100), NAcol = "white")
   \item{col }{color palette.
   }
   \item{NAcol }{color of \code{NA} elements.
+  }
+  \item{lim }{The limits of the data; if \code{NULL}, the data range will be chosen.
   }
 }
 \value{
@@ -30,7 +32,7 @@ drapecol(A, col = femmecol(100), NAcol = "white")
 }
 
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>.
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 \examples{
 persp(volcano, theta = 135, phi = 30, col = drapecol(volcano),

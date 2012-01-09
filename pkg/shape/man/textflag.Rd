@@ -43,7 +43,7 @@ textflag(mid, radx, rady, rx = rady, dr = 0.01,
   \item{... }{arguments passed to function \link{text}.
   }
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
 
 \examples{
 emptyplot()

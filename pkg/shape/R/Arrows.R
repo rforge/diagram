@@ -6,7 +6,7 @@
 Arrows <- function(x0, y0, x1, y1, code=2,
   arr.length=0.4, arr.width=arr.length/2, arr.adj=0.5,
   arr.type="curved", segment=TRUE, col="black", lcol=col, lty=1,
-  arr.col=lcol, lwd=2, arr.lwd=lwd, ...)  {
+  arr.col=lcol, lwd = 1, arr.lwd = lwd, ...)  {
 
   if (arr.type=="simple") {
     arrows(x0,y0,x1,y1,code=code,length=arr.length/2.54,
@@ -20,8 +20,8 @@ Arrows <- function(x0, y0, x1, y1, code=2,
   }
 
   ## draw segment
-  if (segment)
-    segments(x0,y0,x1,y1,col=lcol,lty=lty,...)
+  if (segment)                                # version 1.4: added lwd 
+    segments(x0,y0,x1,y1,col=lcol,lty=lty,lwd=lwd,...)
 
   ## scaling factor
   user<-par("usr")

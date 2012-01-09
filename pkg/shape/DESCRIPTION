@@ -1,9 +1,9 @@
 Package: shape
-Version: 1.3.4
-Date: 2009-07-01
+Version: 1.4.1
+Date: 2012-01-01
 Title: Functions for plotting graphical shapes, colors
-Author: Karline Soetaert <k.soetaert@nioo.knaw.nl>
-Maintainer: Karline Soetaert <k.soetaert@nioo.knaw.nl>
+Author: Karline Soetaert <karline.soetaert@nioz.nl>
+Maintainer: Karline Soetaert <karline.soetaert@nioz.nl>
 Depends: R (>= 2.01), stats
 Description: Functions for plotting graphical shapes
   such as ellipses, circles, cylinders, arrows, ...

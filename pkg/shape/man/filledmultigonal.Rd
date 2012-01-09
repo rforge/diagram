@@ -46,7 +46,7 @@ filledmultigonal(mid = c(0, 0), rx = 1, ry = rx, nr = 4,
 }
 
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 
 \examples{

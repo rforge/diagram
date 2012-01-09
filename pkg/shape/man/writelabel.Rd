@@ -25,7 +25,7 @@ writelabel(text = NULL, nr = 1, at = -0.1, line = 1, cex = 1.5, ...)
   }
 }
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 \examples{
 plot(runif(2), main = "writelabel")

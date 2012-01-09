@@ -23,7 +23,7 @@ greycol(n = 100, interval = c(0.0, 0.7))
   a vector of character strings giving the colors in hexadecimal format.
 }
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 
 \examples{
