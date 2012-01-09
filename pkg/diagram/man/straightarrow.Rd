@@ -42,7 +42,7 @@ straightarrow(from, to, lwd = 2, lty = 1, lcol = "black",
 \value{
   coordinates (x,y) where arrowhead is drawn
 }
-\author{Karline Soetaert <k.soetaert@nioo.knaw.nl>}
+\author{Karline Soetaert <karline.soetaert@nioz.nl>}
 \examples{
 openplotmat(main = "straightarrow")
 

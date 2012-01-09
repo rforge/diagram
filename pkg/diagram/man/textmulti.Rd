@@ -44,7 +44,8 @@ textmulti(mid, radx, rady = radx*length(lab), lwd = 1,
 }
 
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
+
 }
 
 \examples{

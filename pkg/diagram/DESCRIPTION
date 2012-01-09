@@ -1,9 +1,9 @@
 Package: diagram
-Version: 1.6
+Version: 1.6.1
 Date: 2011-07-01
 Title: Functions for visualising simple graphs (networks), plotting flow diagrams
-Author: Karline Soetaert <k.soetaert@nioo.knaw.nl>
-Maintainer: Karline Soetaert <k.soetaert@nioo.knaw.nl>
+Author: Karline Soetaert <karline.soetaert@nioz.nl>
+Maintainer: Karline Soetaert <karline.soetaert@nioz.nl>
 Depends: R (>= 2.01)  ,shape
 Description: Visualises simple graphs (networks) based on a transition matrix, utilities to plot flow diagrams, 
      visualising webs, electrical networks, ...  

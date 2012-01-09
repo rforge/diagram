@@ -32,7 +32,7 @@ coordinates(pos = NULL, mx = 0.0, my = 0.0, N = length(pos),
 }
 
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 
 \examples{

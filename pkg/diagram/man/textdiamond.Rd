@@ -43,7 +43,8 @@ textdiamond(mid, radx, rady = NULL, lwd = 1, shadow.size = 0.01,
 }
 
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>.
+  Karline Soetaert <karline.soetaert@nioz.nl>
+
 }
 
 \examples{

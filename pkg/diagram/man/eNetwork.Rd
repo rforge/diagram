@@ -70,7 +70,7 @@ en.Ground(mid, width = 0.075, length = 0.1, n = 4, dx = 0.2, ...)
 }
 
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>.
+  Karline Soetaert <karline.soetaert@nioz.nl>.
 }
 
 \examples{

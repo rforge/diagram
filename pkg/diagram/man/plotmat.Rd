@@ -172,7 +172,7 @@ plotmat(A, pos = NULL, curve = NULL, name = NULL, absent = 0,
   }
 }
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 
 \examples{

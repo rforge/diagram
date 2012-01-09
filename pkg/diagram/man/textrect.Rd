@@ -54,7 +54,8 @@ textparallel (mid, radx, rady = radx*length(lab), lwd = 1,
 }
 
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>.
+  Karline Soetaert <karline.soetaert@nioz.nl>
+
 
   Thanks to Michael Folkes for the code of the parallelogram.
 }

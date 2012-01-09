@@ -52,7 +52,8 @@ shadowbox(box.type = "rect", mid, radx, rady = radx,
 }
 
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
+
 }
 
 \examples{

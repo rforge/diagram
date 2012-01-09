@@ -44,7 +44,8 @@ segmentarrow(from, to, lwd = 2, lty = 1, lcol = "black",
 }
 
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>.
+  Karline Soetaert <karline.soetaert@nioz.nl>
+
 }
 
 \examples{

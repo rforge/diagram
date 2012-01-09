@@ -110,7 +110,7 @@ plotweb(flowmat, names = NULL, lab.size = 1.5, add = FALSE,
   }
 }
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 \examples{
 plotweb(Rigaweb, main = "Gulf of Riga food web",

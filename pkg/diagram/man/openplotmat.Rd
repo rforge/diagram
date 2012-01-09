@@ -17,7 +17,7 @@ openplotmat (asp = NA, ...)
   }
 }
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
 }
 \seealso{
   \code{emptyplot} from package \code{shape}.

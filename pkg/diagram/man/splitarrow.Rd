@@ -38,7 +38,8 @@ splitarrow(from, to, lwd = 2, lty = 1, lcol = "black", arr.col = lcol,
   coordinates (x,y) where arrowheads are drawn
 }
 \author{
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <karline.soetaert@nioz.nl>
+
 }
 
 \examples{
