@@ -1,15 +1,12 @@
 Package: shape
-Version: 1.4.1
-Date: 2012-01-01
+Version: 1.4.2
+Date: 2012-07-30
 Title: Functions for plotting graphical shapes, colors
 Author: Karline Soetaert <karline.soetaert@nioz.nl>
 Maintainer: Karline Soetaert <karline.soetaert@nioz.nl>
 Depends: R (>= 2.01), stats
 Description: Functions for plotting graphical shapes
   such as ellipses, circles, cylinders, arrows, ...
-  Support for the book "A practical guide to ecological modelling -
-  using R as a simulation platform" by Karline Soetaert and Peter M.J. Herman (2009).  Springer.
-  Includes demo(colorshapes)
 License: GPL (>= 3)
 LazyData: yes
 Packaged: Fri Aug  8 15:35:26 2008; KarlineS

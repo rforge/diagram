@@ -327,8 +327,8 @@ values <- cbind(rr<-seq(0,R,length=100),sphere(Da,Q,BW,R,rr))
 filledellipse(rx1=R*100,mid=c(-1,-1),values=values,zlim=zlim,col=color,lcol="black",lwd=1)
 
 segments(-1.5,-3,-0.5,-3,lwd=2,col="black")
-text(-1,-2.8,"10 µm")
+text(-1,-2.8,"10 microm")
 
 colorlegend(zlim=zlim,posy=c(0.05,0.5),posx=c(0.7,0.73),font=2,
-main="µmol/l",main.cex=1.2)
+main="micromol/l",main.cex=1.2)
 
