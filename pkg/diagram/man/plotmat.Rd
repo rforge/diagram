@@ -84,7 +84,7 @@ plotmat(A, pos = NULL, curve = NULL, name = NULL, absent = 0,
   \item{self.shiftx }{relative shift of self-arrow, in x-direction, one value
     or a vector with dimension=number of rows of \code{A}.
   }
-  \item{self.shifty }{relative shift of self-arrow, in x-direction, one value
+  \item{self.shifty }{relative shift of self-arrow, in y-direction, one value
     or a vector with dimension=number of rows of \code{A}.
   }
   \item{self.arrpos }{position of the self-arrow, angle in radians relative to
