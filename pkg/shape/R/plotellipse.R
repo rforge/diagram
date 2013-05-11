@@ -21,12 +21,12 @@ plotellipse <- function (rx=1, ry=0.2, mid=c(0,0), dr=0.01,
   if (arrow) {
     ilen <- length(arr.pos)
     if (ilen>1) {
-      arr.code  <- rep(arr.code  ,len=ilen)
-      arr.col   <- rep(arr.col   ,len=ilen)
-      arr.length<- rep(arr.length,len=ilen)
-      arr.width <- rep(arr.width ,len=ilen)
-      arr.type  <- rep(arr.type  ,len=ilen)
-      arr.adj   <- rep(arr.adj   ,len=ilen)
+      arr.code  <- rep(arr.code  ,length.out=ilen)
+      arr.col   <- rep(arr.col   ,length.out=ilen)
+      arr.length<- rep(arr.length,length.out=ilen)
+      arr.width <- rep(arr.width ,length.out=ilen)
+      arr.type  <- rep(arr.type  ,length.out=ilen)
+      arr.adj   <- rep(arr.adj   ,length.out=ilen)
     }
 
     for (i in 1: ilen) {

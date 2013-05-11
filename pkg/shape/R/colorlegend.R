@@ -55,7 +55,7 @@ colorlegend <- function(col=femmecol(100), zlim, zlevels=5,
   zmax   <- zlim[2]
 
   ## colors
-  Y <- seq(ymin,ymax,len=ncol+1)
+  Y <- seq(ymin,ymax,length.out=ncol+1)
   rect(xmin,Y[-(ncol+1)],xmax,Y[-1],col=col,border=NA)
   rect(xmin,ymin,xmax,ymax,border=lab.col)
 

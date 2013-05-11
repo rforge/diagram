@@ -58,14 +58,14 @@ Arrowhead <- function(x0, y0, angle=0, arr.length=0.4,
             length(arr.length),length(arr.width),
             length(lcol),length(lty),length(arr.col))
   if (nr>1) {
-    x0         <- rep(x0        ,len=nr)
-    y0         <- rep(y0        ,len=nr)
-    angle      <- rep(angle     ,len=nr)
-    arr.length <- rep(arr.length,len=nr)
-    arr.width  <- rep(arr.width,len=nr)
-    lcol       <- rep(lcol      ,len=nr)
-    lty        <- rep(lty       ,len=nr)
-    arr.col    <- rep(arr.col   ,len=nr)
+    x0         <- rep(x0        ,length.out=nr)
+    y0         <- rep(y0        ,length.out=nr)
+    angle      <- rep(angle     ,length.out=nr)
+    arr.length <- rep(arr.length,length.out=nr)
+    arr.width  <- rep(arr.width,length.out=nr)
+    lcol       <- rep(lcol      ,length.out=nr)
+    lty        <- rep(lty       ,length.out=nr)
+    arr.col    <- rep(arr.col   ,length.out=nr)
   }
   RR<-rr
   for (i in 1:nr) {
