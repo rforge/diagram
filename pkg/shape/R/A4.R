@@ -5,7 +5,7 @@
 
 A4 <- function(...) {
 
-  X11(width=8.5,height=11,...)
+  dev.new(width = 8.5, height = 11, ...)
 
 }
 
