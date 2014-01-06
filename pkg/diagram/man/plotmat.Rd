@@ -22,7 +22,7 @@ plotmat(A, pos = NULL, curve = NULL, name = NULL, absent = 0,
         endhead = FALSE, mx = 0.0, my = 0.0, box.cex = 1, 
         txt.col = "black", prefix = "", cex = 1, cex.txt = cex, 
         add = FALSE, main = "", cex.main = cex, 
-        segment.from = 0, segment.to = 1, ...)
+        segment.from = 0, segment.to = 1, latex = FALSE, ...)
 }
 \arguments{
   \item{A }{square coefficient matrix, specifying the links (rows=to,
@@ -146,6 +146,10 @@ plotmat(A, pos = NULL, curve = NULL, name = NULL, absent = 0,
   \item{segment.to }{if not \code{1} then the arrow line will not end 
     at the position as given in \code{A}, but with an offset.
     one value, or a matrix with same dimensions as \code{A}
+  }
+  \item{latex }{if \code{FALSE} then expressions will be interpreted before print, 
+   if \code{TRUE} they will be printed literally to the plot. 
+   Set to \code{TRUE} if LaTeX code is to be printed.
   }
   \item{... }{other arguments passed to function \code{shadowbox}.
   }

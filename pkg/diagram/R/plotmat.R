@@ -12,8 +12,14 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
      arr.type="curved", arr.pos=0.5, arr.length=0.4, arr.width=arr.length/2,
      endhead=FALSE, mx=0.0, my=0.0, box.cex=1, txt.col = "black",
      prefix="", cex = 1, cex.txt=cex, add = FALSE, main="", cex.main = cex,
-     segment.from = 0, segment.to = 1, ...)  {
+     segment.from = 0, segment.to = 1, latex = FALSE, ...)  {
 
+  Parse <- function(x, ...)  
+    if (! latex) parse(text = x, ...) else x
+  
+  Rep <- function (x, ...)
+    if (is.null(x)) x else rep(x, ...)  
+    
   ncomp <- nrow(A)
   if (is.null(name))
     name <- rownames(A)
@@ -27,41 +33,41 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
     A <- matrix(nrow=nrow(A), ncol=ncol(A), data=A)
 
   if (length (box.size)    < ncomp)
-    box.size  <- rep(box.size, length.out=ncomp)
+    box.size  <- Rep(box.size, length.out=ncomp)
   if (length (box.prop)    < ncomp)
-    box.prop  <- rep(box.prop, length.out=ncomp)
+    box.prop  <- Rep(box.prop, length.out=ncomp)
   if (length (box.type)    < ncomp)
-    box.type  <- rep(box.type, length.out=ncomp)
+    box.type  <- Rep(box.type, length.out=ncomp)
   if (length (box.col)     < ncomp)
-    box.col   <- rep(box.col , length.out=ncomp)
+    box.col   <- Rep(box.col , length.out=ncomp)
   if (length (box.lcol)    < ncomp)
-    box.lcol  <- rep(box.lcol, length.out=ncomp)
+    box.lcol  <- Rep(box.lcol, length.out=ncomp)
   if (length (box.cex)     < ncomp)
-    box.cex   <- rep(box.cex , length.out=ncomp)
+    box.cex   <- Rep(box.cex , length.out=ncomp)
   if (length (box.lwd)     < ncomp)
-    box.lwd   <- rep(box.lwd , length.out=ncomp)
+    box.lwd   <- Rep(box.lwd , length.out=ncomp)
   if (length (txt.col)     < ncomp)
-    txt.col   <- rep(txt.col , length.out=ncomp)
+    txt.col   <- Rep(txt.col , length.out=ncomp)
 
   if (length (shadow.size) < ncomp)
-    shadow.size  <- rep(shadow.size, length.out=ncomp)
+    shadow.size  <- Rep(shadow.size, length.out=ncomp)
   if (length (shadow.col)  < ncomp)
-    shadow.col   <- rep(shadow.col , length.out=ncomp)
+    shadow.col   <- Rep(shadow.col , length.out=ncomp)
   selflwd    <- self.lwd
   selfcex    <- self.cex
   selfarrpos <- self.arrpos
   if (length (selfarrpos)  < ncomp)
-    selfarrpos<- rep(selfarrpos, length.out=ncomp)
+    selfarrpos<- Rep(selfarrpos, length.out=ncomp)
   if (length (selflwd)     < ncomp)
-    selflwd<- rep(selflwd, length.out=ncomp)
+    selflwd<- Rep(selflwd, length.out=ncomp)
   if (length (selfcex)     < ncomp)
-    selfcex<- rep(selfcex, length.out=ncomp)
+    selfcex<- Rep(selfcex, length.out=ncomp)
   if (length (self.shiftx) < ncomp)
-    self.shiftx<- rep(self.shiftx, length.out=ncomp)
+    self.shiftx<- Rep(self.shiftx, length.out=ncomp)
   if (is.null(self.shifty))
     self.shifty <- self.shiftx*box.prop
   if (length(self.shifty)  < ncomp)
-     self.shifty<- rep(self.shifty, length.out=ncomp)
+     self.shifty<- Rep(self.shifty, length.out=ncomp)
   if (is.null(curve))
     curve   <- NA
   if (length(curve)==1)
@@ -170,7 +176,7 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
         DD   <- rbind(DD, c(ell[nrow(ell), 1], ell[nrow(ell), 2]))
 
         if(cex.txt>0 && txt!= "")
-          text(mid[1], mid[2], parse(text=txt), adj=c(0.5, 0.5), cex=cex.txt)
+          text(mid[1], mid[2], Parse(txt), adj=c(0.5, 0.5), cex=cex.txt)
         TT <- rbind(TT, c(mid[1], mid[2], 0.5, 0.5))
         cycle
 
@@ -200,7 +206,7 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
          mpos <- mid1- (adj-0.5)* drad
 
          if(cex.txt>0&& txt!= "")
-           text(mpos[1], mpos[2], parse(text=txt), adj=adj, cex=cex.txt)
+           text(mpos[1], mpos[2], Parse(txt), adj=adj, cex=cex.txt)
          TT <- rbind(TT, c(mpos[1], mpos[2], adj))
        } else      {         # curved line
 
@@ -242,7 +248,7 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
          ell <- getellipse(rx=dst/2, ry=ry+drad, mid=mid, angle=angle,
                            from=meanpi, to=meanpi)
          if(cex.txt>0 && txt!= "")
-           text(ell[1,1], ell[1,2], parse(text=txt), adj=adj, cex=cex.txt)
+           text(ell[1,1], ell[1,2], Parse(txt), adj=adj, cex=cex.txt)
          TT <- rbind(TT, c(ell[1, 1], ell[1, 2], adj))
        }
     }   # end i
