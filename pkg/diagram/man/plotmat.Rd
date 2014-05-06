@@ -29,7 +29,8 @@ plotmat(A, pos = NULL, curve = NULL, name = NULL, absent = 0,
     cols=from).
   }
   \item{pos }{vector, specifying the number of elements in each graph row, 
-    or a 2-column matrix with element position, or NULL.
+    or a 2-column matrix with element position, or NULL. If a 2-column matrix, the 
+    values should be withing 0 and 1.
   }
   \item{curve }{one value, or a matrix, same dimensions as \code{A}, specifying
     the arrow curvature; 0 for straight; NA for default curvature.
@@ -186,6 +187,15 @@ pp <- plotmat(M, pos = c(1, 2, 1), name = c("A", "B", "C", "D"),
               box.size = 0.1, box.type = "square", box.prop = 0.5,
               main = "plotmat")
 pp
+
+# when explicitly given, pos should should be inbetween 0, 1
+pos <- cbind (c(0.2, 0.4, 0.6, 0.8), c(0.8, 0.6, 0.4, 0.2))
+
+pp <- plotmat(M, pos = pos, name = c("A", "B", "C", "D"),
+              lwd = 1, box.lwd = 2, cex.txt = 0.8, 
+              box.size = 0.1, box.type = "square", box.prop = 0.5,
+              main = "plotmat")
+
               
 # includes arrows between boxes
 pm <- par(mfrow = c(2, 2))
