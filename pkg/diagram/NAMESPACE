@@ -1,3 +1,4 @@
+import(shape)
 export(bentarrow, coordinates, curvedarrow, openplotmat, plotmat, plotweb, segmentarrow, 
        selfarrow, shadowbox, splitarrow, straightarrow, textdiamond, textparallel, 
        textellipse, textempty, texthexa, textmulti, textplain, textrect, textround, treearrow)
