@@ -2,7 +2,8 @@
 textflag <- function(mid, radx, rady, rx = rady, dr = 0.01, 
                      col = femmecol(100), lcol = "white", 
                      bcol = lcol,    # color to remove ellipse
-                     lwd = 2, angle = 0, lab = NULL, leftright = TRUE, ...) {
+                     lwd = 2, angle = 0, lab = NULL, leftright = TRUE, 
+                     tcol = NULL, ...) {
   wx <- rady * 2
   wy <- radx * 2
   if (is.null(rx)) rx <- rady
@@ -45,7 +46,8 @@ textflag <- function(mid, radx, rady, rx = rady, dr = 0.01,
     Lines <- rotatexy(Lines, angle = angle, mid = mid)
   
   lines(Lines, col = lcol, lwd = lwd)
-  if (! is.null(lab)) text (mid[1], mid[2], lab, srt = angle, ...)
+  if (! is.null(lab)) text (mid[1], mid[2], lab, srt = angle, col = tcol, 
+    ...)
 }
 
  

@@ -11,7 +11,7 @@
 textflag(mid, radx, rady, rx = rady, dr = 0.01, 
          col = femmecol(100), lcol = "white", 
          bcol = lcol, lwd = 2, angle = 0, lab = NULL, 
-         leftright = TRUE,...)
+         leftright = TRUE, tcol = NULL, ...)
 }
 \arguments{
   \item{mid }{midpoint (x,y) of the box.
@@ -31,6 +31,8 @@ textflag(mid, radx, rady, rx = rady, dr = 0.01,
   }
   \item{bcol }{line color to remove the ellipse from the rectangular box.
   }
+  \item{tcol }{text color.
+  }
   \item{lwd }{line width of line surrounding the box.
   }
   \item{angle }{rotation angle, degrees.
@@ -40,7 +42,7 @@ textflag(mid, radx, rady, rx = rady, dr = 0.01,
   \item{leftright }{if \code{TRUE} then coloring is from left to right 
     else the coloring is from bottom to top box (for \code{angle} = 0).
   }
-  \item{... }{arguments passed to function \link{text}.
+  \item{... }{other arguments passed to function \link{text}.
   }
 }
 \author{Karline Soetaert <karline.soetaert@nioz.nl>}
@@ -52,7 +54,7 @@ textflag(mid = c(0.5, 0.5), radx = 0.5, rady = 0.1,
  
 textflag(mid = c(0.5, 0.15), radx = 0.5, rady = 0.1, 
          rx = 0.3,lcol = "black", lab = "hello 2", cex = 4, 
-         font = 2, angle = 20)
+         font = 2, angle = 20, tcol = "darkblue")
   
 textflag(mid = c(0.5, 0.85), radx = 0.5, rady = 0.1, rx = 0.03,
          lcol = "white", lab = "hello 3", cex = 4, font = 2, 
