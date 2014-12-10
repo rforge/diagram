@@ -171,7 +171,7 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
         ell  <- getellipse(rx=ry, ry=ry, mid=mid,
                       from=1.01*meanpi, to=0.99*meanpi, dr=-0.002)
         Arrows(ell[1,1], ell[1,2], ell[nrow(ell),1], ell[nrow(ell),2],
-               arr.col=arr.col, arr.length=arr.length*0.5,
+               arr.col=arr.col, lcol=arr.lcol, arr.length=arr.length*0.5,
                arr.width=arr.width, lwd=arr.lwd, arr.type=arr.type)
         DD   <- rbind(DD, c(ell[nrow(ell), 1], ell[nrow(ell), 2]))
 
