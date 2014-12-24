@@ -1,3 +1,6 @@
 useDynLib(ecolMod)
+import(rootSolve) 
+import(diagram) 
+import(deSolve)
 export(dilution, OMEXDIAsteady, pricefit)
 
