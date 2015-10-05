@@ -3,5 +3,7 @@ import(rootSolve)
 import(shape) 
 import(diagram) 
 import(deSolve)
+import("grDevices", "graphics", "stats")
+
 export(dilution, OMEXDIAsteady, pricefit)
 
