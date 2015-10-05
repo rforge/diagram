@@ -1,2 +1,5 @@
+
+import("grDevices", "graphics", "stats")
+
 export(A4, Arrowhead, Arrows, colorlegend, cylindersegment, drapecol, emptyplot, femmecol, filledcircle, filledcylinder, filledellipse, filledmultigonal, filledrectangle, filledshape, getellipse, graycol, greycol, intpalette, plotcircle, plotellipse, rotatexy, roundrect, shadepalette, writelabel, textflag)
 
