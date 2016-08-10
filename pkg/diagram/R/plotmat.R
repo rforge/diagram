@@ -10,7 +10,8 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
      self.lwd=1, self.cex=1, self.shiftx=box.size, self.shifty=NULL,
      self.arrpos=NULL, arr.lwd=lwd, arr.lcol=lcol, arr.col="black",
      arr.type="curved", arr.pos=0.5, arr.length=0.4, arr.width=arr.length/2,
-     endhead=FALSE, mx=0.0, my=0.0, box.cex=1, txt.col = "black",
+     endhead=FALSE, mx=0.0, my=0.0, box.cex=1, 
+     txt.col = "black",txt.xadj=0.5,txt.yadj=0.5, txt.font=1,
      prefix="", cex = 1, cex.txt=cex, add = FALSE, main="", cex.main = cex,
      segment.from = 0, segment.to = 1, latex = FALSE, ...)  {
 
@@ -48,6 +49,12 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
     box.lwd   <- Rep(box.lwd , length.out=ncomp)
   if (length (txt.col)     < ncomp)
     txt.col   <- Rep(txt.col , length.out=ncomp)
+  if (length (txt.xadj)     < ncomp)
+    txt.xadj   <- Rep(txt.xadj, length.out=ncomp)
+  if (length (txt.yadj)     < ncomp)
+    txt.yadj   <- Rep(txt.yadj, length.out=ncomp)
+  if (length (txt.font)     < ncomp)
+    txt.font   <- Rep(txt.font, length.out=ncomp)
 
   if (length (shadow.size) < ncomp)
     shadow.size  <- Rep(shadow.size, length.out=ncomp)
@@ -269,7 +276,8 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
     shadowbox(box.type=box.type[i], mid=p, radx=rad, rady=rad2,
               lcol=box.lcol[i], lwd=box.lwd[i], shadow.size=shadow.size[i],
               shadow.col=shadow.col[i], box.col=box.col[i], dr=dr, ...)
-    textplain(mid=p, height=rad2, lab=name[i], cex=box.cex[i], col=txt.col[i])
+    textplain(mid=p, height=rad2, lab=name[i], cex=box.cex[i], col=txt.col[i],
+      adj = c(txt.xadj[i], txt.yadj[i]), font = txt.font[i])
 
   } # end i
 

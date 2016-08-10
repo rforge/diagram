@@ -20,7 +20,8 @@ plotmat(A, pos = NULL, curve = NULL, name = NULL, absent = 0,
         arr.col = "black", arr.type = "curved", arr.pos = 0.5, 
         arr.length = 0.4, arr.width = arr.length/2,
         endhead = FALSE, mx = 0.0, my = 0.0, box.cex = 1, 
-        txt.col = "black", prefix = "", cex = 1, cex.txt = cex, 
+        txt.col = "black", txt.xadj = 0.5, txt.yadj = 0.5,
+        txt.font = 1, prefix = "", cex = 1, cex.txt = cex, 
         add = FALSE, main = "", cex.main = cex, 
         segment.from = 0, segment.to = 1, latex = FALSE, ...)
 }
@@ -93,7 +94,8 @@ plotmat(A, pos = NULL, curve = NULL, name = NULL, absent = 0,
     \code{A}.
   }
   \item{arr.lwd }{line width of arrow, connecting two different points, one
-    value, or a matrix with same dimensions as \code{A}.}
+    value, or a matrix with same dimensions as \code{A}.
+  }
   \item{arr.lcol }{color of arrow line, one value, or a matrix with same
     dimensions as \code{A}.
   }
@@ -125,6 +127,13 @@ plotmat(A, pos = NULL, curve = NULL, name = NULL, absent = 0,
   }
   \item{txt.col }{color of text in boxes, one value or a vector with
     dimension=number of rows of \code{A}.
+  }
+  \item{txt.xadj, txt.yadj }{ the x and y adjustment of the labels in the boxes, 
+    one value or a vector with dimension=number of rows of \code{A}
+    values usually within [0,1], although on most devices values outside that interval will also work.
+  }
+  \item{txt.font }{ the font to be used for the text in boxes, 
+    one value or a vector with dimension=number of rows of \code{A}.
   }
   \item{prefix }{to be added in front of non-zero arrow labels.
   }
@@ -252,7 +261,9 @@ cextxt <- M*0.8
 plotmat(M, pos = c(1, 2, 1), curve = 0.2, name = letters[1:4], lwd = 1,
         box.lwd = 2, arr.type = "triangle", box.size = 0.1,
         box.type = "hexa", box.prop = 0.5, main = "plotmat",
-        arr.lwd = arrlwd, arr.length = arr.length, cex.txt = cextxt)
+        arr.lwd = arrlwd, arr.length = arr.length, cex.txt = cextxt,
+        txt.font = 1:4, txt.xadj = seq(-3, 3, length.out = 4),
+        txt.yadj = 1)
 
 M <- matrix(nrow = 4, ncol = 4, byrow = TRUE, data = 0)
 M     <- as.data.frame(M)

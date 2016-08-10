@@ -1,6 +1,6 @@
 Package: diagram
 Version: 1.6.4
-Date: 2015-10-05
+Date: 2016-10-08
 Title: Functions for Visualising Simple Graphs (Networks), Plotting Flow Diagrams
 Author: Karline Soetaert <karline.soetaert@nioz.nl>
 Maintainer: Karline Soetaert <karline.soetaert@nioz.nl>
