@@ -36,7 +36,11 @@ Arrows <- function(x0, y0, x1, y1, code=2,
   angle [x1<x0] <-180+angle[x1<x0]
   xx<-x1
   yy<-y1
-
+  if (sy < 0 & sx < 0) 
+    angle <- angle + 180
+  else if (sx < 0) 
+    angle <- angle + 180
+  
   ## code =3 draws two arrowheads
   if (code == 3)
     Arrowhead(x0=xx,y0=yy,angle=angle,
