@@ -1,6 +1,5 @@
 Package: diagram
 Version: 1.6.4
-Date: 2016-10-08
 Title: Functions for Visualising Simple Graphs (Networks), Plotting Flow Diagrams
 Author: Karline Soetaert <karline.soetaert@nioz.nl>
 Maintainer: Karline Soetaert <karline.soetaert@nioz.nl>
@@ -16,4 +15,3 @@ Description: Visualises simple graphs (networks) based on a transition matrix, u
      Includes demo(flowchart), demo(plotmat), demo(plotweb).
 License: GPL (>= 2)
 LazyData: yes
-Packaged: Wed Sep 1 2008; KarlineS
