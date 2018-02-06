@@ -46,7 +46,7 @@ Arrows <- function(x0, y0, x1, y1, code=2,
     Arrowhead(x0=xx,y0=yy,angle=angle,
               lcol=lcol,arr.col=arr.col,arr.adj=arr.adj,
               lty=lty,arr.length=arr.length,arr.width=arr.width,
-              arr.type=arr.type,arr.lwd=arr.lwd)
+              arr.type=arr.type,arr.lwd=arr.lwd, ...)
 
   if (code != 2) {
     angle <-180 + angle
@@ -56,7 +56,7 @@ Arrows <- function(x0, y0, x1, y1, code=2,
 
   Arrowhead(x0=xx,y0=yy,angle=angle,lcol=lcol,arr.col=arr.col,
             arr.adj=arr.adj,lty=lty,arr.length=arr.length,
-            arr.width=arr.width,arr.type=arr.type,arr.lwd=arr.lwd)
+            arr.width=arr.width,arr.type=arr.type,arr.lwd=arr.lwd, ...)
 }
 
 

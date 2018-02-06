@@ -10,7 +10,7 @@
 Arrowhead(x0, y0, angle = 0, arr.length = 0.4, 
           arr.width = arr.length/2, arr.adj = 0.5, 
           arr.type = "curved", lcol = "black", lty = 1, 
-          arr.col = lcol, arr.lwd = 2, npoint = 5)
+          arr.col = lcol, arr.lwd = 2, npoint = 5, ...)
 }
 
 \arguments{
@@ -44,7 +44,8 @@ Arrowhead(x0, y0, angle = 0, arr.length = 0.4,
   }
   \item{npoint }{only if \code{arr.type} = "curved": number of points to
     draw the curve; increase for smoother arrowheads}
-}
+  \item{... }{arguments passed to the \code{polygon} function.
+  }}
 
 \author{
   Karline Soetaert <karline.soetaert@nioz.nl>

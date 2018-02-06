@@ -58,7 +58,7 @@ Arrows(x0, y0, x1, y1, code = 2, arr.length = 0.4,
   }
   \item{arr.lwd }{line width of arrowhead.
   }
-  \item{... }{arguments passed to lines or segments function.
+  \item{... }{arguments passed to lines, segments or \link{Arrowhead} function.
   }
 }
 
@@ -114,6 +114,21 @@ plot(sin(xx)*xx, cos(xx)*xx, type = "l", axes = FALSE,
      xlab = "", ylab = "", main = "Arrows,  type = 'T'")
 Arrows(x1, y1, x2, y2, arr.type = "T", arr.length = 0.4, 
        code = 1, arr.lwd = 2)
+
+
+# arguments passed to polygon:
+
+xlim <- c(-5 , 5)
+ylim <- c(-10, 10)
+plot(0, type = "n", xlim = xlim, ylim = ylim, 
+     main = "Arrows,  type = 'curved'")
+x0 <- runif(100, xlim[1]-1, xlim[2]+0.5)  # exceeds the x-range
+y0 <- runif(100, ylim[1], ylim[2])
+x1 <- x0+runif(100, -1, 1)
+y1 <- y0+runif(100, -1, 1)
+Arrows(x0, y0, x1, y1, arr.length = runif(100), code = 2, 
+       arr.type = "curved", arr.col = 1:100, lcol = 1:100, xpd = TRUE)
+
 
 }
 
