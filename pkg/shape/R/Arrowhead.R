@@ -9,6 +9,10 @@ Arrowhead <- function(x0, y0, angle=0, arr.length=0.4,
 
  ## points of polygon, as drawn in graph with x- and y- ranges -5,5
 
+  if (arr.type=="none") {
+    return()
+  }
+
   if ( arr.type=="curved") { # composed as section of circels
 
     rad <- 0.7                                        # radius of outer circles

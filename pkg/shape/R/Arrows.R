@@ -13,6 +13,9 @@ Arrows <- function(x0, y0, x1, y1, code=2,
            lty=lty, col=col, lwd=lwd, ...)
     return()
   }
+  if (arr.type=="none") {
+    return()
+  }
   if (arr.type=="T") {
     arrows(x0,y0,x1,y1,code=code,length=arr.length/(2*2.54),
            lty=lty, angle=90, col=col, lwd=lwd,  ...)

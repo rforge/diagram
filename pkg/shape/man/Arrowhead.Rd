@@ -32,7 +32,7 @@ Arrowhead(x0, y0, angle = 0, arr.length = 0.4,
   \item{arr.adj }{0,0.5,1 specifying the adjustment of the arrowhead.
   }
   \item{arr.type }{type of arrowhead to draw, one of
-    "curved","triangle","circle","ellipse".
+    "curved", "triangle", "circle", "ellipse".
   }
   \item{lcol }{line color specifications; either one value or a vector.
   }

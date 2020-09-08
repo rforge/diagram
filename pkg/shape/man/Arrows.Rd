@@ -39,7 +39,7 @@ Arrows(x0, y0, x1, y1, code = 2, arr.length = 0.4,
   }
   \item{arr.adj }{0,0.5,1 specifying the adjustment of the arrowhead.
   }
-  \item{arr.type }{type of arrowhead to draw, one of "simple", "curved",
+  \item{arr.type }{type of arrowhead to draw, one of "none", "simple", "curved",
     "triangle", "circle", "ellipse" or "T".
   }
   \item{segment }{logical specifying whether or not to draw line segments.
