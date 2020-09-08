@@ -68,14 +68,18 @@ for (i in 1:3)
   The type of the arrowhead is set with \code{arr.type} which can take the
   values:
   \itemize{
+    \item "none"    : skips the drawing of arrows.
     \item "simple"  : uses comparable \R function \link{arrows}.
     \item "triangle": uses filled triangle.
     \item "curved"  : draws arrowhead with curved edges.
-    \item "circle" : draws circular head.
-    \item "ellipse" : draws ellepsoid head
-    \item "T"       : draws T-shaped (blunt) head
+    \item "circle"  : draws circular head.
+    \item "ellipse" : draws ellepsoid head.
+    \item "T"       : draws T-shaped (blunt) head.
   }
-  see \code{\link[shape]{Arrowhead}} for details on arrow head.
+  The size of the arrow head can be specified with the arguments 
+  \code{arr.length} and \code{arr.width}.
+
+  See \code{\link[shape]{Arrowhead}} for details on arrow head.
 }
 
 \seealso{

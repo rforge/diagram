@@ -79,14 +79,18 @@ bentarrow(from = pos[4, ] + c(0.05, 0), to = pos[5, ] + c(0, 0.05),
   The type of the arrowhead is set with \code{arr.type} which can take the
   values:
   \itemize{
+    \item "none"    : skips the drawing of arrows.
     \item "simple"  : uses comparable R function arrows.
     \item "triangle": uses filled triangle.
     \item "curved"  : draws arrowhead with curved edges.
-    \item "circle" : draws circular head.
-    \item "ellipse" : draws ellepsoid head
-    \item "T"       : draws T-shaped (blunt) head
+    \item "circle"  : draws circular head.
+    \item "ellipse" : draws ellepsoid head.
+    \item "T"       : draws T-shaped (blunt) head.
   }
-  see \code{\link[shape]{Arrowhead}} from package shape for details on
+  The size of the arrow head can be specified with the arguments 
+  \code{arr.length} and \code{arr.width}.
+  
+  See \code{\link[shape]{Arrowhead}} from package shape for details on
   arrow head.
 }
 

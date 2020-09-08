@@ -177,7 +177,7 @@ plotweb    <- function (flowmat, names=NULL, lab.size = 1.5, add  = FALSE,
            lwd=c(maxarrow, minarrow), bty=bty)
   }
   if (!val & !budget)
-    return
+    return()
 
   if (! add)   {
     par(mar=c(0, 0, 0, 0))

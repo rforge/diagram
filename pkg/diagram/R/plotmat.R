@@ -8,7 +8,8 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
      box.prop =1, box.col="white", box.lcol=lcol, box.lwd=lwd,
      shadow.size = 0.01, shadow.col="grey", dr=0.01, dtext= 0.3,
      self.lwd=1, self.cex=1, self.shiftx=box.size, self.shifty=NULL,
-     self.arrpos=NULL, arr.lwd=lwd, arr.lcol=lcol, arr.col="black",
+     self.arrpos=NULL, arr.lwd=lwd, arr.lcol=lcol, arr.tcol = lcol,
+     arr.col="black",
      arr.type="curved", arr.pos=0.5, arr.length=0.4, arr.width=arr.length/2,
      endhead=FALSE, mx=0.0, my=0.0, box.cex=1, 
      txt.col = "black",txt.xadj=0.5,txt.yadj=0.5, txt.font=1,
@@ -86,6 +87,7 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
   arrlength <- arr.length
   arrlwd    <- arr.lwd
   arrlcol   <- arr.lcol
+  arrtcol   <- arr.tcol
   arrcol    <- arr.col
   arrtype   <- arr.type
   cextxt    <- cex.txt
@@ -98,6 +100,8 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
     arrlwd    <- matrix(nrow=ncomp, ncol=ncomp, arrlwd)
   if (length(arrlcol)  ==1)
     arrlcol   <- matrix(nrow=ncomp, ncol=ncomp, arrlcol)
+  if (length(arrtcol)  ==1)
+    arrtcol   <- matrix(nrow=ncomp, ncol=ncomp, arrtcol)
   if (length(arrcol)   ==1)
     arrcol    <- matrix(nrow=ncomp, ncol=ncomp, arrcol)
   if (length(arrtype)  ==1)
@@ -147,6 +151,7 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
       arr.lwd    <- arrlwd[ii[1], ii[2]]
       arr.lcol   <- arrlcol[ii[1], ii[2]]
       arr.col    <- arrcol[ii[1], ii[2]]
+      arr.tcol   <- arrtcol[ii[1], ii[2]]
       arr.type   <- arrtype[ii[1], ii[2]]
       cex.txt    <- cextxt[ii[1], ii[2]]
       segment    <- c(seg.from[ii[1], ii[2]],seg.to[ii[1], ii[2]])
@@ -183,7 +188,7 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
         DD   <- rbind(DD, c(ell[nrow(ell), 1], ell[nrow(ell), 2]))
 
         if(cex.txt>0 && txt!= "")
-          text(mid[1], mid[2], Parse(txt), adj=c(0.5, 0.5), cex=cex.txt)
+          text(mid[1], mid[2], Parse(txt), adj=c(0.5, 0.5), cex=cex.txt, col=arr.tcol)
         TT <- rbind(TT, c(mid[1], mid[2], 0.5, 0.5))
         cycle
 
@@ -213,7 +218,7 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
          mpos <- mid1- (adj-0.5)* drad
 
          if(cex.txt>0&& txt!= "")
-           text(mpos[1], mpos[2], Parse(txt), adj=adj, cex=cex.txt)
+           text(mpos[1], mpos[2], Parse(txt), adj=adj, cex=cex.txt, col=arr.tcol)
          TT <- rbind(TT, c(mpos[1], mpos[2], adj))
        } else      {         # curved line
 
@@ -255,7 +260,7 @@ plotmat <- function(A, pos=NULL, curve=NULL, name=NULL, absent=0,
          ell <- getellipse(rx=dst/2, ry=ry+drad, mid=mid, angle=angle,
                            from=meanpi, to=meanpi)
          if(cex.txt>0 && txt!= "")
-           text(ell[1,1], ell[1,2], Parse(txt), adj=adj, cex=cex.txt)
+           text(ell[1,1], ell[1,2], Parse(txt), adj=adj, cex=cex.txt, col=arr.tcol)
          TT <- rbind(TT, c(ell[1, 1], ell[1, 2], adj))
        }
     }   # end i

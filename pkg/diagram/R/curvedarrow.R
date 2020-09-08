@@ -8,7 +8,7 @@ curvedarrow <- function(from, to, lwd=2, lty=1, lcol="black", arr.col=lcol,
 
   dpos  <- to-from
   angle <- atan(dpos[2]/dpos[1])*180/pi         # angle between both
-  if (is.nan(angle)) return
+  if (is.nan(angle)) return()
   mid   <- 0.5*(to+from)                        # midpoint of ellipsoid arrow
   dst   <- dist(rbind(to, from))                # distance from-to
   ry    <- curve*dst                            # small radius of ellepsoid

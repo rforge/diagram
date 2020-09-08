@@ -17,8 +17,8 @@ plotmat(A, pos = NULL, curve = NULL, name = NULL, absent = 0,
         dtext = 0.3, self.lwd = 1, self.cex = 1, 
         self.shiftx = box.size, self.shifty = NULL, 
         self.arrpos = NULL, arr.lwd = lwd, arr.lcol = lcol, 
-        arr.col = "black", arr.type = "curved", arr.pos = 0.5, 
-        arr.length = 0.4, arr.width = arr.length/2,
+        arr.tcol = lcol, arr.col = "black", arr.type = "curved", 
+        arr.pos = 0.5, arr.length = 0.4, arr.width = arr.length/2,
         endhead = FALSE, mx = 0.0, my = 0.0, box.cex = 1, 
         txt.col = "black", txt.xadj = 0.5, txt.yadj = 0.5,
         txt.font = 1, prefix = "", cex = 1, cex.txt = cex, 
@@ -97,6 +97,9 @@ plotmat(A, pos = NULL, curve = NULL, name = NULL, absent = 0,
     value, or a matrix with same dimensions as \code{A}.
   }
   \item{arr.lcol }{color of arrow line, one value, or a matrix with same
+    dimensions as \code{A}.
+  }
+  \item{arr.tcol }{color of arrow text, one value, or a matrix with same
     dimensions as \code{A}.
   }
   \item{arr.col }{color of arrowhead, one value, or a matrix with same
@@ -216,26 +219,29 @@ col[] <- "red"
 col[2, 1] <- col[3, 1] <- "blue"
 pp <- plotmat(M, pos = c(1, 2, 1), curve = 0, name = 1:4,
               lwd = 1, box.lwd = 2, box.cex = 1:4, cex.txt = 0.8, 
-              arr.lcol = col, arr.col = col, box.type = "circle",
+              arr.lcol = col, arr.tcol = col, 
+              arr.col = col, box.type = "circle",
               box.prop = 1.0, main = "plotmat")
 
 pp <- plotmat(M, pos = c(1, 2, 1), curve = 0, name = 1:4,
               lwd = 1, box.lwd = 2, box.cex = 1:4, cex.txt = 0.8, 
-              arr.lcol = col, arr.col = col, box.type = "circle",
-              box.prop = 1.0, arr.len = 0.3,
+              arr.lcol = col, arr.tcol = col, arr.col = col, 
+              box.type = "circle", box.prop = 1.0, arr.len = 0.3,
               segment.from = 0.35, segment.to = 0.65)
 
 M[1, 2] <- M[1, 3] <- M[2, 4] <- M[3, 4] <- "f2"
 
 pp <- plotmat(M, pos = c(1, 2, 1), curve = 0.1, name = 1:4,
               lwd = 1, box.lwd = 2, box.cex = 1:4, cex.txt = 0.8, 
-              arr.lcol = col, arr.col = col, box.type = "none",
+              arr.lcol = col, arr.tcol = col, 
+              arr.col = col, box.type = "none",
               box.prop = 1.0, main = "plotmat", arr.len = 0.2,
               segment.from = 0.3, segment.to = 0.7)
 
 pp <- plotmat(M, pos = c(1, 2, 1), curve = 0.1, name = 1:4, 
               box.lwd = 2, box.cex = 1:4, cex.txt = 0.8, 
-              arr.lcol = col, arr.col = col, arr.pos = 0.7,
+              arr.lcol = col, arr.tcol = "green", 
+              arr.col = col, arr.pos = 0.7,
               arr.type = "simple", lwd = 2, box.type = "none",
               box.prop = 1.0, main = "plotmat", arr.len = 0.2,
               segment.from = 0.3, segment.to = 0.7)
