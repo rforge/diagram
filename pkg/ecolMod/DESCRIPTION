@@ -1,6 +1,5 @@
 Package: ecolMod
 Version: 1.2.6.2
-Date: 2019-07-21
 Title: "A Practical Guide to Ecological Modelling - Using R as a Simulation Platform"
 Author: Karline Soetaert <karline.soetaert@nioz.nl>, Peter MJ Herman <peter.herman@nioz.nl>
 Maintainer: Karline Soetaert <karline.soetaert@nioz.nl>
