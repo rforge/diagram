@@ -106,7 +106,7 @@ plotmat(A, pos = NULL, curve = NULL, name = NULL, absent = 0,
     dimensions as \code{A}.
   }
   \item{arr.type }{type of arrowhead, one of ("curved", "triangle", 
-    "circle", "ellipse", "T", "simple"), one
+    "circle", "ellipse", "T", "simple", "none"), one
     value, or a matrix with same dimensions as \code{A}.
   }
   \item{arr.pos }{relative position of arrowhead on arrow segment/curve, one
@@ -253,7 +253,9 @@ pp <- plotmat(M, pos = c(2, 2), curve = 0, name = LETTERS[1:4],
               lwd = 1, box.lwd = 2, cex.txt = 0.8, self.cex = 0.5,
               self.shiftx = c(-0.1, 0.1, -0.1, 0.1),
               box.type = "diamond", box.prop = 0.5, main = "plotmat")
-  
+
+
+# different arrows  
 M <- matrix(nrow = 4, ncol = 4, data = 0)
 M[2, 1]<- 1 ; M[4, 2] <- 2 ; M[3, 4] <- 3; M[1, 3] <- 4
 pp <- plotmat(M, pos = c(1, 2, 1), curve = 0.2, name = letters[1:4],
@@ -290,6 +292,18 @@ plotmat(M, name = letters[1:4], curve = 0, box.cex = 1:4, box.lwd = 4:1,
         box.col = c("lightblue", "green", "yellow", "orange"))
 
 
+# No arrows, just lines with different colors
+M <- matrix(nrow = 4, ncol = 4, data = 0)
+M[2, 1]<- 1 ; M[4, 2] <- 2 ; M[3, 4] <- 3; M[1, 3] <- 4
+pp <- plotmat(M, pos = c(1, 2, 1), curve = 0.2, name = letters[1:4],
+              lwd = 1, box.lwd = 2, cex.txt = 0.8, arr.type = "none",
+              box.size = 0.1, box.type = "hexa", box.prop = 0.5,
+              main = "plotmat")
+
+pp <- plotmat(M, pos = c(1, 2, 1), curve = 0.4, name = "",
+              arr.type = "none", arr.lcol = M, 
+              box.type = "none", cex.txt = 0, 
+              main = "plotmat")
 }
 \details{
   The square transition matrix \code{A} determines the number of elements
@@ -381,6 +395,8 @@ plotmat(M, name = letters[1:4], curve = 0, box.cex = 1:4, box.lwd = 4:1,
     \item "circle" : draws circular head 
     \item "ellipse" : draws ellepsoid head
     \item "T"       : draws T-shaped (blunt) head
+    \item "none"    : no arrow head is drawn
+    
   }
   The line color and width of the arrow line is set with \code{arr.lcol} and
   \code{arr.lwd}
