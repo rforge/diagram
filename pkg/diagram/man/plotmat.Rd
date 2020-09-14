@@ -297,8 +297,8 @@ M <- matrix(nrow = 4, ncol = 4, data = 0)
 M[2, 1]<- 1 ; M[4, 2] <- 2 ; M[3, 4] <- 3; M[1, 3] <- 4
 pp <- plotmat(M, pos = c(1, 2, 1), curve = 0.2, name = letters[1:4],
               lwd = 1, box.lwd = 2, cex.txt = 0.8, arr.type = "none",
-              box.size = 0.1, box.type = "hexa", box.prop = 0.5,
-              main = "plotmat")
+              arr.lcol = M, box.size = 0.1, box.type = "hexa", 
+              box.prop = 0.5, main = "plotmat")
 
 pp <- plotmat(M, pos = c(1, 2, 1), curve = 0.4, name = "",
               arr.type = "none", arr.lcol = M, 

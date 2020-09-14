@@ -1,4 +1,4 @@
-\name{Electrical}
+\name{electrical}
 \alias{en.Resistor}
 \alias{en.Capacitator}
 \alias{en.Transistor}
@@ -7,6 +7,8 @@
 \alias{en.Amplifier}
 \alias{en.Signal}
 \alias{en.Ground}
+
+\alias{enResistor}
 
 \title{
   electric network symbols
@@ -33,6 +35,9 @@ en.Amplifier(mid, r = 0.05, lab = NULL, pos = 0, dtext = 0, ...)
 en.Signal(mid, r = 0.03, lab = NULL, pos = 0, dtext = 0.025, ...) 
 
 en.Ground(mid, width = 0.075, length = 0.1, n = 4, dx = 0.2, ...) 
+
+enResistor(...)
+
 }
 
 \arguments{
@@ -71,6 +76,11 @@ en.Ground(mid, width = 0.075, length = 0.1, n = 4, dx = 0.2, ...)
 
 \author{
   Karline Soetaert <karline.soetaert@nioz.nl>.
+}
+
+\note{
+enResistor is synonymous for en.Resistor 
+(to trick the builder in adding this help file to the package)
 }
 
 \examples{

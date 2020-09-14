@@ -184,3 +184,5 @@ en.Ground <- function (mid,
   }
 }
 
+
+enResistor <- function (...) en.Resistor(...)
